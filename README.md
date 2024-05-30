@@ -6,19 +6,19 @@ Still WIP, but is currently in development :)
 
 ## How it Works:
 
-The point of the game is to hit **20 clams** before your opponent does
+The point of the game is to hit **20 clams** before your opponent does.
+
 At the end of each round, you gain **1 clam** by having one of your Pokemon hold **1 of 5 control points**. 
-At the start of a turn, you are given **5 energy**, which you can spend either on your *shop* or the *board*.  Your turn ends when you run out of energy.
-Each round consists of each player taking a turn. 
+
+At the start of a turn, you are given **5 energy**, which you can spend either on your *shop* or the *board*.  Your turn ends when you run out of energy. Each round consists of each player taking a turn. 
 
 ### Shop: 
 
-Shop randomly gives you 3-6 things!
-There are 2 types: **Pokemon** and **Items**
-The shop tier upgrades every **two rounds**, going up to 6. 
-The higher your shop tier, the stronger the Pokemon and Items available become.
-Buying anything from the shop costs 2 energy (unless stated otherwise).
-Rerolling your shop costs 1 energy.
+The shop randomly gives you 3-6 things! There are 2 types: **Pokemon** and **Items**. 
+
+The shop tier upgrades every **two rounds**, going up to 6. The higher your shop tier, the stronger the Pokemon and Items available become.
+
+Buying anything from the shop costs 2 energy (unless stated otherwise). Rerolling your shop costs 1 energy.
 
 ### Pokemon: 
 
