@@ -2,7 +2,7 @@
  
 A Pokemon Fangame with lots of strategy, fit for anyone and everyone to play!
 
-Still WIP, but is currently in development :)
+Still WIP :)
 
 ## How it Works:
 
