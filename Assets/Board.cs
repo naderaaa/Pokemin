@@ -16,7 +16,12 @@ public class Board : MonoBehaviour
             {
                 GameObject tileObj = GameObject.Instantiate(tilePrefab, gameObject.transform);
                 Tile tile = tileObj.GetComponent<Tile>();
-            
+
+                if (x == 2 && y == 5)
+                {
+                    gameObject.AddComponent<Swablu>();
+
+                }
                 
                 tile.posx = x;
                 tile.posy = y;

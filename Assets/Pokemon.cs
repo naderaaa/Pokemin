@@ -20,16 +20,22 @@ public abstract class Pokemon : MonoBehaviour
     public string ExtraDesc { get; set; }//description of the extra abilities
 
     public abstract string GetContents();//gets the image for the piece
-    public Sprite PieceSprite { get; protected set; }
+    public string PieceSprite { get; protected set; }
+
+    public Sprite Sprite { get; protected set; }
     public string GetInfo()//gets the info
     {
         Name = this.GetType().Name;// lol
         return $"{Name} - {Hp}/{MaxHp} health\n{Atk} attack\n{Range} Range\nsteps remaining: {Steps}/{Speed}";
     }
 
-    
+    public void Awake()
+    {
+        Sprite = Resources.Load<Sprite>(PieceSprite);
+    }
 
-   
+
+
 }
 public class Team//two teams per game
 {
@@ -55,7 +61,7 @@ public class Azurill : Pokemon
         Range = 1;
         Steps = 1;
         NumPassive = 0;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Azurill);
+        PieceSprite = FilePaths.Azurill;
 
     }
 
@@ -77,7 +83,7 @@ public class Bulbasaur : Pokemon
         Range = 2;
         Steps = 1;
         NumPassive = 0;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Bulbasaur);
+        PieceSprite = FilePaths.Bulbasaur;
 
     }
     public override string GetContents()
@@ -98,7 +104,7 @@ public class Cottonee : Pokemon
         Range = 2;
         Steps = 2;
         NumPassive = 0;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Cottonee);
+        PieceSprite = FilePaths.Cottonee;
 
     }
 
@@ -118,7 +124,7 @@ public class Deino : Pokemon
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Deino);
+        PieceSprite = FilePaths.Deino;
 
     }
 
@@ -139,7 +145,7 @@ public class Dratini : Pokemon
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Dratini);
+        PieceSprite = FilePaths.Dratini;
 
 
     }
@@ -160,7 +166,7 @@ public class Dreepy : Pokemon
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Dreepy);
+        PieceSprite = FilePaths.Dreepy;
 
     }
     public override string GetContents()
@@ -179,7 +185,7 @@ public class Dwebble : Pokemon
         Speed = 10;
         Range = 1;
         Steps = Speed;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Dwebble);
+        PieceSprite = FilePaths.Dwebble;
 
     }
 
@@ -200,7 +206,7 @@ public class Hatenna :  Pokemon
         Speed = 1;
         Range = 2;
         Steps = 1;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Hatenna);
+        PieceSprite = FilePaths.Hatenna;
 
     }
 
@@ -220,7 +226,7 @@ public class Joltik : Pokemon
         Speed = 1;
         Range = 2;
         Steps = 1;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Joltik);
+        PieceSprite = FilePaths.Joltik;
 
     }
 
@@ -241,7 +247,7 @@ public class Litwick : Pokemon
         Speed = 1;
         Range = 2;
         Steps = 1;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Litwick);
+        PieceSprite = FilePaths.Litwick;
 
     }
     public override string GetContents()
@@ -260,7 +266,7 @@ public class Mareanie :     Pokemon
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Mareanie);
+        PieceSprite = FilePaths.Mareanie;
 
     }
 
@@ -280,7 +286,7 @@ public class Mawile : Pokemon
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Mawile);
+        PieceSprite = FilePaths.Mawile;
 
     }
     public override string GetContents()
@@ -299,7 +305,7 @@ public class Starly : Pokemon
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Starly);
+        PieceSprite = FilePaths.Starly;
 
     }
     public override string GetContents()
@@ -318,7 +324,7 @@ public class Swablu : Pokemon
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Swablu);
+        PieceSprite = FilePaths.Swablu;
 
     }
     public override string GetContents()
@@ -337,7 +343,7 @@ public class Tinkatink : Pokemon
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Tinkatink);
+        PieceSprite = FilePaths.Tinkatink;
 
     }
     public override string GetContents()
