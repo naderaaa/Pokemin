@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Board : MonoBehaviour
 {
@@ -13,8 +14,10 @@ public class Board : MonoBehaviour
         {
             for (int y = 0; y < 9; y++)
             {
-                GameObject tileObj = GameObject.Instantiate(tilePrefab, gameObject.transform);                
+                GameObject tileObj = GameObject.Instantiate(tilePrefab, gameObject.transform);
                 Tile tile = tileObj.GetComponent<Tile>();
+            
+                
                 tile.posx = x;
                 tile.posy = y;
                 tile.PosGeneration();
