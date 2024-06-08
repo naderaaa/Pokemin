@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
-public abstract class Pokemon : MonoBehaviour
+public abstract class Piece
 {
-    public Team Team { get; set; }//which team the piece is on
+    public Team Team { get; set; }//which Team the piece is on
     public string Name { get; protected set; }//name of the piece (i.e. "Azurill", "Jirachi", "Galvantula")
-    public int Tier { get; protected set; }//tier of the piece in the shop
-    public int MaxHp { get; protected set; }//set Hp by default
-    public int Hp { get; set; }//current Hp of piece, unit dies at 0
+    public int Tier { get; protected set; }//Tier of the piece in the shop
+    public int MaxHP { get; protected set; }//set HP by default
+    public int HP { get; set; }//current HP of piece, unit dies at 0
     public int Atk { get; set; }//damage it deals to opposing pokemon using a normal attack
     public int Speed { get; set; }//spaces it can move every turn
     public int Steps { get; set; }//spaces left it can move in this turn, reset after turn ends
@@ -20,26 +17,17 @@ public abstract class Pokemon : MonoBehaviour
     public string ExtraDesc { get; set; }//description of the extra abilities
 
     public abstract string GetContents();//gets the image for the piece
-    public string PieceSprite { get; protected set; }
-
-    public Sprite Sprite { get; protected set; }
+    public Sprite PieceSprite { get; protected set; }
     public string GetInfo()//gets the info
     {
         Name = this.GetType().Name;// lol
-        return $"{Name} - {Hp}/{MaxHp} health\n{Atk} attack\n{Range} Range\nsteps remaining: {Steps}/{Speed}";
+        return $"{Name} - {HP}/{MaxHP} health\n{Atk} attack\n{Range} Range\nSteps remaining: {Steps}/{Speed}";
     }
-
-    public void Awake()
-    {
-        Sprite = Resources.Load<Sprite>(PieceSprite);
-    }
-
-
-
 }
-public class Team//two teams per game
+
+public class Team//two Teams per game
 {
-    public string Name { get; }//name of the team
+    public string Name { get; }//name of the Team
     public Team(string name)
     {
         this.Name = name;
@@ -47,21 +35,20 @@ public class Team//two teams per game
 
 
 }
-
-public class Azurill : Pokemon
+public class Azurill : Piece
 {
 
 
     public Azurill()
     {
-        MaxHp = 7;
-        Hp = MaxHp;
+        MaxHP = 7;
+        HP = MaxHP;
         Atk = 4;
         Speed = 1;
         Range = 1;
         Steps = 1;
         NumPassive = 0;
-        PieceSprite = FilePaths.Azurill;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Azurill);
 
     }
 
@@ -72,18 +59,18 @@ public class Azurill : Pokemon
 
 
 }
-public class Bulbasaur : Pokemon
+public class Bulbasaur : Piece
 {
     public Bulbasaur()
     {
-        MaxHp = 8;
-        Hp = MaxHp;
+        MaxHP = 8;
+        HP = MaxHP;
         Atk = 3;
         Speed = 1;
         Range = 2;
         Steps = 1;
         NumPassive = 0;
-        PieceSprite = FilePaths.Bulbasaur;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Bulbasaur);
 
     }
     public override string GetContents()
@@ -91,20 +78,20 @@ public class Bulbasaur : Pokemon
         return "bulbasaur";
     }
 }
-public class Cottonee : Pokemon
+public class Cottonee : Piece
 {
 
     public Cottonee()
     {
-        MaxHp = 8;
-        Hp = MaxHp;
+        MaxHP = 8;
+        HP = MaxHP;
 
         Atk = 2;
         Speed = 2;
         Range = 2;
         Steps = 2;
         NumPassive = 0;
-        PieceSprite = FilePaths.Cottonee;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Cottonee);
 
     }
 
@@ -113,18 +100,18 @@ public class Cottonee : Pokemon
         return "cottonee";
     }
 }
-public class Deino : Pokemon
+public class Deino : Piece
 {
     public Deino()
     {
-        MaxHp = 8;
-        Hp = MaxHp;
+        MaxHP = 8;
+        HP = MaxHP;
 
         Atk = 3;
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = FilePaths.Deino;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Deino);
 
     }
 
@@ -133,19 +120,19 @@ public class Deino : Pokemon
         return "deino";
     }
 }
-public class Dratini : Pokemon
+public class Dratini : Piece
 {
 
     public Dratini()
     {
-        MaxHp = 7;
-        Hp = MaxHp;
+        MaxHP = 7;
+        HP = MaxHP;
 
         Atk = 3;
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = FilePaths.Dratini;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Dratini);
 
 
     }
@@ -155,18 +142,18 @@ public class Dratini : Pokemon
     }
 }
 
-public class Dreepy : Pokemon   
+public class Dreepy : Piece
 {
     public Dreepy()
     {
-        MaxHp = 6;
-        Hp = MaxHp;
+        MaxHP = 6;
+        HP = MaxHP;
 
         Atk = 3;
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = FilePaths.Dreepy;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Dreepy);
 
     }
     public override string GetContents()
@@ -174,18 +161,18 @@ public class Dreepy : Pokemon
         return "dreepy";
     }
 }
-public class Dwebble : Pokemon
+public class Dwebble : Piece
 {
     public Dwebble()
     {
-        MaxHp = 8;
-        Hp = MaxHp;
+        MaxHP = 8;
+        HP = MaxHP;
 
         Atk = 3;
         Speed = 10;
         Range = 1;
         Steps = Speed;
-        PieceSprite = FilePaths.Dwebble;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Dwebble);
 
     }
 
@@ -195,18 +182,18 @@ public class Dwebble : Pokemon
     }
 }
 
-public class Hatenna :  Pokemon
+public class Hatenna : Piece
 {
     public Hatenna()
     {
-        MaxHp = 8;
-        Hp = MaxHp;
+        MaxHP = 8;
+        HP = MaxHP;
 
         Atk = 3;
         Speed = 1;
         Range = 2;
         Steps = 1;
-        PieceSprite = FilePaths.Hatenna;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Hatenna);
 
     }
 
@@ -215,18 +202,18 @@ public class Hatenna :  Pokemon
         return "hatenna";
     }
 }
-public class Joltik : Pokemon
+public class Joltik : Piece
 {
     public Joltik()
     {
-        MaxHp = 8;
-        Hp = MaxHp;
+        MaxHP = 8;
+        HP = MaxHP;
 
         Atk = 3;
         Speed = 1;
         Range = 2;
         Steps = 1;
-        PieceSprite = FilePaths.Joltik;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Joltik);
 
     }
 
@@ -236,18 +223,18 @@ public class Joltik : Pokemon
     }
 
 }
-public class Litwick : Pokemon
+public class Litwick : Piece
 {
     public Litwick()
     {
-        MaxHp = 8;
-        Hp = MaxHp;
+        MaxHP = 8;
+        HP = MaxHP;
 
         Atk = 3;
         Speed = 1;
         Range = 2;
         Steps = 1;
-        PieceSprite = FilePaths.Litwick;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Litwick);
 
     }
     public override string GetContents()
@@ -255,18 +242,18 @@ public class Litwick : Pokemon
         return "litwick";
     }
 }
-public class Mareanie :     Pokemon
+public class Mareanie : Piece
 {
     public Mareanie()
     {
-        MaxHp = 8;
-        Hp = MaxHp;
+        MaxHP = 8;
+        HP = MaxHP;
 
         Atk = 2;
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = FilePaths.Mareanie;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Mareanie);
 
     }
 
@@ -275,18 +262,18 @@ public class Mareanie :     Pokemon
         return "mareanie";
     }
 }
-public class Mawile : Pokemon
+public class Mawile : Piece
 {
     public Mawile()
     {
-        MaxHp = 9;
-        Hp = MaxHp;
+        MaxHP = 9;
+        HP = MaxHP;
 
         Atk = 4;
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = FilePaths.Mawile;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Mawile);
 
     }
     public override string GetContents()
@@ -294,18 +281,18 @@ public class Mawile : Pokemon
         return "mawile";
     }
 }
-public class Starly : Pokemon
+public class Starly : Piece
 {
     public Starly()
     {
-        MaxHp = 7;
-        Hp = MaxHp;
+        MaxHP = 7;
+        HP = MaxHP;
 
         Atk = 4;
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = FilePaths.Starly;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Starly);
 
     }
     public override string GetContents()
@@ -313,18 +300,18 @@ public class Starly : Pokemon
         return "starly";
     }
 }
-public class Swablu : Pokemon
+public class Swablu : Piece
 {
     public Swablu()
     {
-        MaxHp = 9;
-        Hp = MaxHp;
+        MaxHP = 9;
+        HP = MaxHP;
 
         Atk = 2;
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = FilePaths.Swablu;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Swablu);
 
     }
     public override string GetContents()
@@ -332,18 +319,18 @@ public class Swablu : Pokemon
         return "swablu";
     }
 }
-public class Tinkatink : Pokemon
+public class Tinkatink : Piece
 {
     public Tinkatink()
     {
-        MaxHp = 8;
-        Hp = MaxHp;
+        MaxHP = 8;
+        HP = MaxHP;
 
         Atk = 2;
         Speed = 1;
         Range = 1;
         Steps = 1;
-        PieceSprite = FilePaths.Tinkatink;
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Tinkatink);
 
     }
     public override string GetContents()

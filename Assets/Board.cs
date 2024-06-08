@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Board : MonoBehaviour
 {
-    public GameObject[][] tiles;
+    public GameObject[,] tiles;
     public GameObject tilePrefab;
 
     void Start()
@@ -15,13 +15,19 @@ public class Board : MonoBehaviour
             for (int y = 0; y < 9; y++)
             {
                 GameObject tileObj = GameObject.Instantiate(tilePrefab, gameObject.transform);
+                tileObj.name = "tile" + x + "_" + y; 
                 Tile tile = tileObj.GetComponent<Tile>();
 
                 if (x == 2 && y == 5)
                 {
-                    gameObject.AddComponent<Swablu>();
-
+                    //tile.pokemon = new Swablu();
+                    tile.SetPiece(new Swablu());
+                    
+                } else
+                {
+                    tile.SetPiece(new Dreepy());
                 }
+
                 
                 tile.posx = x;
                 tile.posy = y;
@@ -31,4 +37,6 @@ public class Board : MonoBehaviour
             }
         }
     }
+
+    
 }
