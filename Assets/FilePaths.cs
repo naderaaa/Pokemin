@@ -1,9 +1,9 @@
 using UnityEngine;
 
 public class FilePaths : MonoBehaviour
-{
+{ // Filepaths to commonly used assets
 
-
+    // Pokemon
     public const string Azurill = "Sprites/azurill";
     public const string Bulbasaur = "Sprites/bulbasaur";
     public const string Cottonee = "Sprites/cottonee";
@@ -19,4 +19,8 @@ public class FilePaths : MonoBehaviour
     public const string Starly = "Sprites/starly";
     public const string Swablu = "Sprites/swablu";
     public const string Tinkatink = "Sprites/tinkatink";
+
+    // Other
+    public const string MoveCircle = "Sprites/circle";
+    public const string HighlightCircle = "Sprites/redcircle";
 }

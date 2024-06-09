@@ -5,27 +5,28 @@ public class Board : MonoBehaviour
     public GameObject[,] tiles;
     public GameObject tilePrefab;
 
-    void Start()
+    void Start() // On start, creats a 9x9 grid of Tiles, stored in tiles 2d array.
     {
         for (int x = 0; x < 9; x++)
         {
             for (int y = 0; y < 9; y++)
             {
                 GameObject tileObj = GameObject.Instantiate(tilePrefab, gameObject.transform);
-                tileObj.name = "tile" + x + "_" + y;
+                tileObj.name = "tile" + x + "_" + y; // the tiles follow a naming convention "tile#_#", with the #'s representing x and y respectively
                 Tile tile = tileObj.GetComponent<Tile>();
 
+
+                // for the purpose of testing. remove when buying from the shop works!
                 if (x == 2 && y == 5)
                 {
-                    //tile.pokemon = new Swablu();
                     tile.SetPiece(new Swablu());
 
                 }
 
-
+                // more instantiation stuff
                 tile.posx = x;
                 tile.posy = y;
-                tile.PosGeneration();
+                tile.PosGeneration(); // sets the position in the scene
 
 
             }
