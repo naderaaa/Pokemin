@@ -251,7 +251,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8650218400140973395}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 540007824523538733}
+        m_TargetAssemblyTypeName: Tile, Assembly-CSharp
+        m_MethodName: TileSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &540007824523538733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,19 +279,3 @@ MonoBehaviour:
   posx: 0
   posy: 0
   displayImage: {fileID: 1559211114489100395}
-  sprites:
-  - {fileID: 21300000, guid: 4290d4f09752f504da4ef60e02a85ba2, type: 3}
-  - {fileID: 21300000, guid: b6ddbd9d309d28146955578dfd03c066, type: 3}
-  - {fileID: 21300000, guid: 5f9f370d1bdfe4942a0ec8da82a512fd, type: 3}
-  - {fileID: 21300000, guid: 2853b4be1b9c9f14e8339022c2b16338, type: 3}
-  - {fileID: 21300000, guid: 67fd1d9b2e31ae6409f22c492288da44, type: 3}
-  - {fileID: 21300000, guid: 6b0072bd04331924cab9f728d2361a1b, type: 3}
-  - {fileID: 21300000, guid: a2a90fcf5abecfe4bb1b96e1fe05d96b, type: 3}
-  - {fileID: 21300000, guid: c4d2ccf0da6310c4c9a69a5432ec1878, type: 3}
-  - {fileID: 21300000, guid: 4b23ce0cff023e44b9a72738fb022805, type: 3}
-  - {fileID: 21300000, guid: db9437993a419d647bec3594b52d9428, type: 3}
-  - {fileID: 21300000, guid: 7fb3fcabee12cdb4292c54501ed2bc7d, type: 3}
-  - {fileID: 21300000, guid: b6d3e0525f9ac5c4a9ae0bc40e3dfba3, type: 3}
-  - {fileID: 21300000, guid: 24917442dd1c2fa4f8bb75164e1d241e, type: 3}
-  - {fileID: 21300000, guid: 504d26f5c6682c24a884dc4685326cf7, type: 3}
-  - {fileID: 21300000, guid: dee1bca31248d8141af935d4e946d800, type: 3}

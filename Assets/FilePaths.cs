@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FilePaths : MonoBehaviour
 {
 
-    
+
     public const string Azurill = "Sprites/azurill";
     public const string Bulbasaur = "Sprites/bulbasaur";
     public const string Cottonee = "Sprites/cottonee";

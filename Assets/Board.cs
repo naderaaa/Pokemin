@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Board : MonoBehaviour
 {
@@ -10,33 +7,30 @@ public class Board : MonoBehaviour
 
     void Start()
     {
-        for (int x = 0; x < 9; x++) 
+        for (int x = 0; x < 9; x++)
         {
             for (int y = 0; y < 9; y++)
             {
                 GameObject tileObj = GameObject.Instantiate(tilePrefab, gameObject.transform);
-                tileObj.name = "tile" + x + "_" + y; 
+                tileObj.name = "tile" + x + "_" + y;
                 Tile tile = tileObj.GetComponent<Tile>();
 
                 if (x == 2 && y == 5)
                 {
                     //tile.pokemon = new Swablu();
                     tile.SetPiece(new Swablu());
-                    
-                } else
-                {
-                    tile.SetPiece(new Dreepy());
+
                 }
 
-                
+
                 tile.posx = x;
                 tile.posy = y;
                 tile.PosGeneration();
-                
-              
+
+
             }
         }
     }
 
-    
+
 }
