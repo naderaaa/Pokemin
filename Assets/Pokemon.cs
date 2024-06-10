@@ -27,7 +27,7 @@ public abstract class Piece
 
 public class Team//two Teams per game
 {
-    public string Name { get; }//name of the Team
+    public string Name { get; set; }//name of the Team
     public Team(string name)
     {
         this.Name = name;

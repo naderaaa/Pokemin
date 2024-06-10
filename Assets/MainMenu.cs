@@ -5,6 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame() // Switches scene
     {
+
         SceneManager.LoadScene(1);
     }
 
