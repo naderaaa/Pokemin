@@ -19,7 +19,7 @@ public class Board : MonoBehaviour
                 // for the purpose of testing. remove when buying from the shop works!
                 if (x == 2 && y == 5)
                 {
-                    tile.SetPiece(new Swablu());
+                    tile.SetPiece(new Dwebble());
 
                 }
 
@@ -32,6 +32,5 @@ public class Board : MonoBehaviour
             }
         }
     }
-
 
 }
