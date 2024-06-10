@@ -169,7 +169,7 @@ public class Dwebble : Piece
         HP = MaxHP;
 
         Atk = 3;
-        Speed = 10;
+        Speed = 10; // fix this later lmao
         Range = 1;
         Steps = Speed;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Dwebble);
