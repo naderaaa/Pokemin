@@ -8,6 +8,7 @@ public class Board : MonoBehaviour
 
     void Start() // On start, creats a 9x9 grid of Tiles, stored in tiles 2d array.
     {
+        tiles = new GameObject[9,9];
         for (int x = 0; x < 9; x++)
         {
             for (int y = 0; y < 9; y++)
@@ -36,6 +37,7 @@ public class Board : MonoBehaviour
                 tile.posx = x;
                 tile.posy = y;
                 tile.PosGeneration(); // sets the position in the scene
+                tiles[x,y] = tileObj;
 
 
             }

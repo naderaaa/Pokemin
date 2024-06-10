@@ -716,6 +716,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4784503608729884380, guid: 6d8e43c7098c6d04d862f8667ff93896, type: 3}
   m_PrefabInstance: {fileID: 4784503608194003450}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1774579667 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4784503608729884381, guid: 6d8e43c7098c6d04d862f8667ff93896, type: 3}
+  m_PrefabInstance: {fileID: 4784503608194003450}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48b413bd54a81664db5a3c1255beb926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1796597006
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1796597010}
   - component: {fileID: 1796597009}
+  - component: {fileID: 1796597011}
   - component: {fileID: 1796597008}
   - component: {fileID: 1796597007}
   m_Layer: 5
@@ -820,6 +832,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1796597011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796597006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8430c57bfb34c364689cb226f34e2224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board: {fileID: 0}
 --- !u!1 &1822838581
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,9 +855,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1822838582}
   - component: {fileID: 1822838585}
-  - component: {fileID: 1822838586}
   - component: {fileID: 1822838584}
   - component: {fileID: 1822838583}
+  - component: {fileID: 1822838586}
   m_Layer: 5
   m_Name: End Turn
   m_TagString: Untagged
@@ -904,7 +929,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1822838584}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1822838586}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: EndTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1822838584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -955,6 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8430c57bfb34c364689cb226f34e2224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  board: {fileID: 1774579667}
 --- !u!1001 &4784503608194003450
 PrefabInstance:
   m_ObjectHideFlags: 0
