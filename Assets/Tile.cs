@@ -83,7 +83,7 @@ public class Tile : MonoBehaviour
             selected = false;
 
         }
-        else if (piece.Steps > 0) // case 1
+        else if (piece.Steps > 0 && piece.Team.Name.Equals(GameManager.whosTurn.Name)) // case 1
         {
             HighlightAdjacent();
             selected = true;

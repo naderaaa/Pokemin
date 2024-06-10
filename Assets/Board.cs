@@ -4,7 +4,6 @@ public class Board : MonoBehaviour
 {
     public GameObject[,] tiles;
     public GameObject tilePrefab;
-    public (Team, Team) teams = (new Team("Red"), new Team("Blue"));
 
     void Start() // On start, creats a 9x9 grid of Tiles, stored in tiles 2d array.
     {
@@ -19,18 +18,18 @@ public class Board : MonoBehaviour
 
 
                 // for the purpose of testing. remove when buying from the shop works!
-                if (x == 1 && y == 5)
+                if (x == 1 && y == 1)
                 {
-                    tile.SetPiece(new Dwebble() { Team = teams.Item1 });
-                } else if (x == 2 && y == 5)
+                    tile.SetPiece(new Dwebble() { Team = GameManager.teams.Item1 });
+                } else if (x == 2 && y == 1)
                 {
-                    tile.SetPiece(new Swablu() { Team = teams.Item1});
-                } else if (x == 7 && y == 6) 
+                    tile.SetPiece(new Swablu() { Team = GameManager.teams.Item1});
+                } else if (x == 6 && y == 7) 
                 {
-                    tile.SetPiece(new Cottonee() { Team = teams.Item2});
-                } else if (x == 7 && y == 3)
+                    tile.SetPiece(new Cottonee() { Team = GameManager.teams.Item2});
+                } else if (x == 7 && y == 7)
                 {
-                    tile.SetPiece(new Mawile() { Team = teams.Item2});
+                    tile.SetPiece(new Mawile() { Team = GameManager.teams.Item2});
                 }
 
                 // more instantiation stuff
