@@ -20,10 +20,11 @@ public class Board : MonoBehaviour
                 if (x == 2 && y == 5)
                 {
                     tile.SetPiece(new Dwebble());
-
                 } else if (x == 3 && y == 5)
                 {
                     tile.SetPiece(new Swablu());
+                } else if (x == 3 && y == 6) {
+                    tile.SetPiece(new Cottonee());
                 }
 
                 // more instantiation stuff
