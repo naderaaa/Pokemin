@@ -60,6 +60,7 @@ public class Tile : MonoBehaviour
                         tile.highlighted = false;
                         tile.displayImage.enabled = false;
                         tile.displayImage.sprite = null;
+                        tile.SetPiece(tile.piece);
                     }
                 }
             }
