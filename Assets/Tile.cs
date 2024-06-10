@@ -27,7 +27,7 @@ public class Tile : MonoBehaviour
             displayImage.sprite = null;
             this.piece = null;
         }
-        else
+        else // case for deleting contents
         {
             this.piece = piece;
             displayImage.enabled = true;
@@ -36,82 +36,17 @@ public class Tile : MonoBehaviour
 
     }
 
-    //public void TileSelected() // the onclick method for a tile
-    //{
-    //
-    //    // four cases 
-    //    // case 1: normal attacking
-    //    // clicking attack lets you target your attack
-    //    // case 2: using an ability
-    //    // clicking an ability lets you target your ability, then select where to use it
-    //    // case 3: moving
-    //    // clicking on a highlighted tile moves the piece
-    //    // case 4: just clicking
-    //    // clicking a piece highlights surrounding empty tiles
-    //
-    //
-    //    if (highlighted)
-    //    {
-    //
-    //
-    //        for (int i = -1; i <= 1; i++)
-    //        {
-    //            for (int j = -1; j <= 1; j++)
-    //            {
-    //                if (i + lastSelectedTile.posx <= 8 && i + lastSelectedTile.posx >= 0 && j + lastSelectedTile.posy <= 8 && j + lastSelectedTile.posy >= 0 && !(i == 0 && j == 0))
-    //                {
-    //                    GameObject adjTile = GameObject.Find("tile" + (i + lastSelectedTile.posx) + "_" + (j + lastSelectedTile.posy)); // maybe change this? it works??
-    //                    Tile tile = adjTile.GetComponent<Tile>();
-    //                    tile.highlighted = false;
-    //                    tile.displayImage.enabled = false;
-    //                    tile.displayImage.sprite = null;
-    //                }
-    //        
-    //                
-    //            }
-    //        }
-    //       
-    //        SetPiece(lastSelectedTile.piece);
-    //        lastSelectedTile.SetPiece(null);
-    //        highlighted = false;
-    //        piece.Steps--;
-    //
-    //        // clear highlighted ones 
-    //        
-    //
-    //    }
-    //    else if (piece == null)
-    //    {
-    //        highlighted = false;
-    //        return;
-    //    }
-    //    else
-    //    {
-    //        HighlightAdjacent();
-    //
-    //    }
-    //
-    //    
-    //    // if piece.steps > 0 {
-    //
-    //
-    //}
-
     public void TileSelected() // the onclick method for a tile
     {
 
-        // four cases 
-        // case 1: normal attacking
-        // clicking attack lets you target your attack
-        // case 2: using an ability
-        // clicking an ability lets you target your ability, then select where to use it
-        // case 3: moving
-        // clicking on a highlighted tile moves the piece
-        // case 4: just clicking
-        // clicking a piece highlights surrounding empty tiles
+        // case 1: selecting a tile
+        // case 2: deselecting a tile by clicking on a non highlighted tile
+        // case 3: deselecting a tile by clicking on the selected tile
+        // case 4: moving my clicking a highlighted tile
+        // case 5: attacking normally
+        // case 6: targeting an ability
 
-
-        if (highlighted) // case 3: moving
+        if (highlighted) // case 4
         {
             // first clear all other highlighted spaces
             for (int i = -1; i <= 1; i++)
@@ -135,29 +70,23 @@ public class Tile : MonoBehaviour
             selected = false;
             piece.Steps--; // decrements steps
         }
-        else if (piece == null)
+        else if (piece == null) // case 2
         {
             ClearHighlights();
             selected = false;
 
         }
-        else if (selected)
+        else if (selected) // case 3
         {
             ClearHighlights();
             selected = false;
 
-
         }
-        else if (piece.Steps > 0)
+        else if (piece.Steps > 0) // case 1
         {
             HighlightAdjacent();
             selected = true;
-
         }
-
-
-        // if piece.steps > 0 {
-
 
     }
 

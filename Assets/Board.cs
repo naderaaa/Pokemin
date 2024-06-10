@@ -21,6 +21,9 @@ public class Board : MonoBehaviour
                 {
                     tile.SetPiece(new Dwebble());
 
+                } else if (x == 3 && y == 5)
+                {
+                    tile.SetPiece(new Swablu());
                 }
 
                 // more instantiation stuff
