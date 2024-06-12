@@ -7,20 +7,6 @@ public class GameManager : MonoBehaviour
     public static Team whosTurn = teams.Item1;
     public static GameObject[,] tiles = new GameObject[9, 9];
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void EndTurn()
     {
         // at the end of the turn, each pokemon can start moving

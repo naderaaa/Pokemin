@@ -83,8 +83,7 @@ public class Tile : MonoBehaviour
             lastSelectedTile.piece.Steps = 0;
             piece.HP -= lastSelectedTile.piece.Atk;
             if (piece.HP <= 0)
-            {
-                piece = null;
+            {                
                 SetPiece(null);
             }
 
