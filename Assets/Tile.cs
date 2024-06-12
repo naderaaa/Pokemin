@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Tile : MonoBehaviour 
+public class Tile : MonoBehaviour
 {
 
     public int posx; // x position in grid
@@ -10,7 +10,10 @@ public class Tile : MonoBehaviour
     public Piece? piece; // null when tile is empty, otherwise holds a pokemon
 #nullable disable
     public Image displayImage; // the image on display
+    public Image teamSymbol;
+    public Image targetOverlay;
     public bool highlighted = false; // a highlighted tile is empty and a pokemon is moved to that tile when clicked
+    public bool targeted = false;
     public static bool selected = false; // any piece is currently selected
     public Tile lastSelectedTile; // handles moving
 
@@ -55,7 +58,7 @@ public class Tile : MonoBehaviour
                 {
                     if (i + lastSelectedTile.posx <= 8 && i + lastSelectedTile.posx >= 0 && j + lastSelectedTile.posy <= 8 && j + lastSelectedTile.posy >= 0 && !(i == 0 && j == 0))
                     {
-                        GameObject adjTile = GameObject.Find("tile" + (i + lastSelectedTile.posx) + "_" + (j + lastSelectedTile.posy)); // maybe change this? it works??
+                        GameObject adjTile = GameManager.tiles[i + lastSelectedTile.posx, j + lastSelectedTile.posy];
                         Tile tile = adjTile.GetComponent<Tile>();
                         tile.highlighted = false;
                         tile.displayImage.enabled = false;
@@ -64,12 +67,12 @@ public class Tile : MonoBehaviour
                     }
                 }
             }
-
             SetPiece(lastSelectedTile.piece); // move piece over
             lastSelectedTile.SetPiece(null); // delete old location
             highlighted = false; // unhighlight the tile
             selected = false;
             piece.Steps--; // decrements steps
+
         }
         else if (piece == null) // case 2
         {
@@ -77,7 +80,7 @@ public class Tile : MonoBehaviour
             selected = false;
 
         }
-        else if (selected) // case 3
+        else if (selected) // case 3 (selected)
         {
             ClearHighlights();
             selected = false;
@@ -86,6 +89,7 @@ public class Tile : MonoBehaviour
         else if (piece.Steps > 0 && piece.Team.Name.Equals(GameManager.whosTurn.Name)) // case 1
         {
             HighlightAdjacent();
+            TargetInRange();
             selected = true;
         }
 
@@ -97,11 +101,12 @@ public class Tile : MonoBehaviour
         {
             for (int j = 0; j < 9; j++)
             {
-                GameObject adjTile = GameObject.Find("tile" + i + "_" + j); // maybe change this? it works??
+                GameObject adjTile = GameManager.tiles[i, j];
                 Tile tile = adjTile.GetComponent<Tile>();
                 tile.highlighted = false;
+                tile.targeted = false;
                 tile.SetPiece(tile.piece);
-                
+                tile.targetOverlay.enabled = false;
             }
         }
     }
@@ -114,7 +119,7 @@ public class Tile : MonoBehaviour
                 //  this horrid if statement prevents going out of bounds and prevents overriding the center's image
                 if (i + posx <= 8 && i + posx >= 0 && j + posy <= 8 && j + posy >= 0 && !(i == 0 && j == 0))
                 {
-                    GameObject adjTile = GameObject.Find("tile" + (i + posx) + "_" + (j + posy)); // maybe change this? it works??
+                    GameObject adjTile = GameManager.tiles[i + posx, j + posy];
                     Tile tile = adjTile.GetComponent<Tile>();
                     if (tile.piece == null)
                     {
@@ -132,5 +137,35 @@ public class Tile : MonoBehaviour
         displayImage.enabled = true;
         Sprite sprite = Resources.Load<Sprite>(FilePaths.MoveCircle);
         displayImage.sprite = sprite;
+    }
+
+
+    public void TargetInRange()
+    {
+        if (piece != null)
+        {
+            for (int i = -piece.Range; i < piece.Range; i++)
+            {
+                for (int j = -piece.Range; j < piece.Range; j++)
+                {
+                    if (i + posx <= 8 && i + posx >= 0 && j + posy <= 8 && j + posy >= 0 && !(i == 0 && j == 0))
+                    {
+                        GameObject tileInRange = GameManager.tiles[i + posx, j + posy];
+                        Tile tile = tileInRange.GetComponent<Tile>();
+                        if (tile.piece != null)
+                        {
+                            tile.Target();
+                            tile.lastSelectedTile = this;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void Target()
+    {
+        targeted = true;
+        targetOverlay.enabled = true;
     }
 }
