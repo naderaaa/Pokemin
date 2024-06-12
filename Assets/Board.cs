@@ -28,7 +28,7 @@ public class Board : MonoBehaviour
                 {
                     tile.SetPiece(new Cottonee() { Team = GameManager.teams.Item2 });
                 }
-                else if (x == 7 && y == 7)
+                else if (x == 8 && y == 7)
                 {
                     tile.SetPiece(new Mawile() { Team = GameManager.teams.Item2 });
                 }

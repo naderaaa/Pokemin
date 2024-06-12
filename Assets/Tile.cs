@@ -64,6 +64,8 @@ public class Tile : MonoBehaviour
                         tile.displayImage.enabled = false;
                         tile.displayImage.sprite = null;
                         tile.SetPiece(tile.piece);
+                        tile.targetOverlay.enabled = false;
+
                     }
                 }
             }
@@ -72,6 +74,19 @@ public class Tile : MonoBehaviour
             highlighted = false; // unhighlight the tile
             selected = false;
             piece.Steps--; // decrements steps
+
+        }
+        else if (targeted)
+        {
+            ClearHighlights();
+            selected = false;
+            lastSelectedTile.piece.Steps = 0;
+            piece.HP -= lastSelectedTile.piece.Atk;
+            if (piece.HP <= 0)
+            {
+                piece = null;
+                SetPiece(null);
+            }
 
         }
         else if (piece == null) // case 2
@@ -95,7 +110,7 @@ public class Tile : MonoBehaviour
 
     }
 
-    public void ClearHighlights()
+    public static void ClearHighlights()
     {
         for (int i = 0; i < 9; i++)
         {
@@ -144,9 +159,9 @@ public class Tile : MonoBehaviour
     {
         if (piece != null)
         {
-            for (int i = -piece.Range; i < piece.Range; i++)
+            for (int i = -piece.Range; i <= piece.Range; i++)
             {
-                for (int j = -piece.Range; j < piece.Range; j++)
+                for (int j = -piece.Range; j <= piece.Range; j++)
                 {
                     if (i + posx <= 8 && i + posx >= 0 && j + posy <= 8 && j + posy >= 0 && !(i == 0 && j == 0))
                     {
