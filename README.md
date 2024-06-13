@@ -6,7 +6,7 @@ Still WIP :)
 
 ## How it Works:
 
-The point of the game is to hit **20 clams** before your opponent does.
+The goal of the game is to hit **20 clams** before your opponent does.
 
 At the end of each round, you gain **1 clam** by having one of your Pokemon hold **1 of 5 control points**. 
 
