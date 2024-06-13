@@ -30,6 +30,6 @@ public class GameManager : MonoBehaviour
             whosTurn = teams.Item1;
         }
 
-        Tile.ClearHighlights();
+        Tile.ClearHighlightsAndTargets();
     }
 }

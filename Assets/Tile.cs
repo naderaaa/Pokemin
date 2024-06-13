@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,11 +11,11 @@ public class Tile : MonoBehaviour
     public Piece? piece; // null when tile is empty, otherwise holds a pokemon
 #nullable disable
     public Image displayImage; // the image on display
-    public Image teamSymbol;
-    public Image targetOverlay;
+    public Image teamSymbol; // how teams are represented on the board
+    public Image targetOverlay; // red circle
     public bool highlighted = false; // a highlighted tile is empty and a pokemon is moved to that tile when clicked
-    public bool targeted = false;
-    public bool attacked = false;
+    public bool targeted = false; // if true, will be attacked on click
+    public bool attacked = false; // whether or not the piece has already attacked
     public static bool selected = false; // any piece is currently selected
     public Tile lastSelectedTile; // handles moving
 
@@ -25,13 +26,13 @@ public class Tile : MonoBehaviour
     }
     public void SetPiece(Piece piece) // sets piece and affects the sprite
     {
-        if (piece == null)
+        if (piece == null)  // case for deleting contents
         {
             displayImage.enabled = false;
             displayImage.sprite = null;
             this.piece = null;
         }
-        else // case for deleting contents
+        else // actually adding
         {
             this.piece = piece;
             displayImage.enabled = true;
@@ -44,16 +45,17 @@ public class Tile : MonoBehaviour
     public void TileSelected() // the onclick method for a tile
     {
 
-        // case 1: selecting a tile
-        // case 2: deselecting a tile by clicking on a non highlighted tile
-        // case 3: deselecting a tile by clicking on the selected tile
-        // case 4: moving my clicking a highlighted tile
-        // case 5: attacking normally
-        // case 6: targeting an ability
+        // case 1: selecting a tile with steps
+        // case 2: selecting a tile without steps (just targeting)
+        // case 3: deselecting a tile by clicking on a non highlighted tile
+        // case 4: deselecting a tile by clicking on the selected tile
+        // case 5: moving by clicking a highlighted tile
+        // case 6: attacking normally
+        // case 7: targeting an ability
 
-        if (highlighted) // case 4
+        if (highlighted) // moving by clicking a highlighted tile
         {
-            ClearHighlights();
+            ClearHighlightsAndTargets();
 
             SetPiece(lastSelectedTile.piece); // move piece over
             lastSelectedTile.SetPiece(null); // delete old location
@@ -62,9 +64,9 @@ public class Tile : MonoBehaviour
             piece.Steps--; // decrements steps
 
         }
-        else if (targeted)
+        else if (targeted) // attacking normally
         {
-            ClearHighlights();
+            ClearHighlightsAndTargets();
             selected = false;
             lastSelectedTile.piece.Steps = 0;
             lastSelectedTile.attacked = true;
@@ -77,25 +79,25 @@ public class Tile : MonoBehaviour
 
 
         }
-        else if (piece == null) // case 2
+        else if (piece == null) // deselecting a tile by clicking on a non highlighted tile
         {
-            ClearHighlights();
+            ClearHighlightsAndTargets();
             selected = false;
 
         }
-        else if (selected) // case 3 (selected)
+        else if (selected) // deselecting a tile by clicking on the selected tile
         {
-            ClearHighlights();
+            ClearHighlightsAndTargets();
             selected = false;
 
         }
-        else if (piece.Steps > 0 && piece.Team.Name.Equals(GameManager.whosTurn.Name)) // case 1
+        else if (piece.Steps > 0 && piece.Team.Name.Equals(GameManager.whosTurn.Name)) // selecting a tile with steps
         {
             HighlightAdjacent();
             TargetInRange();
             selected = true;
         }
-        else if (piece.Team.Name.Equals(GameManager.whosTurn.Name) && !attacked)
+        else if (piece.Team.Name.Equals(GameManager.whosTurn.Name) && !attacked) // selecting a tile without steps(just targeting)
         {
             TargetInRange();
             selected = true;
@@ -103,14 +105,14 @@ public class Tile : MonoBehaviour
 
     }
 
-    public static void ClearHighlights()
+    public static void ClearHighlightsAndTargets() // removes the gray circle indicating where you can move and red circle for attacking
     {
         for (int i = 0; i < 9; i++)
         {
             for (int j = 0; j < 9; j++)
             {
-                GameObject adjTile = GameManager.tiles[i, j];
-                Tile tile = adjTile.GetComponent<Tile>();
+                GameObject adjTile = GameManager.tiles[i, j]; // gets the tile
+                Tile tile = adjTile.GetComponent<Tile>(); // tile instance
                 tile.highlighted = false;
                 tile.targeted = false;
                 tile.SetPiece(tile.piece);
@@ -139,7 +141,7 @@ public class Tile : MonoBehaviour
         }
     }
 
-    public void Highlight()
+    public void Highlight() // highlights spaces you can move to
     {
         highlighted = true;
         displayImage.enabled = true;
@@ -147,7 +149,7 @@ public class Tile : MonoBehaviour
         displayImage.sprite = sprite;
     }
 
-    public void TargetInRange()
+    public void TargetInRange() // puts a target overlay above things you can attack
     {
         if (piece != null)
         {
@@ -170,7 +172,7 @@ public class Tile : MonoBehaviour
         }
     }
 
-    public void Target()
+    public void Target() // targets current space
     {
         targeted = true;
         targetOverlay.enabled = true;
