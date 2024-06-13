@@ -110,6 +110,11 @@ public class Tile : MonoBehaviour
             TargetInRange();
             selected = true;
         }
+        else if (piece.Team.Name.Equals(GameManager.whosTurn.Name))
+        {
+            TargetInRange();
+            selected = true;
+        }
 
     }
 
