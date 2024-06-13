@@ -14,6 +14,7 @@ public class Tile : MonoBehaviour
     public Image targetOverlay;
     public bool highlighted = false; // a highlighted tile is empty and a pokemon is moved to that tile when clicked
     public bool targeted = false;
+    public bool attacked = false;
     public static bool selected = false; // any piece is currently selected
     public Tile lastSelectedTile; // handles moving
 
@@ -35,6 +36,7 @@ public class Tile : MonoBehaviour
             this.piece = piece;
             displayImage.enabled = true;
             displayImage.sprite = piece.PieceSprite;
+            displayImage.transform.localScale = new Vector3(piece.Scale, piece.Scale, piece.Scale);
         }
 
     }
@@ -84,12 +86,14 @@ public class Tile : MonoBehaviour
             ClearHighlights();
             selected = false;
             lastSelectedTile.piece.Steps = 0;
+            lastSelectedTile.attacked = true;
             piece.HP -= lastSelectedTile.piece.Atk;
             if (piece.HP <= 0)
             {
                 piece = null;
                 SetPiece(null);
             }
+
 
         }
         else if (piece == null) // case 2
@@ -110,7 +114,7 @@ public class Tile : MonoBehaviour
             TargetInRange();
             selected = true;
         }
-        else if (piece.Team.Name.Equals(GameManager.whosTurn.Name))
+        else if (piece.Team.Name.Equals(GameManager.whosTurn.Name) && !attacked)
         {
             TargetInRange();
             selected = true;
@@ -161,7 +165,6 @@ public class Tile : MonoBehaviour
         Sprite sprite = Resources.Load<Sprite>(FilePaths.MoveCircle);
         displayImage.sprite = sprite;
     }
-
 
     public void TargetInRange()
     {

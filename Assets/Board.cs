@@ -24,14 +24,27 @@ public class Board : MonoBehaviour
                 {
                     tile.SetPiece(new Swablu() { Team = GameManager.teams.Item1 });
                 }
+                else if (x == 3 && y == 1)
+                {
+                    tile.SetPiece(new Starly() { Team = GameManager.teams.Item1 });
+                }
+                else if (x == 5 && y == 7)
+                {
+                    tile.SetPiece(new Dreepy() { Team = GameManager.teams.Item2 });
+                }
                 else if (x == 6 && y == 7)
                 {
                     tile.SetPiece(new Cottonee() { Team = GameManager.teams.Item2 });
+                }
+                else if (x == 7 && y == 7)
+                {
+                    tile.SetPiece(new Dratini() { Team = GameManager.teams.Item2 });
                 }
                 else if (x == 8 && y == 7)
                 {
                     tile.SetPiece(new Mawile() { Team = GameManager.teams.Item2 });
                 }
+              
 
                 // more instantiation stuff
                 tile.posx = x;

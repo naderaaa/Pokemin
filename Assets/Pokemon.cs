@@ -15,6 +15,7 @@ public abstract class Piece
     public string PassiveDesc { get; set; }//description of the passive abilities
     public int NumExtra { get; protected set; }//number of extra abilities
     public string ExtraDesc { get; set; }//description of the extra abilities
+    public float Scale { get; protected set; } = 1.4f; // image scale
 
     public abstract string GetContents();//gets the image for the piece
     public Sprite PieceSprite { get; protected set; }
@@ -46,8 +47,9 @@ public class Azurill : Piece
         Atk = 4;
         Speed = 1;
         Range = 1;
-        Steps = 1;
+        Steps = Speed;
         NumPassive = 0;
+        
         PieceSprite = Resources.Load<Sprite>(FilePaths.Azurill);
 
     }
@@ -68,7 +70,7 @@ public class Bulbasaur : Piece
         Atk = 3;
         Speed = 1;
         Range = 2;
-        Steps = 1;
+        Steps = Speed;
         NumPassive = 0;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Bulbasaur);
 
@@ -89,10 +91,9 @@ public class Cottonee : Piece
         Atk = 2;
         Speed = 2;
         Range = 2;
-        Steps = 2;
+        Steps = Speed;
         NumPassive = 0;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Cottonee);
-
     }
 
     public override string GetContents()
@@ -110,7 +111,7 @@ public class Deino : Piece
         Atk = 3;
         Speed = 1;
         Range = 1;
-        Steps = 1;
+        Steps = Speed;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Deino);
 
     }
@@ -131,7 +132,8 @@ public class Dratini : Piece
         Atk = 3;
         Speed = 1;
         Range = 1;
-        Steps = 1;
+        Steps = Speed;
+        Scale = 1.2f;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Dratini);
 
 
@@ -152,7 +154,7 @@ public class Dreepy : Piece
         Atk = 3;
         Speed = 1;
         Range = 1;
-        Steps = 1;
+        Steps = Speed;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Dreepy);
 
     }
@@ -192,7 +194,7 @@ public class Hatenna : Piece
         Atk = 3;
         Speed = 1;
         Range = 2;
-        Steps = 1;
+        Steps = Speed;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Hatenna);
 
     }
@@ -212,7 +214,7 @@ public class Joltik : Piece
         Atk = 3;
         Speed = 1;
         Range = 2;
-        Steps = 1;
+        Steps = Speed;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Joltik);
 
     }
@@ -233,7 +235,7 @@ public class Litwick : Piece
         Atk = 3;
         Speed = 1;
         Range = 2;
-        Steps = 1;
+        Steps = Speed;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Litwick);
 
     }
@@ -252,7 +254,7 @@ public class Mareanie : Piece
         Atk = 2;
         Speed = 1;
         Range = 1;
-        Steps = 1;
+        Steps = Speed;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Mareanie);
 
     }
@@ -272,7 +274,7 @@ public class Mawile : Piece
         Atk = 4;
         Speed = 1;
         Range = 1;
-        Steps = 1;
+        Steps = Speed;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Mawile);
 
     }
@@ -291,8 +293,10 @@ public class Starly : Piece
         Atk = 4;
         Speed = 1;
         Range = 1;
-        Steps = 1;
+        Steps = Speed;
+        Scale = 1.2f;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Starly);
+        
 
     }
     public override string GetContents()
@@ -310,7 +314,7 @@ public class Swablu : Piece
         Atk = 2;
         Speed = 1;
         Range = 1;
-        Steps = 1;
+        Steps = Speed;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Swablu);
 
     }
@@ -329,7 +333,7 @@ public class Tinkatink : Piece
         Atk = 2;
         Speed = 1;
         Range = 1;
-        Steps = 1;
+        Steps = Speed;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Tinkatink);
 
     }
