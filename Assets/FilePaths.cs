@@ -19,6 +19,7 @@ public class FilePaths : MonoBehaviour
     public const string Starly = "Sprites/starly";
     public const string Swablu = "Sprites/swablu";
     public const string Tinkatink = "Sprites/tinkatink";
+    public const string SlitherWing = "Sprites/slither wing";
 
     // Other
     public const string MoveCircle = "Sprites/circle";

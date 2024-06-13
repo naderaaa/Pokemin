@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Tinkatink;
 
 public class Board : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class Board : MonoBehaviour
                 }
                 else if (x == 8 && y == 7)
                 {
-                    tile.SetPiece(new Mawile() { Team = GameManager.teams.Item2 });
+                    tile.SetPiece(new SlitherWing() { Team = GameManager.teams.Item2 });
                 }
               
 

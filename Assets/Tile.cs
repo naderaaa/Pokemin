@@ -53,25 +53,6 @@ public class Tile : MonoBehaviour
 
         if (highlighted) // case 4
         {
-            // first clear all other highlighted spaces
-            //for (int i = -1; i <= 1; i++)
-            //{
-            //    for (int j = -1; j <= 1; j++)
-            //    {
-            //        if (i + lastSelectedTile.posx <= 8 && i + lastSelectedTile.posx >= 0 && j + lastSelectedTile.posy <= 8 && j + lastSelectedTile.posy >= 0 && !(i == 0 && j == 0))
-            //        {
-            //            GameObject adjTile = GameManager.tiles[i + lastSelectedTile.posx, j + lastSelectedTile.posy];
-            //            Tile tile = adjTile.GetComponent<Tile>();
-            //            tile.highlighted = false;
-            //            tile.targeted = false;
-            //            tile.displayImage.enabled = false;
-            //            tile.displayImage.sprite = null;
-            //            tile.SetPiece(tile.piece);
-            //            tile.targetOverlay.enabled = false;
-            //
-            //        }
-            //    }
-            //}
             ClearHighlights();
 
             SetPiece(lastSelectedTile.piece); // move piece over
