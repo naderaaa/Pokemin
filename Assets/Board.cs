@@ -29,6 +29,11 @@ public class Board : MonoBehaviour
                 {
                     tile.SetPiece(new Starly() { Team = GameManager.teams.Item1 });
                 }
+                else if (x == 4 && y == 1)
+                {
+                    tile.SetPiece(new Trapinch() { Team = GameManager.teams.Item1 });
+                }
+
                 else if (x == 5 && y == 7)
                 {
                     tile.SetPiece(new Dreepy() { Team = GameManager.teams.Item2 });
@@ -45,6 +50,7 @@ public class Board : MonoBehaviour
                 {
                     tile.SetPiece(new SlitherWing() { Team = GameManager.teams.Item2 });
                 }
+               
               
 
                 // more instantiation stuff

@@ -16,6 +16,7 @@ public abstract class Piece
     public int NumExtra { get; protected set; }//number of extra abilities
     public string ExtraDesc { get; set; }//description of the extra abilities
     public float Scale { get; protected set; } = 1.4f; // image scale
+     
 
     public abstract string GetContents();//gets the image for the piece
     public Sprite PieceSprite { get; protected set; }
@@ -341,29 +342,49 @@ public class Tinkatink : Piece
     {
         return "tinkatink";
     }
+}
 
-
-    public class SlitherWing : Piece
+public class SlitherWing : Piece
+{
+    public SlitherWing()
     {
-        public SlitherWing()
-        {
-            MaxHP = 13;
-            HP = MaxHP;
+        MaxHP = 13;
+        HP = MaxHP;
 
-            Atk = 8;
-            Speed = 1;
-            Range = 1;
-            Steps = Speed;
+        Atk = 8;
+        Speed = 1;
+        Range = 1;
+        Steps = Speed;
 
-            Scale = 1.5f;
+        Scale = 1.5f;
 
-            PieceSprite = Resources.Load<Sprite>(FilePaths.SlitherWing);
-        }
+        PieceSprite = Resources.Load<Sprite>(FilePaths.SlitherWing);
+    }
 
-        public override string GetContents()
-        {
-            return "slither wing";
-        }
+    public override string GetContents()
+    {
+        return "slither wing";
+    }
 
+}
+public class Trapinch : Piece
+{
+    public Trapinch()
+    {
+        MaxHP = 8;
+        HP = MaxHP;
+
+        Atk = 6;
+        Speed = 1;
+        Range = 1;
+        Steps = Speed;
+
+        PieceSprite = Resources.Load<Sprite>(FilePaths.Trapinch);
+
+    }
+
+    public override string GetContents()
+    {
+        return "trapinch";
     }
 }

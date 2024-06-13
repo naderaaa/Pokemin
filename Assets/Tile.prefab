@@ -384,4 +384,5 @@ MonoBehaviour:
   targetOverlay: {fileID: 6285029109749772741}
   highlighted: 0
   targeted: 0
+  attacked: 0
   lastSelectedTile: {fileID: 0}
