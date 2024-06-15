@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public Board board;
     public static (Team, Team) teams = (new Team("Red"), new Team("Blue"));
     public static Team whosTurn = teams.Item1;
+    public static int turn = 1;
     public static GameObject[,] tiles = new GameObject[9, 9];
 
     public void EndTurn()
@@ -16,7 +17,6 @@ public class GameManager : MonoBehaviour
             if (tile.piece != null)
             {
                 tile.piece.Steps = tile.piece.Speed;
-
             }
         }
 
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         else
         {
             whosTurn = teams.Item1;
+            turn++;
         }
 
         Tile.ClearHighlightsAndTargets();

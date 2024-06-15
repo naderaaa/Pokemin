@@ -16,7 +16,6 @@ public abstract class Piece
     public int NumExtra { get; protected set; }//number of extra abilities
     public string ExtraDesc { get; set; }//description of the extra abilities
     public float Scale { get; protected set; } = 1.4f; // image scale
-     
 
     public abstract string GetContents();//gets the image for the piece
     public Sprite PieceSprite { get; protected set; }
@@ -379,6 +378,7 @@ public class Trapinch : Piece
         Range = 1;
         Steps = Speed;
 
+        Scale = 1.3f;
         PieceSprite = Resources.Load<Sprite>(FilePaths.Trapinch);
 
     }
