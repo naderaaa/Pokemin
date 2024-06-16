@@ -15,48 +15,21 @@ public class Board : MonoBehaviour
                 tileObj.name = "tile" + x + "_" + y; // the tiles follow a naming convention "tile#_#", with the #'s representing x and y respectively
                 Tile tile = tileObj.GetComponent<Tile>();
 
-
-                // for the purpose of testing. remove when buying from the shop works!
-                if (x == 1 && y == 1)
-                {
-                    tile.SetPiece(new Dwebble() { Team = GameManager.teams.Item1 });
-                }
-                else if (x == 2 && y == 1)
-                {
-                    tile.SetPiece(new Swablu() { Team = GameManager.teams.Item1 });
-                }
-                else if (x == 3 && y == 1)
-                {
-                    tile.SetPiece(new Starly() { Team = GameManager.teams.Item1 });
-                }
-                else if (x == 4 && y == 1)
-                {
-                    tile.SetPiece(new Trapinch() { Team = GameManager.teams.Item1 });
-                }
-
-                else if (x == 5 && y == 7)
-                {
-                    tile.SetPiece(new Dreepy() { Team = GameManager.teams.Item2 });
-                }
-                else if (x == 6 && y == 7)
-                {
-                    tile.SetPiece(new Cottonee() { Team = GameManager.teams.Item2 });
-                }
-                else if (x == 7 && y == 7)
-                {
-                    tile.SetPiece(new Dratini() { Team = GameManager.teams.Item2 });
-                }
-                else if (x == 8 && y == 7)
-                {
-                    tile.SetPiece(new SlitherWing() { Team = GameManager.teams.Item2 });
-                }
-               
-              
                 // more instantiation stuff
                 tile.posx = x;
                 tile.posy = y;
                 tile.PosGeneration(); // sets the position in the scene
                 GameManager.tiles[x, y] = tile;
+
+                // for the purpose of testing. remove when buying from the shop works!
+                GameManager.tiles[1, 1].SetPiece(new Dwebble() { Team = GameManager.teams.Item1 });
+                GameManager.tiles[2, 1].SetPiece(new Swablu() { Team = GameManager.teams.Item1 });
+                GameManager.tiles[3, 1].SetPiece(new Starly() { Team = GameManager.teams.Item1 });
+                GameManager.tiles[4, 1].SetPiece(new Trapinch() { Team = GameManager.teams.Item1 });
+                GameManager.tiles[5, 7].SetPiece(new Dreepy() { Team = GameManager.teams.Item2 });
+                GameManager.tiles[6, 7].SetPiece(new Cottonee() { Team = GameManager.teams.Item2 });
+                GameManager.tiles[7, 7].SetPiece(new Dratini() { Team = GameManager.teams.Item2 });
+                GameManager.tiles[8, 7].SetPiece(new SlitherWing() { Team = GameManager.teams.Item2 });
 
             }
         }
