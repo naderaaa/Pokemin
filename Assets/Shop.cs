@@ -1,11 +1,19 @@
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    public GameObject[] ShopItems = new GameObject[6];
+    public GameObject[] ShopPanels = new GameObject[6];
+    
+    //public static Dictionary<ShopElement, int> PotentialShopElements = new();
     // Start is called before the first frame update
 
+    void Start()
+    {
+        
+    }
     public static void TurnStart()
     {
 
@@ -20,13 +28,18 @@ public class Shop : MonoBehaviour
         {
             if (i < itemsToGenerate)
             {
-                ShopItems[i].GetComponent<Renderer>(); // no idea
+                
             }
         }
     }
 
-    public Piece GetShopPiece()
+    public void RollAnItem()
     {
-        return null;
+        int shopTier = math.min((GameManager.turn / 2) + 1, 6);
     }
+    
+}
+public class ShopElement
+{
+    public int Tier;
 }

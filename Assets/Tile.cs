@@ -63,7 +63,6 @@ public class Tile : MonoBehaviour
             highlighted = false; // unhighlight the tile
             selected = false;
             piece.Steps--; // decrements steps
-
         }
         else if (targeted) // attacking normally
         {

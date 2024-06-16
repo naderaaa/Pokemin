@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public abstract class Piece
+public abstract class Piece : ShopElement
 {
     public Team Team { get; set; }//which Team the piece is on
     public string Name { get; protected set; }//name of the piece (i.e. "Azurill", "Jirachi", "Galvantula")
-    public int Tier { get; protected set; }//Tier of the piece in the shop
+    //public int Tier { get; protected set; }//Tier of the piece in the shop
     public int MaxHP { get; protected set; }//set HP by default
     public int HP { get; set; }//current HP of piece, unit dies at 0
     public int Atk { get; set; }//damage it deals to opposing pokemon using a normal attack
@@ -42,12 +42,16 @@ public class Azurill : Piece
 
     public Azurill()
     {
+        Tier = 1;
+
         MaxHP = 7;
         HP = MaxHP;
         Atk = 4;
         Speed = 1;
         Range = 1;
         Steps = Speed;
+
+
         NumPassive = 0;
         
         PieceSprite = Resources.Load<Sprite>(FilePaths.Azurill);
@@ -65,6 +69,8 @@ public class Bulbasaur : Piece
 {
     public Bulbasaur()
     {
+        Tier = 1;
+
         MaxHP = 8;
         HP = MaxHP;
         Atk = 3;
@@ -85,6 +91,8 @@ public class Cottonee : Piece
 
     public Cottonee()
     {
+        Tier = 1;
+
         MaxHP = 8;
         HP = MaxHP;
 
@@ -103,8 +111,11 @@ public class Cottonee : Piece
 }
 public class Deino : Piece
 {
+
     public Deino()
     {
+        Tier = 1;
+
         MaxHP = 8;
         HP = MaxHP;
 
@@ -126,6 +137,8 @@ public class Dratini : Piece
 
     public Dratini()
     {
+        Tier = 1;
+
         MaxHP = 7;
         HP = MaxHP;
 
@@ -148,6 +161,8 @@ public class Dreepy : Piece
 {
     public Dreepy()
     {
+        Tier = 1;
+
         MaxHP = 6;
         HP = MaxHP;
 
@@ -167,6 +182,8 @@ public class Dwebble : Piece
 {
     public Dwebble()
     {
+        Tier = 1;
+
         MaxHP = 8;
         HP = MaxHP;
 
@@ -188,6 +205,8 @@ public class Hatenna : Piece
 {
     public Hatenna()
     {
+        Tier = 1;
+
         MaxHP = 8;
         HP = MaxHP;
 
@@ -208,6 +227,8 @@ public class Joltik : Piece
 {
     public Joltik()
     {
+        Tier = 1;
+
         MaxHP = 8;
         HP = MaxHP;
 
@@ -229,6 +250,8 @@ public class Litwick : Piece
 {
     public Litwick()
     {
+        Tier = 1;
+
         MaxHP = 8;
         HP = MaxHP;
 
@@ -248,6 +271,8 @@ public class Mareanie : Piece
 {
     public Mareanie()
     {
+        Tier = 1;
+
         MaxHP = 8;
         HP = MaxHP;
 
@@ -268,6 +293,8 @@ public class Mawile : Piece
 {
     public Mawile()
     {
+        Tier = 2;
+
         MaxHP = 9;
         HP = MaxHP;
 
@@ -287,6 +314,8 @@ public class Starly : Piece
 {
     public Starly()
     {
+        Tier = 1;
+
         MaxHP = 7;
         HP = MaxHP;
 
@@ -308,6 +337,8 @@ public class Swablu : Piece
 {
     public Swablu()
     {
+        Tier = 1;
+
         MaxHP = 9;
         HP = MaxHP;
 
@@ -327,6 +358,8 @@ public class Tinkatink : Piece
 {
     public Tinkatink()
     {
+        Tier = 1;
+
         MaxHP = 8;
         HP = MaxHP;
 
@@ -347,7 +380,9 @@ public class SlitherWing : Piece
 {
     public SlitherWing()
     {
-        MaxHP = 13;
+        Tier = 5;
+
+        MaxHP = 13; 
         HP = MaxHP;
 
         Atk = 8;
@@ -370,6 +405,8 @@ public class Trapinch : Piece
 {
     public Trapinch()
     {
+        Tier = 2;
+
         MaxHP = 8;
         HP = MaxHP;
 
