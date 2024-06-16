@@ -24,6 +24,7 @@ public class Tile : MonoBehaviour
         Vector3 pos = new((posx * 109) + 111, (posy * 109) + 100, gameObject.transform.position.z);
         gameObject.transform.position = pos; // using a vector
     }
+
     public void SetPiece(Piece piece) // sets piece and affects the sprite
     {
         if (piece == null)  // case for deleting contents
@@ -110,9 +111,8 @@ public class Tile : MonoBehaviour
         for (int i = 0; i < 9; i++)
         {
             for (int j = 0; j < 9; j++)
-            {
-                GameObject adjTile = GameManager.tiles[i, j]; // gets the tile
-                Tile tile = adjTile.GetComponent<Tile>(); // tile instance
+            { 
+                Tile tile = GameManager.tiles[i, j]; // gets the tile
                 tile.highlighted = false;
                 tile.targeted = false;
                 tile.SetPiece(tile.piece);
@@ -129,8 +129,7 @@ public class Tile : MonoBehaviour
                 //  this horrid if statement prevents going out of bounds and prevents overriding the center's image
                 if (i + posx <= 8 && i + posx >= 0 && j + posy <= 8 && j + posy >= 0 && !(i == 0 && j == 0))
                 {
-                    GameObject adjTile = GameManager.tiles[i + posx, j + posy];
-                    Tile tile = adjTile.GetComponent<Tile>();
+                    Tile tile = GameManager.tiles[i + posx, j + posy];
                     if (tile.piece == null)
                     {
                         tile.Highlight();
@@ -159,8 +158,7 @@ public class Tile : MonoBehaviour
                 {
                     if (i + posx <= 8 && i + posx >= 0 && j + posy <= 8 && j + posy >= 0 && !(i == 0 && j == 0))
                     {
-                        GameObject tileInRange = GameManager.tiles[i + posx, j + posy];
-                        Tile tile = tileInRange.GetComponent<Tile>();
+                        Tile tile = GameManager.tiles[i + posx, j + posy];
                         if (tile.piece != null)
                         {
                             tile.Target();
