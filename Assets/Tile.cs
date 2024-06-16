@@ -24,6 +24,7 @@ public class Tile : MonoBehaviour
         Vector3 pos = new((posx * 109) + 111, (posy * 109) + 100, gameObject.transform.position.z);
         gameObject.transform.position = pos; // using a vector
     }
+
     public void SetPiece(Piece piece) // sets piece and affects the sprite
     {
         if (piece == null)  // case for deleting contents
