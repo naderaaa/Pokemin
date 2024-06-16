@@ -52,13 +52,11 @@ public class Board : MonoBehaviour
                 }
                
               
-
                 // more instantiation stuff
                 tile.posx = x;
                 tile.posy = y;
                 tile.PosGeneration(); // sets the position in the scene
-                GameManager.tiles[x, y] = tileObj;
-
+                GameManager.tiles[x, y] = tile;
 
             }
         }

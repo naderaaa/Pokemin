@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     public static (Team, Team) teams = (new Team("Red"), new Team("Blue"));
     public static Team whosTurn = teams.Item1;
     public static int turn = 1;
-    public static GameObject[,] tiles = new GameObject[9, 9];
+    public static Tile[,] tiles = new Tile[9, 9];
 
     public void StartShop()
     {
@@ -16,9 +16,8 @@ public class GameManager : MonoBehaviour
     public void EndTurn()
     {
         // at the end of the turn, each pokemon can start moving
-        foreach (GameObject tileObject in tiles)
+        foreach (Tile tile in tiles)
         {
-            Tile tile = tileObject.GetComponent<Tile>();
             if (tile.piece != null)
             {
                 tile.piece.Steps = tile.piece.Speed;
