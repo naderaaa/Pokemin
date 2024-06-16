@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
     public static int turn = 1;
     public static GameObject[,] tiles = new GameObject[9, 9];
 
+    public void StartShop()
+    {
+       
+    }
+
     public void EndTurn()
     {
         // at the end of the turn, each pokemon can start moving
