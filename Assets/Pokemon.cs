@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public abstract class Piece : ShopElement
+public abstract class Piece : IPurchasable
 {
     public Team Team { get; set; }//which Team the piece is on
     public string Name { get; protected set; }//name of the piece (i.e. "Azurill", "Jirachi", "Galvantula")
-    //public int Tier { get; protected set; }//Tier of the piece in the shop
+    public int Tier { get; protected set; }//Tier of the piece in the shop
     public int MaxHP { get; protected set; }//set HP by default
     public int HP { get; set; }//current HP of piece, unit dies at 0
     public int Atk { get; set; }//damage it deals to opposing pokemon using a normal attack
@@ -18,7 +18,7 @@ public abstract class Piece : ShopElement
     public float Scale { get; protected set; } = 1.4f; // image scale
 
     public abstract string GetContents();//gets the image for the piece
-    public Sprite PieceSprite { get; protected set; }
+    public Sprite Sprite { get; protected set; }
     public string GetInfo()//gets the info
     {
         Name = this.GetType().Name;// lol
@@ -54,7 +54,7 @@ public class Azurill : Piece
 
         NumPassive = 0;
         
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Azurill);
+        Sprite = Resources.Load<Sprite>(FilePaths.Azurill);
 
     }
 
@@ -78,7 +78,7 @@ public class Bulbasaur : Piece
         Range = 2;
         Steps = Speed;
         NumPassive = 0;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Bulbasaur);
+        Sprite = Resources.Load<Sprite>(FilePaths.Bulbasaur);
 
     }
     public override string GetContents()
@@ -101,7 +101,7 @@ public class Cottonee : Piece
         Range = 2;
         Steps = Speed;
         NumPassive = 0;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Cottonee);
+        Sprite = Resources.Load<Sprite>(FilePaths.Cottonee);
     }
 
     public override string GetContents()
@@ -123,7 +123,7 @@ public class Deino : Piece
         Speed = 1;
         Range = 1;
         Steps = Speed;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Deino);
+        Sprite = Resources.Load<Sprite>(FilePaths.Deino);
 
     }
 
@@ -147,7 +147,7 @@ public class Dratini : Piece
         Range = 1;
         Steps = Speed;
         Scale = 1.2f;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Dratini);
+        Sprite = Resources.Load<Sprite>(FilePaths.Dratini);
 
 
     }
@@ -170,7 +170,7 @@ public class Dreepy : Piece
         Speed = 1;
         Range = 1;
         Steps = Speed;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Dreepy);
+        Sprite = Resources.Load<Sprite>(FilePaths.Dreepy);
 
     }
     public override string GetContents()
@@ -191,7 +191,7 @@ public class Dwebble : Piece
         Speed = 10; // fix this later lmao
         Range = 1;
         Steps = Speed;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Dwebble);
+        Sprite = Resources.Load<Sprite>(FilePaths.Dwebble);
 
     }
 
@@ -214,7 +214,7 @@ public class Hatenna : Piece
         Speed = 1;
         Range = 2;
         Steps = Speed;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Hatenna);
+        Sprite = Resources.Load<Sprite>(FilePaths.Hatenna);
 
     }
 
@@ -236,7 +236,7 @@ public class Joltik : Piece
         Speed = 1;
         Range = 2;
         Steps = Speed;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Joltik);
+        Sprite = Resources.Load<Sprite>(FilePaths.Joltik);
 
     }
 
@@ -259,7 +259,7 @@ public class Litwick : Piece
         Speed = 1;
         Range = 2;
         Steps = Speed;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Litwick);
+        Sprite = Resources.Load<Sprite>(FilePaths.Litwick);
 
     }
     public override string GetContents()
@@ -280,7 +280,7 @@ public class Mareanie : Piece
         Speed = 1;
         Range = 1;
         Steps = Speed;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Mareanie);
+        Sprite = Resources.Load<Sprite>(FilePaths.Mareanie);
 
     }
 
@@ -302,7 +302,7 @@ public class Mawile : Piece
         Speed = 1;
         Range = 1;
         Steps = Speed;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Mawile);
+        Sprite = Resources.Load<Sprite>(FilePaths.Mawile);
 
     }
     public override string GetContents()
@@ -324,7 +324,7 @@ public class Starly : Piece
         Range = 1;
         Steps = Speed;
         Scale = 1.2f;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Starly);
+        Sprite = Resources.Load<Sprite>(FilePaths.Starly);
         
 
     }
@@ -346,7 +346,7 @@ public class Swablu : Piece
         Speed = 1;
         Range = 1;
         Steps = Speed;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Swablu);
+        Sprite = Resources.Load<Sprite>(FilePaths.Swablu);
 
     }
     public override string GetContents()
@@ -367,7 +367,7 @@ public class Tinkatink : Piece
         Speed = 1;
         Range = 1;
         Steps = Speed;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Tinkatink);
+        Sprite = Resources.Load<Sprite>(FilePaths.Tinkatink);
 
     }
     public override string GetContents()
@@ -392,7 +392,7 @@ public class SlitherWing : Piece
 
         Scale = 1.5f;
 
-        PieceSprite = Resources.Load<Sprite>(FilePaths.SlitherWing);
+        Sprite = Resources.Load<Sprite>(FilePaths.SlitherWing);
     }
 
     public override string GetContents()
@@ -416,7 +416,7 @@ public class Trapinch : Piece
         Steps = Speed;
 
         Scale = 1.3f;
-        PieceSprite = Resources.Load<Sprite>(FilePaths.Trapinch);
+        Sprite = Resources.Load<Sprite>(FilePaths.Trapinch);
 
     }
 

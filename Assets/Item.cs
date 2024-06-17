@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-public class Item : ShopElement
+public class Item : IPurchasable
 {
+    public int Tier { get; protected set; }//Tier of the item in the shop
+    public Sprite Sprite { get; protected set; }
+
+
     //public int Tier;
-   
-    
+
+
 }
 
 public class HeldItem : Item
@@ -25,10 +29,11 @@ public class FedItem : Item
 }
 // WOOOOOOOOOOOOOOOOOOOOOOOOOO
 
-public class Leftovers : HeldItem
-{
-    public Leftovers()
-    {
-        Tier = 1;
-    }
-}
+//public class Leftovers : HeldItem
+//{
+//    public Leftovers()
+//    {
+//        Tier = 1;
+//
+//    }
+//}

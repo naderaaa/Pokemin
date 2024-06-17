@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,10 +12,6 @@ public class Shop : MonoBehaviour
     //public static Dictionary<ShopElement, int> PotentialShopElements = new();
     // Start is called before the first frame update
 
-    void Start()
-    {
-        
-    }
     public static void TurnStart()
     {
 
@@ -28,18 +26,24 @@ public class Shop : MonoBehaviour
         {
             if (i < itemsToGenerate)
             {
-                
+                IPurchasable shopItem = RollAnItem(shopTier);
+                ShopPanels[i].GetComponent<Image>().sprite = shopItem.Sprite;
+                ShopPanels[i].GetComponent<Image>().enabled = true;
             }
         }
     }
 
-    public void RollAnItem()
+    public IPurchasable RollAnItem(int shopTier)
     {
-        int shopTier = math.min((GameManager.turn / 2) + 1, 6);
+        //int shopTier = math.min((GameManager.turn / 2) + 1, 6);
+        List<IPurchasable> availablePool = RollManager.PotentialShopElements.Where(potentialItem => potentialItem.Tier <= shopTier).ToList();
+        System.Random random = new(availablePool.Count);
+        return availablePool[random.Next()];
     }
     
 }
-public class ShopElement
+public interface IPurchasable
 {
-    public int Tier;
+    public int Tier { get; }
+    public Sprite Sprite { get; }
 }

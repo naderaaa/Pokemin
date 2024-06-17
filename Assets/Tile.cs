@@ -37,7 +37,7 @@ public class Tile : MonoBehaviour
         {
             this.piece = piece;
             displayImage.enabled = true;
-            displayImage.sprite = piece.PieceSprite;
+            displayImage.sprite = piece.Sprite;
             displayImage.transform.localScale = new Vector3(piece.Scale, piece.Scale, piece.Scale);
         }
 
