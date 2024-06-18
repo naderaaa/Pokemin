@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
+    public int shopTier = 1;
     public GameObject[] ShopPanels = new GameObject[6];
+    public GameObject die;
     
     //public static Dictionary<ShopElement, int> PotentialShopElements = new();
     // Start is called before the first frame update
@@ -19,7 +20,6 @@ public class Shop : MonoBehaviour
 
     public void Reroll()
     {
-        int shopTier = math.min((GameManager.turn / 2) + 1, 6);
         int itemsToGenerate = 3 + (shopTier / 2);
 
         for (int i = 0; i < 6; i++)
@@ -42,6 +42,12 @@ public class Shop : MonoBehaviour
     }
     
 }
+
+public class ShopPanel
+{
+    public IPurchasable shopItem;
+}
+
 public interface IPurchasable
 {
     public int Tier { get; }
