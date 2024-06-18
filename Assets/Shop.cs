@@ -6,9 +6,8 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    public int shopTier = 1;
+    public static int shopTier = 1;
     public GameObject[] ShopPanels = new GameObject[6];
-    public GameObject die;
     
     //public static Dictionary<ShopElement, int> PotentialShopElements = new();
     // Start is called before the first frame update
@@ -29,6 +28,10 @@ public class Shop : MonoBehaviour
                 IPurchasable shopItem = RollAnItem(shopTier);
                 ShopPanels[i].GetComponent<Image>().sprite = shopItem.Sprite;
                 ShopPanels[i].GetComponent<Image>().enabled = true;
+            } else
+            {
+                ShopPanels[i].GetComponent<Image>().sprite = Resources.Load<Sprite>(FilePaths.ClosedSign);
+                ShopPanels[i].GetComponent<Image>().enabled = true;
             }
         }
     }
@@ -37,8 +40,8 @@ public class Shop : MonoBehaviour
     {
         //int shopTier = math.min((GameManager.turn / 2) + 1, 6);
         List<IPurchasable> availablePool = RollManager.PotentialShopElements.Where(potentialItem => potentialItem.Tier <= shopTier).ToList();
-        System.Random random = new(availablePool.Count);
-        return availablePool[random.Next()];
+        System.Random random = new();
+        return availablePool[random.Next(0, availablePool.Count-1)];
     }
     
 }

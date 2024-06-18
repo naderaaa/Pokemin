@@ -5,12 +5,16 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Board board;
-    public Shop shop;
+    public GameObject die;
     public static (Team, Team) teams = (new Team("Red"), new Team("Blue"));
     public static Team whosTurn = teams.Item1;
     public static int turn = 1;
     public static Tile[,] tiles = new Tile[9, 9];
 
+    private void Start()
+    {
+        die = GameObject.Find("Reroll");
+    }
     public void StartShop()
     {
        
@@ -40,13 +44,15 @@ public class GameManager : MonoBehaviour
         {
             whosTurn = teams.Item1;
             turn++;
+            Debug.Log(turn);
         }
 
         // handling shopTier upgrades
-        if (shop.shopTier < Math.Min((turn / 2) + 1, 6))
+        
+        if (Shop.shopTier < (int)Math.Min(((double)turn / 2) + .5, 6))
         {
-            shop.shopTier = Math.Min((turn / 2) + 1, 6);
-            shop.die.GetComponent<Image>().sprite = Resources.Load<Sprite>("Dice_Number_" + shop.shopTier);
+            Shop.shopTier = (int)Math.Min(((double)turn / 2) + .5, 6);
+            die.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Dice_Number_" + Shop.shopTier);
         }
         
         Tile.ClearHighlightsAndTargets();

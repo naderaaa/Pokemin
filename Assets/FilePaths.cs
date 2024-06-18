@@ -25,4 +25,5 @@ public class FilePaths : MonoBehaviour
     // Other
     public const string MoveCircle = "Sprites/circle";
     public const string HighlightCircle = "Sprites/redcircle";
+    public const string ClosedSign = "Sprites/closed_sign";
 }
