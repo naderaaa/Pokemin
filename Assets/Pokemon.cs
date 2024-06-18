@@ -86,6 +86,51 @@ public class Bulbasaur : Piece
         return "bulbasaur";
     }
 }
+
+public class Chiyu : Piece
+{
+    public Chiyu()
+    {
+        Tier = 6;
+
+        MaxHP = 12;
+        HP = MaxHP;
+
+        Atk = 7;
+        Speed = 2;
+        Range = 2;
+        Steps = Speed;
+        NumPassive = 2;
+        Sprite = Resources.Load<Sprite>(FilePaths.Chiyu);
+    }
+
+    public override string GetContents()
+    {
+        return "chi-yu";
+    }
+}
+
+public class Corphish : Piece
+{
+    public Corphish()
+    {
+        Tier = 1;
+
+        MaxHP = 8;
+        HP = MaxHP;
+
+        Atk = 4;
+        Speed = 1;
+        Range = 1;
+        Steps = Speed;
+
+        Sprite = Resources.Load<Sprite>(FilePaths.Corphish);
+    }
+    public override string GetContents()
+    {
+        return "corphish";
+    }
+}
 public class Cottonee : Piece
 {
 
@@ -201,6 +246,28 @@ public class Dwebble : Piece
     }
 }
 
+public class Glimmet : Piece
+{
+    public Glimmet()
+    {
+        Tier = 2;
+
+        MaxHP = 8;
+        HP = MaxHP;
+
+        Atk = 5;
+        Speed = 1;
+        Range = 2;
+        Steps = Speed;
+        Sprite = Resources.Load<Sprite>(FilePaths.Glimmet);
+    }
+
+    public override string GetContents()
+    {
+        return "glimmet";
+    }
+}
+
 public class Hatenna : Piece
 {
     public Hatenna()
@@ -221,6 +288,28 @@ public class Hatenna : Piece
     public override string GetContents()
     {
         return "hatenna";
+    }
+}
+
+public class IronBundle : Piece
+{
+    public IronBundle()
+    {
+        Tier = 5;
+        MaxHP = 9;
+        HP = MaxHP;
+
+        Atk = 6;
+        Speed = 2;
+        Range = 2;
+        Steps = Speed;
+
+        Sprite = Resources.Load<Sprite>(FilePaths.IronBundle);
+    }
+
+    public override string GetContents()
+    {
+        return "iron bundle";
     }
 }
 public class Joltik : Piece
@@ -310,6 +399,31 @@ public class Mawile : Piece
         return "mawile";
     }
 }
+public class SlitherWing : Piece
+{
+    public SlitherWing()
+    {
+        Tier = 5;
+
+        MaxHP = 13;
+        HP = MaxHP;
+
+        Atk = 8;
+        Speed = 1;
+        Range = 1;
+        Steps = Speed;
+
+        Scale = 1.5f;
+
+        Sprite = Resources.Load<Sprite>(FilePaths.SlitherWing);
+    }
+
+    public override string GetContents()
+    {
+        return "slither wing";
+    }
+
+}
 public class Starly : Piece
 {
     public Starly()
@@ -376,31 +490,6 @@ public class Tinkatink : Piece
     }
 }
 
-public class SlitherWing : Piece
-{
-    public SlitherWing()
-    {
-        Tier = 5;
-
-        MaxHP = 13; 
-        HP = MaxHP;
-
-        Atk = 8;
-        Speed = 1;
-        Range = 1;
-        Steps = Speed;
-
-        Scale = 1.5f;
-
-        Sprite = Resources.Load<Sprite>(FilePaths.SlitherWing);
-    }
-
-    public override string GetContents()
-    {
-        return "slither wing";
-    }
-
-}
 public class Trapinch : Piece
 {
     public Trapinch()

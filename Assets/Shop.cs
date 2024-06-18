@@ -9,6 +9,7 @@ public class Shop : MonoBehaviour
     public static int shopTier = 1;
     public GameObject[] ShopPanels = new GameObject[6];
     
+    
     //public static Dictionary<ShopElement, int> PotentialShopElements = new();
     // Start is called before the first frame update
 
@@ -30,6 +31,7 @@ public class Shop : MonoBehaviour
                 ShopPanels[i].GetComponent<Image>().enabled = true;
             } else
             {
+                
                 ShopPanels[i].GetComponent<Image>().sprite = Resources.Load<Sprite>(FilePaths.ClosedSign);
                 ShopPanels[i].GetComponent<Image>().enabled = true;
             }
