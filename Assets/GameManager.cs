@@ -15,14 +15,9 @@ public class GameManager : MonoBehaviour
     {
         die = GameObject.Find("Reroll");
     }
-    public void LoadOptions()
+    public void StartShop()
     {
-
-    }
-
-    public void ExitOptions()
-    {
-
+       
     }
 
     public void EndTurn()
