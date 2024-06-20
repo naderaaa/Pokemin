@@ -133,6 +133,54 @@ public class Corphish : Piece
         return "corphish";
     }
 }
+
+public class Corsola : Piece
+{
+    public Corsola()
+    {
+        Tier = 2;
+        MaxHP = 12;
+        HP = MaxHP;
+
+        Atk = 3;
+        Speed = 1;
+        Range = 1;
+        Steps = Speed;
+
+        NumPassive = 1;
+        Sprite = Resources.Load<Sprite>(FilePaths.Corsola);
+    }
+
+    public override string GetContents()
+    {
+        return "corsola";
+    }
+
+}
+
+public class Corsola_G : Piece
+{
+    public Corsola_G()
+    {
+
+        Tier = 2;
+        MaxHP = 12;
+        HP = MaxHP;
+
+        Atk = 3;
+        Speed = 1;
+        Range = 1;
+        Steps = Speed;
+
+        Sprite = Resources.Load<Sprite>(FilePaths.Corsola_G);
+    }
+
+    public override string GetContents()
+    {
+        return "Galarian Corsola";
+    }
+
+}
 public class Cottonee : Piece
 {
 
@@ -235,7 +283,7 @@ public class Dwebble : Piece
         HP = MaxHP;
 
         Atk = 3;
-        Speed = 10; // fix this later lmao
+        Speed = 1;
         Range = 1;
         Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Dwebble);
@@ -245,6 +293,29 @@ public class Dwebble : Piece
     public override string GetContents()
     {
         return "dwebble";
+    }
+}
+
+public class Flygon : Piece
+{
+    public Flygon()
+    {
+        Tier = 4;
+
+        MaxHP = 12;
+        HP = MaxHP;
+
+        Atk = 6;
+        Speed = 2;
+        Range = 2;
+        Steps = Speed;
+
+        Sprite = Resources.Load<Sprite>(FilePaths.Flygon);
+    }
+
+    public override string GetContents()
+    {
+        return "flygon";
     }
 }
 
@@ -313,6 +384,28 @@ public class IronBundle : Piece
     {
         return "iron bundle";
     }
+}
+
+public class IronValiant : Piece
+{
+    public IronValiant()
+    {
+        Tier = 5;
+
+        MaxHP = 10;
+        HP = MaxHP;
+        Atk = 7;
+        Speed = 2;
+        Range = 2;
+        Steps = Speed;
+
+        Sprite = Resources.Load<Sprite>(FilePaths.IronValiant);
+    }
+    public override string GetContents()
+    {
+        return "iron valiant";
+    }
+
 }
 
 public class Ivysaur : Piece
@@ -468,6 +561,52 @@ public class Porygon : Piece
         return "porygon";
     }
 }
+
+public class Regieleki : Piece
+{
+    public Regieleki()
+    {
+        Tier = 6;
+
+        MaxHP = 9;
+        HP = MaxHP;
+
+        Atk = 7;
+        Speed = 4;
+        Range = 2;
+        Steps = Speed;
+
+        Sprite = Resources.Load<Sprite>(FilePaths.Regieleki);
+    }
+
+    public override string GetContents()
+    {
+        return "regieleki";
+    }
+
+}
+
+public class Shroomish : Piece
+{
+    public Shroomish()
+    {
+        Tier = 2;
+        MaxHP = 9;
+        HP = MaxHP;
+
+        Atk = 2;
+        Speed = 1;
+        Range = 1;
+        Steps = Speed;
+
+        Sprite = Resources.Load<Sprite>(FilePaths.Shroomish);
+    }
+
+    public override string GetContents()
+    {
+        return "shroomish";
+    }
+}
 public class SlitherWing : Piece
 {
     public SlitherWing()
@@ -514,6 +653,28 @@ public class Starly : Piece
     public override string GetContents()
     {
         return "starly";
+    }
+}
+
+public class Staryu : Piece
+{
+    public Staryu()
+    {
+        Tier = 2;
+
+        MaxHP = 7;
+        HP = MaxHP;
+
+        Atk = 4;
+        Speed = 1;
+        Range = 2;
+        Steps = Speed;
+
+        Sprite = Resources.Load<Sprite>(FilePaths.Staryu);
+    }
+    public override string GetContents()
+    {
+        return "staryu";
     }
 }
 public class Swablu : Piece
