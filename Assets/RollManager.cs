@@ -20,15 +20,20 @@ public class RollManager : MonoBehaviour
         new Glimmet(),
         new Hatenna(),
         new IronBundle(),
+        new Ivysaur(),
         new Joltik(),
         new Litwick(),
         new Mareanie(),
+        new Marill(),
         new Mawile(),
+        new Porygon(),
         new SlitherWing(),
         new Starly(),
         new Swablu(),
         new Tinkatink(),
         new Trapinch(),
+        new Victini(),
+        new Wochien(),
 
         // items
         // new Leftovers()

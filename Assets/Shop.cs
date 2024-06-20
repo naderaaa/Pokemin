@@ -8,6 +8,7 @@ public class Shop : MonoBehaviour
 {
     public static int shopTier = 1;
     public GameObject[] ShopPanels = new GameObject[6];
+    public GameObject[] ShopPanelTileIcons = new GameObject[6];
     
     
     //public static Dictionary<ShopElement, int> PotentialShopElements = new();
@@ -29,11 +30,14 @@ public class Shop : MonoBehaviour
                 IPurchasable shopItem = RollAnItem(shopTier);
                 ShopPanels[i].GetComponent<Image>().sprite = shopItem.Sprite;
                 ShopPanels[i].GetComponent<Image>().enabled = true;
+
+                ShopPanelTileIcons[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Dice_Number_" + shopItem.Tier);
+                ShopPanelTileIcons[i].GetComponent<Image>().enabled = true;
             } else
-            {
-                
+            {   
                 ShopPanels[i].GetComponent<Image>().sprite = Resources.Load<Sprite>(FilePaths.ClosedSign);
                 ShopPanels[i].GetComponent<Image>().enabled = true;
+                ShopPanelTileIcons[i].GetComponent<Image>().enabled = false;
             }
         }
     }

@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public abstract class Piece : IPurchasable
@@ -312,6 +314,29 @@ public class IronBundle : Piece
         return "iron bundle";
     }
 }
+
+public class Ivysaur : Piece
+{
+    public Ivysaur()
+    {
+        Tier = 2;
+
+        MaxHP = 10;
+        HP = MaxHP;
+
+        Atk = 4;
+        Speed = 1;
+        Range = 2;
+        Steps = Speed;
+
+        Sprite = Resources.Load<Sprite>(FilePaths.Ivysaur);
+    }
+
+    public override string GetContents()
+    {
+        return "ivysaur";
+    }
+}
 public class Joltik : Piece
 {
     public Joltik()
@@ -378,6 +403,28 @@ public class Mareanie : Piece
         return "mareanie";
     }
 }
+
+public class Marill : Piece
+{
+    public Marill()
+    {
+        Tier = 2;
+
+        MaxHP = 9;
+        HP = MaxHP;
+
+        Atk = 5;
+        Speed = 1;
+        Range = 1;
+        Steps = Speed;
+
+        Sprite = Resources.Load<Sprite>(FilePaths.Marill);
+    }
+    public override string GetContents()
+    {
+        return "marill";
+    }
+}
 public class Mawile : Piece
 {
     public Mawile()
@@ -397,6 +444,28 @@ public class Mawile : Piece
     public override string GetContents()
     {
         return "mawile";
+    }
+}
+
+public class Porygon : Piece
+{
+    public Porygon()
+    {
+        Tier = 2;
+
+        MaxHP = 10;
+        HP = MaxHP;
+
+        Atk = 4;
+        Speed = 1;
+        Range = 2;
+        Steps = Speed;
+
+        Sprite = Resources.Load<Sprite>(FilePaths.Porygon);
+    }
+    public override string GetContents()
+    {
+        return "porygon";
     }
 }
 public class SlitherWing : Piece
@@ -512,5 +581,47 @@ public class Trapinch : Piece
     public override string GetContents()
     {
         return "trapinch";
+    }
+}
+
+public class Victini : Piece
+{
+    public Victini()
+    {
+        Tier = 5;
+        MaxHP = 13;
+        HP = MaxHP;
+
+        Atk = 5;
+        Speed = 1;
+        Range = 1;
+        Steps = Speed;
+
+        Sprite = Resources.Load<Sprite>(FilePaths.Victini);
+    }
+    public override string GetContents()
+    {
+        return "victini";
+    }
+}
+
+public class Wochien : Piece
+{
+    public Wochien()
+    {
+        Tier = 6;
+        MaxHP = 14;
+        HP = MaxHP;
+
+        Atk = 5;
+        Speed = 1;
+        Range = 2;
+        Steps = Speed;
+
+        Sprite = Resources.Load<Sprite>(FilePaths.Wochien);
+    }
+    public override string GetContents()
+    {
+        return "wo-chien";
     }
 }
