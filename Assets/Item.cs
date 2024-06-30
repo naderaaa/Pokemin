@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Item : IPurchasable
@@ -25,7 +22,7 @@ public class FedItem : Item
     // i bit the side of my mouth and i dont want it to swell
     // teehee
     // i will
-   
+
 }
 // WOOOOOOOOOOOOOOOOOOOOOOOOOO
 

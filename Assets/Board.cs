@@ -6,7 +6,7 @@ public class Board : MonoBehaviour
 
     void Start() // On start, creats a 9x9 grid of Tiles, stored in tiles 2d array.
     {
-        
+
         for (int x = 0; x < 9; x++)
         {
             for (int y = 0; y < 9; y++)

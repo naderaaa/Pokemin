@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,12 +56,12 @@ public class Tile : MonoBehaviour
         if (highlighted) // moving by clicking a highlighted tile
         {
             ClearHighlightsAndTargets();
-
             SetPiece(lastSelectedTile.piece); // move piece over
             lastSelectedTile.SetPiece(null); // delete old location
             highlighted = false; // unhighlight the tile
             selected = false;
             piece.Steps--; // decrements steps
+            GameManager.whosTurn.Energy--;
         }
         else if (targeted) // attacking normally
         {
@@ -76,7 +75,7 @@ public class Tile : MonoBehaviour
                 piece = null;
                 SetPiece(null);
             }
-
+            GameManager.whosTurn.Energy--;
 
         }
         else if (piece == null) // deselecting a tile by clicking on a non highlighted tile
@@ -89,20 +88,24 @@ public class Tile : MonoBehaviour
         {
             ClearHighlightsAndTargets();
             selected = false;
-
         }
         else if (piece.Steps > 0 && piece.Team.Name.Equals(GameManager.whosTurn.Name)) // selecting a tile with steps
         {
-            HighlightAdjacent();
-            TargetInRange();
-            selected = true;
+            if (GameManager.whosTurn.Energy > 0)
+            {
+                HighlightAdjacent();
+                TargetInRange();
+                selected = true;
+            }
         }
         else if (piece.Team.Name.Equals(GameManager.whosTurn.Name) && !attacked) // selecting a tile without steps(just targeting)
         {
-            TargetInRange();
-            selected = true;
+            if (GameManager.whosTurn.Energy > 0)
+            {
+                TargetInRange();
+                selected = true;
+            }
         }
-
     }
 
     public static void ClearHighlightsAndTargets() // removes the gray circle indicating where you can move and red circle for attacking
@@ -110,7 +113,7 @@ public class Tile : MonoBehaviour
         for (int i = 0; i < 9; i++)
         {
             for (int j = 0; j < 9; j++)
-            { 
+            {
                 Tile tile = GameManager.tiles[i, j]; // gets the tile
                 tile.highlighted = false;
                 tile.targeted = false;

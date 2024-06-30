@@ -1,5 +1,3 @@
-using JetBrains.Annotations;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public abstract class Piece : IPurchasable
@@ -31,6 +29,10 @@ public abstract class Piece : IPurchasable
 public class Team//two Teams per game
 {
     public string Name { get; set; }//name of the Team
+
+    public int MaxEnergy { get; protected set; } = 6;
+
+    public int Energy { get; set; }
     public Team(string name)
     {
         this.Name = name;
@@ -55,7 +57,7 @@ public class Azurill : Piece
 
 
         NumPassive = 0;
-        
+
         Sprite = Resources.Load<Sprite>(FilePaths.Azurill);
 
     }
@@ -647,7 +649,7 @@ public class Starly : Piece
         Steps = Speed;
         Scale = 1.2f;
         Sprite = Resources.Load<Sprite>(FilePaths.Starly);
-        
+
 
     }
     public override string GetContents()

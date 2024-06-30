@@ -14,10 +14,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         die = GameObject.Find("Reroll");
+        whosTurn.Energy = whosTurn.MaxEnergy;
     }
     public void StartShop()
     {
-       
+
     }
 
     public void EndTurn()
@@ -34,7 +35,6 @@ public class GameManager : MonoBehaviour
                 tile.piece.Steps = tile.piece.Speed;
             }
         }
-
         // switching whos turn it is
         if (whosTurn.Name.Equals(teams.Item1.Name))
         {
@@ -44,17 +44,21 @@ public class GameManager : MonoBehaviour
         {
             whosTurn = teams.Item1;
             turn++;
-            Debug.Log(turn);
         }
 
+        whosTurn.Energy = whosTurn.MaxEnergy;
+
         // handling shopTier upgrades
-        
+
         if (Shop.shopTier < (int)Math.Min(((double)turn / 2) + .5, 6))
         {
             Shop.shopTier = (int)Math.Min(((double)turn / 2) + .5, 6);
             die.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Dice_Number_" + Shop.shopTier);
+
+
         }
-        
+
         Tile.ClearHighlightsAndTargets();
+
     }
 }

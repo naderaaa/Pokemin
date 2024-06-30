@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class RollManager : MonoBehaviour
@@ -46,5 +44,5 @@ public class RollManager : MonoBehaviour
         // new Leftovers()
     };
     public static List<IPurchasable> PotentialShopElements { get => new(potentialShopElements); }
-    
+
 }
