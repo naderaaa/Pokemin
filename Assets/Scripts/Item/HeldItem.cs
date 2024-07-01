@@ -2,13 +2,3 @@
 {
 
 }
-// WOOOOOOOOOOOOOOOOOOOOOOOOOO
-
-//public class Leftovers : HeldItem
-//{
-//    public Leftovers()
-//    {
-//        Tier = 1;
-//
-//    }
-//}
