@@ -4,17 +4,18 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
     public Board board;
     public GameObject die;
     public static (Team, Team) teams = (new Team("Red"), new Team("Blue"));
     public static Team whosTurn = teams.Item1;
     public static int turn = 1;
-    public static Tile[,] tiles = new Tile[9, 9];
 
     private void Start()
     {
         die = GameObject.Find("Reroll");
         whosTurn.Energy = whosTurn.MaxEnergy;
+        Instance = this;
     }
     public void StartShop()
     {
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
         //    Debug.Log("hi");
         //}
         // at the end of the turn, each pokemon can start moving
-        foreach (Tile tile in tiles)
+        foreach (Tile tile in board.tiles)
         {
             if (tile.pieceOnTile is not null)
             {

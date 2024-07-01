@@ -3,6 +3,8 @@ using UnityEngine;
 public class Board : MonoBehaviour
 {
     public GameObject tilePrefab;
+    public Tile[,] tiles = new Tile[9, 9];
+
 
     void Start() // On start, creats a 9x9 grid of Tiles, stored in tiles 2d array.
     {
@@ -18,19 +20,19 @@ public class Board : MonoBehaviour
                 tile.posx = x;
                 tile.posy = y;
                 tile.PosGeneration(); // sets the position in the scene
-                GameManager.tiles[x, y] = tile;
+                tiles[x, y] = tile;
             }
         }
 
         // for the purpose of testing. remove when buying from the shop works!
-        GameManager.tiles[1, 1].SetPiece(new Dwebble() { Team = GameManager.teams.Item1 });
-        GameManager.tiles[2, 1].SetPiece(new Swablu() { Team = GameManager.teams.Item1 });
-        GameManager.tiles[3, 1].SetPiece(new Starly() { Team = GameManager.teams.Item1 });
-        GameManager.tiles[4, 1].SetPiece(new Trapinch() { Team = GameManager.teams.Item1 });
-        GameManager.tiles[5, 7].SetPiece(new Dreepy() { Team = GameManager.teams.Item2 });
-        GameManager.tiles[6, 7].SetPiece(new Cottonee() { Team = GameManager.teams.Item2 });
-        GameManager.tiles[7, 7].SetPiece(new Dratini() { Team = GameManager.teams.Item2 });
-        GameManager.tiles[8, 7].SetPiece(new SlitherWing() { Team = GameManager.teams.Item2 });
+        tiles[1, 1].SetPiece(new Dwebble() { Team = GameManager.teams.Item1 });
+        tiles[2, 1].SetPiece(new Swablu() { Team = GameManager.teams.Item1 });
+        tiles[3, 1].SetPiece(new Starly() { Team = GameManager.teams.Item1 });
+        tiles[4, 1].SetPiece(new Trapinch() { Team = GameManager.teams.Item1 });
+        tiles[5, 7].SetPiece(new Dreepy() { Team = GameManager.teams.Item2 });
+        tiles[6, 7].SetPiece(new Cottonee() { Team = GameManager.teams.Item2 });
+        tiles[7, 7].SetPiece(new Dratini() { Team = GameManager.teams.Item2 });
+        tiles[8, 7].SetPiece(new SlitherWing() { Team = GameManager.teams.Item2 });
     }
 
     public void PokemonMoving()
@@ -42,7 +44,7 @@ public class Board : MonoBehaviour
 
     }
 
-    public void TileSelected()
+    public void SelectTile()
     {
 
     }

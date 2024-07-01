@@ -5,7 +5,9 @@ public class Tile : MonoBehaviour
 {
     public int posx; // x position in grid
     public int posy; // y position in grid
+#nullable enable
     public Piece? pieceOnTile; // null when tile is empty, otherwise holds a pokemon
+#nullable disable
     public Image displayImage; // the image on display
     public Image teamSymbol; // how teams are represented on the board
     public Image targetOverlay; // red circle
@@ -93,7 +95,7 @@ public class Tile : MonoBehaviour
         }
         else if (pieceOnTile.Steps > 0 && pieceOnTile.Team.Name.Equals(GameManager.whosTurn.Name)) // selecting a tile with steps
         {
-
+            //GameManager.Instance.board.SelectTile();
             if (GameManager.whosTurn.Energy > 0 || pieceOnTile.Steps != pieceOnTile.Speed)
             {
                 HighlightAdjacent();
@@ -117,7 +119,7 @@ public class Tile : MonoBehaviour
         {
             for (int j = 0; j < 9; j++)
             {
-                Tile tile = GameManager.tiles[i, j]; // gets the tile
+                Tile tile = GameManager.Instance.board.tiles[i, j]; // gets the tile
                 tile.highlighted = false;
                 tile.targeted = false;
                 tile.SetPiece(tile.pieceOnTile);
@@ -134,7 +136,7 @@ public class Tile : MonoBehaviour
                 //  this horrid if statement prevents going out of bounds and prevents overriding the center's image
                 if (i + posx <= 8 && i + posx >= 0 && j + posy <= 8 && j + posy >= 0 && !(i == 0 && j == 0))
                 {
-                    Tile tile = GameManager.tiles[i + posx, j + posy];
+                    Tile tile = GameManager.Instance.board.tiles[i + posx, j + posy];
                     if (tile.pieceOnTile == null)
                     {
                         tile.Highlight();
@@ -163,7 +165,7 @@ public class Tile : MonoBehaviour
                 {
                     if (i + posx <= 8 && i + posx >= 0 && j + posy <= 8 && j + posy >= 0 && !(i == 0 && j == 0))
                     {
-                        Tile tile = GameManager.tiles[i + posx, j + posy];
+                        Tile tile = GameManager.Instance.board.tiles[i + posx, j + posy];
                         if (tile.pieceOnTile != null)
                         {
                             tile.Target();
