@@ -1740,7 +1740,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   board: {fileID: 1774579667}
   die: {fileID: 311400188}
-  shop: {fileID: 1015848622}
 --- !u!1 &1822838581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1838,6 +1837,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1015848622}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: Reroll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1822838584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1890,7 +1901,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   board: {fileID: 1774579667}
   die: {fileID: 0}
-  shop: {fileID: 0}
 --- !u!1001 &1845650774
 PrefabInstance:
   m_ObjectHideFlags: 0
