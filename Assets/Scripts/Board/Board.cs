@@ -52,30 +52,11 @@ public class Board : MonoBehaviour
 
         if (movable.Contains(tile)) // moving by clicking a highlighted tile
         {
-            ClearHighlightsAndTargets();
-            tile.SetPiece(selected.pieceOnTile);
-            selected.SetPiece(null);
-            movable.Remove(tile);
-            selected = null;
-            if (tile.pieceOnTile.Steps == tile.pieceOnTile.Speed)
-            {
-                GameManager.whosTurn.Energy--;
-            }
-            tile.pieceOnTile.Steps--;
+            MoveToHighlightedSpace(tile);
         }
         else if (targetable.Contains(tile)) // attacking by clicking a targetable tile
         {
-            ClearHighlightsAndTargets();
-            selected.pieceOnTile.Steps = 0;
-            selected.attacked = true;
-            selected.pieceOnTile.Attack(tile.pieceOnTile);
-            if (tile.pieceOnTile.HP <= 0)
-            {
-                tile.pieceOnTile = null;
-                tile.SetPiece(null);
-            }
-            GameManager.whosTurn.Energy--;
-
+            AttackingATargetedSpace(tile);
         }
         else if (tile.pieceOnTile == null) // deselecting a tile by clicking on a non highlighted tile 
         {
@@ -104,6 +85,35 @@ public class Board : MonoBehaviour
                 selected = tile;
             }
         }
+    }
+
+    public void MoveToHighlightedSpace(Tile tile)
+    {
+        ClearHighlightsAndTargets();
+        tile.SetPiece(selected.pieceOnTile);
+        selected.SetPiece(null);
+        movable.Remove(tile);
+        selected = null;
+        if (tile.pieceOnTile.Steps == tile.pieceOnTile.Speed)
+        {
+            GameManager.whosTurn.Energy--;
+        }
+        tile.pieceOnTile.Steps--;
+    }
+
+    public void AttackingATargetedSpace(Tile tile)
+    {
+        ClearHighlightsAndTargets();
+        selected.pieceOnTile.Steps = 0;
+        selected.attacked = true;
+        selected.pieceOnTile.Attack(tile.pieceOnTile);
+        selected = null;
+        if (tile.pieceOnTile.HP <= 0)
+        {
+            tile.pieceOnTile = null;
+            tile.SetPiece(null);
+        }
+        GameManager.whosTurn.Energy--;
     }
 
     public void ClearHighlightsAndTargets() // removes the gray circle indicating where you can move and red circle for attacking
