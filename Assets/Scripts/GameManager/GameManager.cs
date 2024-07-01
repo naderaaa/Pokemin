@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
             die.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Dice_Number_" + Shop.shopTier);
         }
 
-        Tile.ClearHighlightsAndTargets();
+        GameManager.Instance.board.ClearHighlightsAndTargets();
 
     }
 }

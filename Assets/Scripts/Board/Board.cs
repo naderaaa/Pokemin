@@ -1,9 +1,14 @@
+using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class Board : MonoBehaviour
 {
     public GameObject tilePrefab;
     public Tile[,] tiles = new Tile[9, 9];
+    public Tile selected;
+    public List<Tile> targetable;
+    public List<Tile> movable;
 
 
     void Start() // On start, creats a 9x9 grid of Tiles, stored in tiles 2d array.
@@ -35,18 +40,141 @@ public class Board : MonoBehaviour
         tiles[8, 7].SetPiece(new SlitherWing() { Team = GameManager.teams.Item2 });
     }
 
-    public void PokemonMoving()
+    public void SelectTile(Tile tile)
     {
+        // case 1: selecting a tile with
+        // case 2: selecting a tile with
+        // case 3: deselecting a tile by
+        // case 4: deselecting a tile by
+        // case 5: moving by clicking a 
+        // case 6: attacking normally
+        // case 7: targeting an ability
 
+        if (movable.Contains(tile)) // moving by clicking a highlighted tile
+        {
+            ClearHighlightsAndTargets();
+            tile.SetPiece(selected.pieceOnTile);
+            selected.SetPiece(null);
+            movable.Remove(tile);
+            selected = null;
+            if (tile.pieceOnTile.Steps == tile.pieceOnTile.Speed)
+            {
+                GameManager.whosTurn.Energy--;
+            }
+            tile.pieceOnTile.Steps--;
+        }
+        else if (targetable.Contains(tile)) // attacking by clicking a targetable tile
+        {
+            ClearHighlightsAndTargets();
+            selected.pieceOnTile.Steps = 0;
+            selected.attacked = true;
+            selected.pieceOnTile.Attack(tile.pieceOnTile);
+            if (tile.pieceOnTile.HP <= 0)
+            {
+                tile.pieceOnTile = null;
+                tile.SetPiece(null);
+            }
+            GameManager.whosTurn.Energy--;
+
+        }
+        else if (tile.pieceOnTile == null) // deselecting a tile by clicking on a non highlighted tile 
+        {
+            ClearHighlightsAndTargets();
+            selected = null;
+        } 
+        else if (selected)// deselecting a tile by clicking on the selected tile
+        {
+            ClearHighlightsAndTargets();
+            selected = null;
+        }
+        else if (tile.pieceOnTile.Steps > 0 && tile.pieceOnTile.Team.Name.Equals(GameManager.whosTurn.Name)) // selecting a tile with steps
+        {
+            if (GameManager.whosTurn.Energy > 0 || tile.pieceOnTile.Steps != tile.pieceOnTile.Speed)
+            {
+                HighlightAdjacent(tile);
+                TargetInRange(tile);
+                selected = tile;
+            }
+        }
+        else if (tile.pieceOnTile.Team.Name.Equals(GameManager.whosTurn.Name) && !tile.attacked)
+        {
+            if (GameManager.whosTurn.Energy > 0)
+            {
+                TargetInRange(tile);
+                selected = tile;
+            }
+        }
     }
-    public void PokemonAttacking()
+
+    public void ClearHighlightsAndTargets() // removes the gray circle indicating where you can move and red circle for attacking
     {
-
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                Tile tile = GameManager.Instance.board.tiles[i, j]; // gets the tile
+                movable.Remove(tile);
+                targetable.Remove(tile);
+                tile.SetPiece(tile.pieceOnTile);
+                tile.targetOverlay.enabled = false;
+            }
+        }
     }
 
-    public void SelectTile()
+    public void HighlightAdjacent(Tile center) // sets the adjacent tiles to display a gray circle
     {
-
+        for (int i = -1; i <= 1; i++)
+        {
+            for (int j = -1; j <= 1; j++)
+            {
+                //  this horrid if statement prevents going out of bounds and prevents overriding the center's image
+                if (i + center.posx <= 8 && i + center.posx >= 0 && j + center.posy <= 8 && j + center.posy >= 0 && !(i == 0 && j == 0))
+                {
+                    Tile tile = GameManager.Instance.board.tiles[i + center.posx, j + center.posy];
+                    if (tile.pieceOnTile == null)
+                    {
+                        Highlight(tile);
+                        selected = center;
+                    }
+                }
+            }
+        }
     }
 
+    public void Highlight(Tile tile) // highlights spaces you can move to
+    {
+        movable.Add(tile);
+        tile.displayImage.enabled = true;
+        Sprite sprite = Resources.Load<Sprite>(FilePaths.MoveCircle);
+        tile.displayImage.sprite = sprite;
+        tile.displayImage.transform.localScale = new Vector3(1.5F,1.5F,1.5F);
+    }
+
+    public void TargetInRange(Tile center) // puts a target overlay above things you can attack
+    {
+        if (center.pieceOnTile != null)
+        {
+            for (int i = -center.pieceOnTile.Range; i <= center.pieceOnTile.Range; i++)
+            {
+                for (int j = -center.pieceOnTile.Range; j <= center.pieceOnTile.Range; j++)
+                {
+                    if (i + center.posx <= 8 && i + center.posx >= 0 && j + center.posy <= 8 && j + center.posy >= 0 && !(i == 0 && j == 0))
+                    {
+                        Tile tile = GameManager.Instance.board.tiles[i + center.posx, j + center.posy];
+                        if (tile.pieceOnTile != null)
+                        {
+                            Target(tile);
+                            selected = tile;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void Target(Tile tile) // targets tile with the crosshair
+    {
+        targetable.Add(tile);
+        tile.targetOverlay.enabled = true;
+    }
 }
