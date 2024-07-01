@@ -35,7 +35,7 @@ public abstract class Piece : IPurchasable
     public virtual Attack ReceiveAttack(Attack attack)
     {
         Events.OnTakeDamageStart?.Invoke(this, attack);
-        HP = -attack.Damage;
+        HP -= attack.Damage;
         Events.OnTakeDamageEnd?.Invoke(this, attack);
         return attack;
     }
