@@ -3,6 +3,7 @@
 A Pokemon Fangame with lots of strategy, fit for anyone and everyone to play!
 
 Still WIP :)
+Join the discord! https://discord.gg/hWt2GWbv2j
 
 ## How it Works:
 
