@@ -44,6 +44,7 @@ public class Tile : MonoBehaviour
 
     public void TileSelected() // the onclick method for a tile
     {
+        Debug.Log(GameManager.whosTurn.Energy);
 
         // case 1: selecting a tile with steps
         // case 2: selecting a tile without steps (just targeting)
@@ -60,8 +61,11 @@ public class Tile : MonoBehaviour
             lastSelectedTile.SetPiece(null); // delete old location
             highlighted = false; // unhighlight the tile
             selected = false;
+            if (piece.Steps == piece.Speed)
+                GameManager.whosTurn.Energy--;
             piece.Steps--; // decrements steps
-            GameManager.whosTurn.Energy--;
+            Debug.Log(GameManager.whosTurn.Energy);
+
         }
         else if (targeted) // attacking normally
         {
@@ -76,6 +80,8 @@ public class Tile : MonoBehaviour
                 SetPiece(null);
             }
             GameManager.whosTurn.Energy--;
+            Debug.Log(GameManager.whosTurn.Energy);
+
 
         }
         else if (piece == null) // deselecting a tile by clicking on a non highlighted tile
@@ -91,7 +97,8 @@ public class Tile : MonoBehaviour
         }
         else if (piece.Steps > 0 && piece.Team.Name.Equals(GameManager.whosTurn.Name)) // selecting a tile with steps
         {
-            if (GameManager.whosTurn.Energy > 0)
+
+            if (GameManager.whosTurn.Energy > 0 || piece.Steps != piece.Speed)
             {
                 HighlightAdjacent();
                 TargetInRange();

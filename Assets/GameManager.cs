@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         }
 
         whosTurn.Energy = whosTurn.MaxEnergy;
+        Debug.Log(whosTurn.Energy);
 
         // handling shopTier upgrades
 
@@ -54,8 +55,6 @@ public class GameManager : MonoBehaviour
         {
             Shop.shopTier = (int)Math.Min(((double)turn / 2) + .5, 6);
             die.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Dice_Number_" + Shop.shopTier);
-
-
         }
 
         Tile.ClearHighlightsAndTargets();

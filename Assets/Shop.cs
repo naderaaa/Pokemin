@@ -12,10 +12,9 @@ public class Shop : MonoBehaviour
 
     //public static Dictionary<ShopElement, int> PotentialShopElements = new();
     // Start is called before the first frame update
-
-    public static void TurnStart()
+    private void Start()
     {
-
+        Reroll();
     }
 
     public void Reroll()
@@ -23,7 +22,7 @@ public class Shop : MonoBehaviour
         if (GameManager.whosTurn.Energy > 0)
         {
             GameManager.whosTurn.Energy--;
-
+            Debug.Log(GameManager.whosTurn.Energy);
             int itemsToGenerate = 3 + (shopTier / 2);
 
             for (int i = 0; i < 6; i++)
