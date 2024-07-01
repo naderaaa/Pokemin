@@ -3,12 +3,9 @@ using UnityEngine.UI;
 
 public class Tile : MonoBehaviour
 {
-
     public int posx; // x position in grid
     public int posy; // y position in grid
-#nullable enable
     public Piece? pieceOnTile; // null when tile is empty, otherwise holds a pokemon
-#nullable disable
     public Image displayImage; // the image on display
     public Image teamSymbol; // how teams are represented on the board
     public Image targetOverlay; // red circle
@@ -44,6 +41,7 @@ public class Tile : MonoBehaviour
 
     public void TileSelected() // the onclick method for a tile
     {
+        
         Debug.Log(GameManager.whosTurn.Energy);
 
         // case 1: selecting a tile with steps
