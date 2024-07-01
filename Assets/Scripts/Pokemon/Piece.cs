@@ -25,7 +25,7 @@ public abstract class Piece : IPurchasable
 
     public virtual Attack Attack(Piece target)
     {
-        Attack attack = new Attack(Atk);
+        Attack attack = new(Atk);
         Events.OnAttackStart?.Invoke(this, attack);
         target.ReceiveAttack(attack);
         Events.OnAttackEnd?.Invoke(this, attack);

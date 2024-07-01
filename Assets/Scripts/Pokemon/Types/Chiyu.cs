@@ -12,7 +12,7 @@ public class Chiyu : Piece
         Atk = 7;
         Speed = 2;
         Range = 2;
-        Steps = Speed; 
+        Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Chiyu);
     }
 
