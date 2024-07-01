@@ -11,7 +11,7 @@ namespace Assets.Scripts.Pokemon
         public int Damage { get; set; }
 
         public Attack(int damage) {
-            this.Damage = damage;
+            Damage = damage;
         }
     }
 }

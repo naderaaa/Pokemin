@@ -30,9 +30,9 @@ public class GameManager : MonoBehaviour
         // at the end of the turn, each pokemon can start moving
         foreach (Tile tile in tiles)
         {
-            if (tile.piece is not null)
+            if (tile.pieceOnTile is not null)
             {
-                tile.piece.Steps = tile.piece.Speed;
+                tile.pieceOnTile.Steps = tile.pieceOnTile.Speed;
             }
         }
         // switching whos turn it is
