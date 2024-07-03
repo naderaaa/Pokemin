@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
+    public static Shop ShopInstance { get; private set; }
     public static int shopTier = 1;
     public GameObject[] ShopPanels = new GameObject[6];
     public GameObject[] ShopPanelTileIcons = new GameObject[6];
 
 
     //public static Dictionary<ShopElement, int> PotentialShopElements = new();
-    // Start is called before the first frame update
     private void Start()
     {
-        Reroll();
+        ShopInstance = this;
+       
     }
-
     public void Reroll()
     {
         if (GameManager.whosTurn.Energy > 0)

@@ -8,14 +8,11 @@ public class Tile : MonoBehaviour
 #nullable enable
     public Piece? pieceOnTile; // null when tile is empty, otherwise holds a pokemon
 #nullable disable
+    public bool merge = true; // :3
     public Image displayImage; // the image on display
     public Image teamSymbol; // how teams are represented on the board
     public Image targetOverlay; // red circle
-    //public bool highlighted = false; // a highlighted tile is empty and a pokemon is moved to that tile when clicked
-    //public bool targeted = false; // if true, will be attacked on click
     public bool attacked = false; // whether or not the piece has already attacked
-    //public static bool selected = false; // any piece is currently selected (move to board)
-    //public Tile CurrentlyControlingTile; // handles moving
 
     public void PosGeneration() // generates the position relative to the scene using a formula
     {

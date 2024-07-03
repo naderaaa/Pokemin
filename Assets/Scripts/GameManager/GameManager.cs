@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    //public Shop shop;
     public Board board;
     public GameObject die;
     public static (Team, Team) teams = (new Team("Red"), new Team("Blue"));
@@ -15,19 +16,17 @@ public class GameManager : MonoBehaviour
     {
         die = GameObject.Find("Reroll");
         whosTurn.Energy = whosTurn.MaxEnergy;
+        StartShop();
         Instance = this;
+
     }
     public void StartShop()
     {
-
+        Shop.ShopInstance.Reroll();
     }
 
     public void EndTurn()
     {
-        //if (shop is null)
-        //{
-        //    Debug.Log("hi");
-        //}
         // at the end of the turn, each pokemon can start moving
         foreach (Tile tile in board.tiles)
         {

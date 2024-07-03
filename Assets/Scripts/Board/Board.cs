@@ -1,14 +1,15 @@
 using System.Collections.Generic;
 using System.Reflection;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Board : MonoBehaviour
 {
     public GameObject tilePrefab;
     public Tile[,] tiles = new Tile[9, 9];
-    public Tile selected;
-    public List<Tile> targetable;
-    public List<Tile> movable;
+    public Tile selected; // any piece is currently selected
+    public List<Tile> targetable; // a targetable tile contains a piece and is attacked when that tile is clicked
+    public List<Tile> movable; // a movable tile is empty and a pokemon is moved to that tile when clicked
 
 
     void Start() // On start, creats a 9x9 grid of Tiles, stored in tiles 2d array.
@@ -122,7 +123,7 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < 9; j++)
             {
-                Tile tile = GameManager.Instance.board.tiles[i, j]; // gets the tile
+                Tile tile = tiles[i, j]; // gets the tile
                 movable.Remove(tile);
                 targetable.Remove(tile);
                 tile.SetPiece(tile.pieceOnTile);
@@ -140,7 +141,7 @@ public class Board : MonoBehaviour
                 //  this horrid if statement prevents going out of bounds and prevents overriding the center's image
                 if (i + center.posx <= 8 && i + center.posx >= 0 && j + center.posy <= 8 && j + center.posy >= 0 && !(i == 0 && j == 0))
                 {
-                    Tile tile = GameManager.Instance.board.tiles[i + center.posx, j + center.posy];
+                    Tile tile = tiles[i + center.posx, j + center.posy];
                     if (tile.pieceOnTile == null)
                     {
                         Highlight(tile);
@@ -170,7 +171,7 @@ public class Board : MonoBehaviour
                 {
                     if (i + center.posx <= 8 && i + center.posx >= 0 && j + center.posy <= 8 && j + center.posy >= 0 && !(i == 0 && j == 0))
                     {
-                        Tile tile = GameManager.Instance.board.tiles[i + center.posx, j + center.posy];
+                        Tile tile = tiles[i + center.posx, j + center.posy];
                         if (tile.pieceOnTile != null)
                         {
                             Target(tile);
