@@ -47,7 +47,7 @@ Two types: Held Items and Fed Items
 
 ### Tentative list of Pokemon:
 
-Bulbasaur line, Dratini line, Azurill line, Swablu line, Starly line, Cottonee line, Joltik line, Litwick line, Dwebble line, Deino line, Mareanie line, Hatenna line, Dreepy line, Mawile line, Trapinch line, Glimmet line, Porygon line, Staryu line, Corsola line, Shroomish line, Mantyke line, Sneasel line, Iron Valiant, Shaymin, Jirachi, Diancie, Manaphy, Kyogre, Chi-yu, Regieleki, Magearna, Wo-Chien
+Bulbasaur line, Dratini line, Azurill line, Swablu line, Starly line, Cottonee line, Joltik line, Litwick line, Dwebble line, Deino line, Mareanie line, Hatenna line, Dreepy line, Mawile line, Trapinch line, Glimmet line, Porygon line, Staryu line, Corsola line, Shroomish line, Mantyke line, Sneasel line, Gastly line, Iron Valiant, Shaymin, Jirachi, Diancie, Manaphy, Kyogre, Chi-yu, Regieleki, Magearna, Wo-Chien, Latias, Xerneas, Eevee (all evolutions),
 
 ### Tentative list of Items:
 
