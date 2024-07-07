@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public partial class Shop : MonoBehaviour
 {
     public static Shop ShopInstance { get; private set; }
-    public IPurchasable? Purchasing { get; set; }
+    public ShopPanel? ItemToPurchase { get; set; }
     public static int shopTier = 1;
     public GameObject shopText;
     public ShopPanel[] ShopPanels = new ShopPanel[6];
@@ -38,6 +38,7 @@ public partial class Shop : MonoBehaviour
 
                     ShopPanelTileIcons[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Dice_Number_" + shopItem.Tier);
                     ShopPanelTileIcons[i].GetComponent<Image>().enabled = true;
+                    ShopPanels[i].shopPanelTileIcon = ShopPanelTileIcons[i];
                 }
                 else
                 {

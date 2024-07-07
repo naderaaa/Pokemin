@@ -29,14 +29,14 @@ public class Board : MonoBehaviour
         }
 
         // for the purpose of testing. remove when buying from the shop works!
-        tiles[1, 1].SetPiece(new Dwebble() { Team = GameManager.teams.Item1 });
-        tiles[2, 1].SetPiece(new Swablu() { Team = GameManager.teams.Item1 });
-        tiles[3, 1].SetPiece(new Starly() { Team = GameManager.teams.Item1 });
-        tiles[4, 1].SetPiece(new Trapinch() { Team = GameManager.teams.Item1 });
-        tiles[5, 7].SetPiece(new Dreepy() { Team = GameManager.teams.Item2 });
-        tiles[6, 7].SetPiece(new Cottonee() { Team = GameManager.teams.Item2 });
-        tiles[7, 7].SetPiece(new Dratini() { Team = GameManager.teams.Item2 });
-        tiles[8, 7].SetPiece(new SlitherWing() { Team = GameManager.teams.Item2 });
+        //tiles[1, 1].SetPiece(new Dwebble() { Team = GameManager.teams.Item1 });
+        //tiles[2, 1].SetPiece(new Swablu() { Team = GameManager.teams.Item1 });
+        //tiles[3, 1].SetPiece(new Starly() { Team = GameManager.teams.Item1 });
+        //tiles[4, 1].SetPiece(new Trapinch() { Team = GameManager.teams.Item1 });
+        //tiles[5, 7].SetPiece(new Dreepy() { Team = GameManager.teams.Item2 });
+        //tiles[6, 7].SetPiece(new Cottonee() { Team = GameManager.teams.Item2 });
+        //tiles[7, 7].SetPiece(new Dratini() { Team = GameManager.teams.Item2 });
+        //tiles[8, 7].SetPiece(new SlitherWing() { Team = GameManager.teams.Item2 });
     }
 
     public void SelectTile(Tile tile)

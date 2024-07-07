@@ -57,6 +57,9 @@ public class GameManager : MonoBehaviour
             die.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Dice_Number_" + Shop.shopTier);
         }
 
+        ShopPanel.buying = false;
+        Shop.ShopInstance.ItemToPurchase = null;
+
         GameManager.Instance.board.ClearHighlightsAndTargets();
 
     }
