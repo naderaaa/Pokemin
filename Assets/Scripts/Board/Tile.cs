@@ -43,7 +43,7 @@ public class Tile : MonoBehaviour
     public void TileSelected() // the onclick method for a tile
     {
         Debug.Log(GameManager.whosTurn.Energy);
-        if (ShopPanel.buying)
+        if (ShopPanel.buying && Shop.ShopInstance.ItemToPurchase != null)
         {
             BuyingAnItem();
         } 

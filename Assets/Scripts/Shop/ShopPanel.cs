@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ShopPanel : MonoBehaviour
@@ -14,6 +15,14 @@ public class ShopPanel : MonoBehaviour
             {
                 buying = true;
                 Shop.ShopInstance.shopText.SetActive(true); // display shop text
+                if (GameManager.whosTurn == GameManager.teams.Item1)
+                {
+                    Shop.ShopInstance.shopText.GetComponent<TextMeshProUGUI>().text = "Purchase a Pokemon by placing it in a space in one of the bottom two rows!";
+                } 
+                else
+                {
+                    Shop.ShopInstance.shopText.GetComponent<TextMeshProUGUI>().text = "Purchase a Pokemon by placing it in a space in one of the top two rows!";
+                }
                 Shop.ShopInstance.ItemToPurchase = this;
             }
         } 
