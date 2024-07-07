@@ -370,5 +370,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8237617568428729205, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9076579307577406425, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: m_lineSpacing
+      value: -60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}

@@ -3,10 +3,11 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Shop : MonoBehaviour
+public partial class Shop : MonoBehaviour
 {
     public static Shop ShopInstance { get; private set; }
     public static int shopTier = 1;
+    public GameObject shopText;
     public GameObject[] ShopPanels = new GameObject[6];
     public GameObject[] ShopPanelTileIcons = new GameObject[6];
 
@@ -14,8 +15,8 @@ public class Shop : MonoBehaviour
     //public static Dictionary<ShopElement, int> PotentialShopElements = new();
     private void Start()
     {
+        shopText.SetActive(false);
         ShopInstance = this;
-       
     }
     public void Reroll()
     {
@@ -54,11 +55,6 @@ public class Shop : MonoBehaviour
         return availablePool[random.Next(0, availablePool.Count - 1)];
     }
 
-}
-
-public class ShopPanel
-{
-    public IPurchasable shopItem;
 }
 
 public interface IPurchasable

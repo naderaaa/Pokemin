@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Reflection;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Board : MonoBehaviour
@@ -63,7 +61,7 @@ public class Board : MonoBehaviour
         {
             ClearHighlightsAndTargets();
             selected = null;
-        } 
+        }
         else if (selected)// deselecting a tile by clicking on the selected tile
         {
             ClearHighlightsAndTargets();
@@ -158,7 +156,7 @@ public class Board : MonoBehaviour
         tile.displayImage.enabled = true;
         Sprite sprite = Resources.Load<Sprite>(FilePaths.MoveCircle);
         tile.displayImage.sprite = sprite;
-        tile.displayImage.transform.localScale = new Vector3(1.5F,1.5F,1.5F);
+        tile.displayImage.transform.localScale = new Vector3(1.5F, 1.5F, 1.5F);
     }
 
     public void TargetInRange(Tile center) // puts a target overlay above things you can attack
