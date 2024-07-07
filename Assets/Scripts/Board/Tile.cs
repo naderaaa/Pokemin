@@ -42,6 +42,7 @@ public class Tile : MonoBehaviour
 
     public void TileSelected() // the onclick method for a tile
     {
+        Debug.Log(GameManager.whosTurn.Energy);
         if (ShopPanel.buying)
         {
             BuyingAnItem();
@@ -75,7 +76,7 @@ public class Tile : MonoBehaviour
         switch (Shop.ShopInstance.ItemToPurchase.shopItem)
         {
             case Piece piece when pieceOnTile == null:
-                if (GameManager.whosTurn.Energy >= 2)
+                if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < 6)
                 {
                     piece.Team = GameManager.whosTurn;
                     SetPiece(piece);

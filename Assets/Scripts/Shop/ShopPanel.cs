@@ -10,10 +10,14 @@ public class ShopPanel : MonoBehaviour
     {
         if (!buying)
         {
-            buying = true;
-            Shop.ShopInstance.shopText.SetActive(true); // display shop text
-            Shop.ShopInstance.ItemToPurchase = this;
-        } else
+            if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < 6)
+            {
+                buying = true;
+                Shop.ShopInstance.shopText.SetActive(true); // display shop text
+                Shop.ShopInstance.ItemToPurchase = this;
+            }
+        } 
+        else
         {
             buying = false;
             Shop.ShopInstance.shopText.SetActive(false); // turn off shop text
@@ -24,14 +28,15 @@ public class ShopPanel : MonoBehaviour
 
     public void AfterPurchase()
     {
-        if (GameManager.whosTurn.Energy >= 2) // if the purchase went through
+        if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < 6) // if the purchase went through
         {
             GameManager.whosTurn.Energy -= 2;
+            GameManager.whosTurn.NumPokemon++;
             shopItem = null;
             GetComponent<Image>().enabled = false;
             shopPanelTileIcon.GetComponent<Image>().enabled = false;
         }
-
+        
         buying = false;
         Shop.ShopInstance.shopText.SetActive(false); // turn off shop text
 

@@ -5,6 +5,8 @@
     public int MaxEnergy { get; protected set; } = 6;
 
     public int Energy { get; set; }
+
+    public int NumPokemon { get; set; } = 0;
     public Team(string name)
     {
         this.Name = name;

@@ -22,7 +22,13 @@ public class GameManager : MonoBehaviour
     }
     public void StartShop()
     {
-        Shop.ShopInstance.Reroll();
+        try
+        {
+            Shop.ShopInstance.Reroll();
+        } catch (NullReferenceException)
+        {
+            Debug.Log("e");
+        }
     }
 
     public void EndTurn()
