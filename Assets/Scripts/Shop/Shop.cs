@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public partial class Shop : MonoBehaviour
 {
     public static Shop ShopInstance { get; private set; }
+    public IPurchasable? Purchasing { get; set; }
     public static int shopTier = 1;
     public GameObject shopText;
-    public GameObject[] ShopPanels = new GameObject[6];
+    public ShopPanel[] ShopPanels = new ShopPanel[6];
     public GameObject[] ShopPanelTileIcons = new GameObject[6];
 
 
@@ -31,6 +32,7 @@ public partial class Shop : MonoBehaviour
                 if (i < itemsToGenerate)
                 {
                     IPurchasable shopItem = RollAnItem(shopTier);
+                    ShopPanels[i].shopItem = shopItem;
                     ShopPanels[i].GetComponent<Image>().sprite = shopItem.Sprite;
                     ShopPanels[i].GetComponent<Image>().enabled = true;
 

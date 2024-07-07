@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,6 +42,67 @@ public class Tile : MonoBehaviour
 
     public void TileSelected() // the onclick method for a tile
     {
-        GameManager.Instance.board.SelectTile(this);
+        if (ShopPanel.buying)
+        {
+            if (GameManager.whosTurn == GameManager.teams.Item1)
+            {
+                if (posy == 0 || posy == 1)
+                {
+
+                    switch (Shop.ShopInstance.Purchasing)
+                    {
+                        case Piece piece when pieceOnTile == null:
+                            piece.Team = GameManager.whosTurn;
+                            SetPiece(piece); 
+                            break;
+                    
+                        case Item item when pieceOnTile != null: 
+                            // figure this out later
+                            break;
+                        default:
+                            break;
+                    }
+
+
+                    //if (Shop.ShopInstance.Purchasing is Piece)
+                    //{
+                    //    if (pieceOnTile == null)
+                    //    {
+                    //        SetPiece((Piece) Shop.ShopInstance.Purchasing);
+                    //    }
+                    //} else if (Shop.ShopInstance.Purchasing is Item)
+                    //{
+                    //    if (pieceOnTile != null)
+                    //    {
+                    //        // figure this out later
+                    //    }
+                    //}
+
+                }
+            } else
+            {
+                if (posy == 7 || posy == 8)
+                {
+                    switch (Shop.ShopInstance.Purchasing)
+                    {
+                        case Piece piece when pieceOnTile == null:
+                            piece.Team = GameManager.whosTurn;
+                            SetPiece(piece);
+                            break;
+
+                        case Item item when pieceOnTile != null:
+                            // figure this out later
+                            break;
+                    }
+                }
+            }
+        } else
+        {
+            GameManager.Instance.board.SelectTile(this);
+
+        }
     }
+
+  
+
 }
