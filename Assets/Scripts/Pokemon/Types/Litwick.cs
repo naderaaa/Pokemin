@@ -14,6 +14,7 @@ public class Litwick : Piece
         Range = 2;
         Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Litwick);
+        Scale = 1.2f;
 
     }
     public override string GetContents()

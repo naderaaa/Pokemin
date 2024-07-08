@@ -14,6 +14,7 @@ public class Dreepy : Piece
         Range = 1;
         Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Dreepy);
+        Scale = 1.3f;
 
     }
     public override string GetContents()

@@ -15,6 +15,8 @@ public class Mareanie : Piece
         Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Mareanie);
 
+        Scale = 1.2f;
+
     }
 
     public override string GetContents()

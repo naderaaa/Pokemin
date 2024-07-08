@@ -15,6 +15,8 @@ public class Hatenna : Piece
         Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Hatenna);
 
+        Scale = 1f;
+
     }
 
     public override string GetContents()

@@ -14,6 +14,7 @@ public class Joltik : Piece
         Range = 2;
         Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Joltik);
+        Scale = 1.2f;
 
     }
 

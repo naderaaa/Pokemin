@@ -16,6 +16,7 @@ public class Deino : Piece
         Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Deino);
 
+        Scale = 1.2f;
     }
 
     public override string GetContents()

@@ -77,9 +77,9 @@ public class Board : MonoBehaviour
 
     public void MoveToHighlightedSpace(Tile tile)
     {
-        ClearHighlightsAndTargets();
         tile.SetPiece(selected.pieceOnTile);
         selected.SetPiece(null);
+        ClearHighlightsAndTargets();
         movable.Remove(tile);
         if (tile.pieceOnTile.Steps == tile.pieceOnTile.Speed)
         {
@@ -90,10 +90,10 @@ public class Board : MonoBehaviour
 
     public void AttackingATargetedSpace(Tile tile)
     {
-        ClearHighlightsAndTargets();
         selected.pieceOnTile.Steps = 0;
         selected.attacked = true;
         selected.pieceOnTile.Attack(tile.pieceOnTile);
+        ClearHighlightsAndTargets();
         if (tile.pieceOnTile.HP <= 0)
         {
             tile.pieceOnTile = null;

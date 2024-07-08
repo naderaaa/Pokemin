@@ -15,6 +15,7 @@ public class Staryu : Piece
         Steps = Speed;
 
         Sprite = Resources.Load<Sprite>(FilePaths.Staryu);
+        
     }
     public override string GetContents()
     {

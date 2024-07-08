@@ -2,7 +2,7 @@
 {
     public string Name { get; set; }//name of the Team
 
-    public int MaxEnergy { get; protected set; } = 6;
+    public int MaxEnergy { get; protected set; } = 20; // set to 6
 
     public int Energy { get; set; }
 

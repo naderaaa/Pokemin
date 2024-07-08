@@ -14,7 +14,7 @@ public class Dratini : Piece
         Speed = 1;
         Range = 1;
         Steps = Speed;
-        Scale = 1.2f;
+        Scale = 1f;
         Sprite = Resources.Load<Sprite>(FilePaths.Dratini);
 
 

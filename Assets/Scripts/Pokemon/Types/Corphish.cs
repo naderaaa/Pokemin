@@ -15,6 +15,8 @@ public class Corphish : Piece
         Steps = Speed;
 
         Sprite = Resources.Load<Sprite>(FilePaths.Corphish);
+
+        Scale = 1.1f;
     }
     public override string GetContents()
     {

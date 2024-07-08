@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static (Team, Team) teams = (new Team("Red"), new Team("Blue"));
     public static Team whosTurn = teams.Item1;
     public static int turn = 1;
+    public readonly static int MAX_POKEMON = 30;
 
     private void Start()
     {

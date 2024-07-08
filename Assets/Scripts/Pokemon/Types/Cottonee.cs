@@ -15,6 +15,7 @@ public class Cottonee : Piece
         Range = 2;
         Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Cottonee);
+        Scale = 1.3f;
     }
 
     public override string GetContents()

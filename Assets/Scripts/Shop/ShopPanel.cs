@@ -12,7 +12,7 @@ public class ShopPanel : MonoBehaviour
         GameManager.Instance.board.ClearHighlightsAndTargets();
         if (!buying && shopItem != null)
         {
-            if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < 6)
+            if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < GameManager.MAX_POKEMON)
             {
                 buying = true;
                 Shop.ShopInstance.shopText.SetActive(true); // display shop text
@@ -38,7 +38,7 @@ public class ShopPanel : MonoBehaviour
 
     public void AfterPurchase()
     {
-        if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < 6) // if the purchase went through
+        if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < GameManager.MAX_POKEMON) // if the purchase went through
         {
             GameManager.whosTurn.Energy -= 2;
             GameManager.whosTurn.NumPokemon++;

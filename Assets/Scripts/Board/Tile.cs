@@ -76,7 +76,7 @@ public class Tile : MonoBehaviour
         switch (Shop.ShopInstance.ItemToPurchase.shopItem)
         {
             case Piece piece when pieceOnTile == null:
-                if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < 6)
+                if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < GameManager.MAX_POKEMON)
                 {
                     piece.Team = GameManager.whosTurn;
                     SetPiece(piece);

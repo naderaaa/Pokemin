@@ -15,6 +15,7 @@ public class Swablu : Piece
         Range = 1;
         Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Swablu);
+        Scale = 1.3f;
 
         Events.OnTakeDamageStart += (object? sender, Attack Attack) =>
         {
