@@ -9,7 +9,8 @@ public class ShopPanel : MonoBehaviour
     public static bool buying = false;
     public void OnClick()
     {
-        if (!buying)
+        GameManager.Instance.board.ClearHighlightsAndTargets();
+        if (!buying && shopItem != null)
         {
             if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < 6)
             {

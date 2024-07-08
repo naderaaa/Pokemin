@@ -28,15 +28,6 @@ public class Board : MonoBehaviour
             }
         }
 
-        // for the purpose of testing. remove when buying from the shop works!
-        //tiles[1, 1].SetPiece(new Dwebble() { Team = GameManager.teams.Item1 });
-        //tiles[2, 1].SetPiece(new Swablu() { Team = GameManager.teams.Item1 });
-        //tiles[3, 1].SetPiece(new Starly() { Team = GameManager.teams.Item1 });
-        //tiles[4, 1].SetPiece(new Trapinch() { Team = GameManager.teams.Item1 });
-        //tiles[5, 7].SetPiece(new Dreepy() { Team = GameManager.teams.Item2 });
-        //tiles[6, 7].SetPiece(new Cottonee() { Team = GameManager.teams.Item2 });
-        //tiles[7, 7].SetPiece(new Dratini() { Team = GameManager.teams.Item2 });
-        //tiles[8, 7].SetPiece(new SlitherWing() { Team = GameManager.teams.Item2 });
     }
 
     public void SelectTile(Tile tile)
@@ -60,12 +51,10 @@ public class Board : MonoBehaviour
         else if (tile.pieceOnTile == null) // deselecting a tile by clicking on a non highlighted tile 
         {
             ClearHighlightsAndTargets();
-            selected = null;
         }
         else if (selected)// deselecting a tile by clicking on the selected tile
         {
             ClearHighlightsAndTargets();
-            selected = null;
         }
         else if (tile.pieceOnTile.Steps > 0 && tile.pieceOnTile.Team.Name.Equals(GameManager.whosTurn.Name)) // selecting a tile with steps
         {
@@ -92,7 +81,6 @@ public class Board : MonoBehaviour
         tile.SetPiece(selected.pieceOnTile);
         selected.SetPiece(null);
         movable.Remove(tile);
-        selected = null;
         if (tile.pieceOnTile.Steps == tile.pieceOnTile.Speed)
         {
             GameManager.whosTurn.Energy--;
@@ -106,11 +94,11 @@ public class Board : MonoBehaviour
         selected.pieceOnTile.Steps = 0;
         selected.attacked = true;
         selected.pieceOnTile.Attack(tile.pieceOnTile);
-        selected = null;
         if (tile.pieceOnTile.HP <= 0)
         {
             tile.pieceOnTile = null;
             tile.SetPiece(null);
+            GameManager.whosTurn.NumPokemon--;
         }
         GameManager.whosTurn.Energy--;
     }
@@ -126,6 +114,7 @@ public class Board : MonoBehaviour
                 targetable.Remove(tile);
                 tile.SetPiece(tile.pieceOnTile);
                 tile.targetOverlay.enabled = false;
+                selected = null;
             }
         }
     }
