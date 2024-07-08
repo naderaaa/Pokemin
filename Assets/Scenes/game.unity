@@ -478,6 +478,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6705358994337951146, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e1071c143d19a334ea200d4504d2a5aa, type: 3}
+    - target: {fileID: 6705358995491603056, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8034e231eb5051341b605765ccdf561d, type: 3}
     - target: {fileID: 6705358995491603058, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
       propertyPath: ShopPanels.Array.data[0]
       value: 
@@ -502,6 +510,22 @@ PrefabInstance:
       propertyPath: ShopPanels.Array.data[5]
       value: 
       objectReference: {fileID: 1900663939}
+    - target: {fileID: 6705358995491603063, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 843.877
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705358995491603063, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 457.7894
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705358995491603063, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 525
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705358995491603063, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -301.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7578928296687332171, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
