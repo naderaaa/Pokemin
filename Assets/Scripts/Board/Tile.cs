@@ -42,29 +42,30 @@ public class Tile : MonoBehaviour
 
     public void TileSelected() // the onclick method for a tile
     {
-        Debug.Log(GameManager.whosTurn.Energy);
-        if (ShopPanel.buying && Shop.ShopInstance.ItemToPurchase != null)
+        Debug.Log(GameManager.whosTurn.Energy); // remove once energy display works
+
+        if (ShopPanel.buying && Shop.ShopInstance.ItemToPurchase != null) // either your making a purchase
         {
             BuyingAnItem();
         } 
-        else
+        else // or selecting a tile
         {
             GameManager.Instance.board.SelectTile(this);
         }
     }
 
-    public void BuyingAnItem()
+    public void BuyingAnItem() 
     {
         if (GameManager.whosTurn == GameManager.teams.Item1)
         {
-            if (posy == 0 || posy == 1)
+            if (posy == 0 || posy == 1) // team1 places new pokemon in the bottom two rows
             {
                 PlacingPieceOrItem();
             }
         }
         else
         {
-            if (posy == 7 || posy == 8)
+            if (posy == 7 || posy == 8) // team2 places new pokemon in the top two rows
             {
                 PlacingPieceOrItem();
             }
@@ -75,16 +76,16 @@ public class Tile : MonoBehaviour
     {
         switch (Shop.ShopInstance.ItemToPurchase.shopItem)
         {
-            case Piece piece when pieceOnTile == null:
-                if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < GameManager.MAX_POKEMON)
+            case Piece piece when pieceOnTile == null: // if the shopitem is a piece
+                if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < GameManager.MAX_POKEMON) // if the piece can be purchased
                 {
-                    piece.Team = GameManager.whosTurn;
+                    piece.Team = GameManager.whosTurn; 
                     SetPiece(piece);
                 }
                 Shop.ShopInstance.ItemToPurchase.AfterPurchase();
-
                 break;
-            case Item item when pieceOnTile != null:
+
+            case Item item when pieceOnTile != null: // if the shopitem is an item
                 // figure this out later
                 break;
         }

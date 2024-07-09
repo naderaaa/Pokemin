@@ -16,35 +16,34 @@ public partial class Shop : MonoBehaviour
     //public static Dictionary<ShopElement, int> PotentialShopElements = new();
     private void Start()
     {
-        shopText.SetActive(false);
-        ShopInstance = this;
+        ShopInstance = this; // sets the singleton
     }
-    public void Reroll()
+    public void Reroll() // handles rerolling the shop
     {
-        if (GameManager.whosTurn.Energy > 0)
+        if (GameManager.whosTurn.Energy > 0) // if enough energy is available
         {
-            GameManager.whosTurn.Energy--;
-            Debug.Log(GameManager.whosTurn.Energy);
-            int itemsToGenerate = 3 + (shopTier / 2);
+            GameManager.whosTurn.Energy--; // decrement energy
+            Debug.Log(GameManager.whosTurn.Energy); // keep track of the energy
+            int itemsToGenerate = 3 + (shopTier / 2); // the shop will increase in size over time
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 6; i++) // for each shoppanel in the shop
             {
-                if (i < itemsToGenerate)
+                if (i < itemsToGenerate) 
                 {
-                    IPurchasable shopItem = RollAnItem(shopTier);
-                    ShopPanels[i].shopItem = shopItem;
-                    ShopPanels[i].GetComponent<Image>().sprite = shopItem.Sprite;
-                    ShopPanels[i].GetComponent<Image>().enabled = true;
+                    IPurchasable shopItem = RollAnItem(shopTier); // get a shopitem
+                    ShopPanels[i].shopItem = shopItem; // set that shopitem
+                    ShopPanels[i].GetComponent<Image>().sprite = shopItem.Sprite; // set the sprite
+                    ShopPanels[i].GetComponent<Image>().enabled = true; // enable the sprite
 
-                    ShopPanelTileIcons[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Dice_Number_" + shopItem.Tier);
-                    ShopPanelTileIcons[i].GetComponent<Image>().enabled = true;
-                    ShopPanels[i].shopPanelTileIcon = ShopPanelTileIcons[i];
+                    ShopPanelTileIcons[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Dice_Number_" + shopItem.Tier); // set the die in the corner
+                    ShopPanelTileIcons[i].GetComponent<Image>().enabled = true; // enable the die sprite
+                    ShopPanels[i].shopPanelTileIcon = ShopPanelTileIcons[i]; // store it in the array
                 }
                 else
                 {
-                    ShopPanels[i].GetComponent<Image>().sprite = Resources.Load<Sprite>(FilePaths.ClosedSign);
-                    ShopPanels[i].GetComponent<Image>().enabled = true;
-                    ShopPanelTileIcons[i].GetComponent<Image>().enabled = false;
+                    ShopPanels[i].GetComponent<Image>().sprite = Resources.Load<Sprite>(FilePaths.ClosedSign); // sets the sign for a closed stall
+                    ShopPanels[i].GetComponent<Image>().enabled = true; // enables the closed stall sprite
+                    ShopPanelTileIcons[i].GetComponent<Image>().enabled = false; // turn off the die sprite
                 }
             }
         }
@@ -53,14 +52,14 @@ public partial class Shop : MonoBehaviour
     public IPurchasable RollAnItem(int shopTier)
     {
         //int shopTier = math.min((GameManager.turn / 2) + 1, 6);
-        List<IPurchasable> availablePool = RollManager.PotentialShopElements.Where(potentialItem => potentialItem.Tier <= shopTier).ToList();
-        System.Random random = new();
-        return availablePool[random.Next(0, availablePool.Count - 1)];
+        List<IPurchasable> availablePool = RollManager.PotentialShopElements.Where(potentialItem => potentialItem.Tier <= shopTier).ToList(); // creates a pool of rollable items
+        System.Random random = new(); // makes an rng
+        return availablePool[random.Next(0, availablePool.Count)]; // gets a random shopitem
     }
 
 }
 
-public interface IPurchasable
+public interface IPurchasable // an interface for every item rollable in the shop
 {
     public int Tier { get; }
     public Sprite Sprite { get; }

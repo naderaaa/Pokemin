@@ -75,32 +75,32 @@ public class Board : MonoBehaviour
         }
     }
 
-    public void MoveToHighlightedSpace(Tile tile)
+    public void MoveToHighlightedSpace(Tile tile) // ran when a highlighted tile is clicked on
     {
-        tile.SetPiece(selected.pieceOnTile);
-        selected.SetPiece(null);
-        ClearHighlightsAndTargets();
-        movable.Remove(tile);
-        if (tile.pieceOnTile.Steps == tile.pieceOnTile.Speed)
+        tile.SetPiece(selected.pieceOnTile); // piece is copied over
+        selected.SetPiece(null); // piece is removed from original location 
+        ClearHighlightsAndTargets(); // all highlights/targets are removed
+        movable.Remove(tile); // that tile is now is empty
+        if (tile.pieceOnTile.Steps == tile.pieceOnTile.Speed) // energy is only decremented once a pokemon moves the first time a turn
         {
             GameManager.whosTurn.Energy--;
         }
-        tile.pieceOnTile.Steps--;
+        tile.pieceOnTile.Steps--; // steps is decremented
     }
 
-    public void AttackingATargetedSpace(Tile tile)
+    public void AttackingATargetedSpace(Tile tile) // ran when a targeted tile is attacked
     {
-        selected.pieceOnTile.Steps = 0;
-        selected.attacked = true;
-        selected.pieceOnTile.Attack(tile.pieceOnTile);
-        ClearHighlightsAndTargets();
-        if (tile.pieceOnTile.HP <= 0)
+        selected.pieceOnTile.Steps = 0; // piece cant move after attacking
+        selected.attacked = true; // stops piece from attacking twice
+        selected.pieceOnTile.Attack(tile.pieceOnTile); // handles the attack damage calculation
+        ClearHighlightsAndTargets(); // all highlights/targets are removed
+        if (tile.pieceOnTile.HP <= 0) // handles death
         {
-            tile.pieceOnTile = null;
-            tile.SetPiece(null);
-            GameManager.whosTurn.NumPokemon--;
+            tile.pieceOnTile = null; // L bozo
+            tile.SetPiece(null); // piece is removed from board
+            tile.pieceOnTile.Team.NumPokemon--; // num pokemon is decremented
         }
-        GameManager.whosTurn.Energy--;
+        GameManager.whosTurn.Energy--; // energy is decremented after attacking
     }
 
     public void ClearHighlightsAndTargets() // removes the gray circle indicating where you can move and red circle for attacking
@@ -110,11 +110,11 @@ public class Board : MonoBehaviour
             for (int j = 0; j < 9; j++)
             {
                 Tile tile = tiles[i, j]; // gets the tile
-                movable.Remove(tile);
-                targetable.Remove(tile);
-                tile.SetPiece(tile.pieceOnTile);
-                tile.targetOverlay.enabled = false;
-                selected = null;
+                movable.Remove(tile); // no tiles can be clicked and moved to
+                targetable.Remove(tile); // no tiles can be attacked
+                tile.SetPiece(tile.pieceOnTile); // im gonna be honest im not sure what this actually does but im scared to touch it
+                tile.targetOverlay.enabled = false; // removes the target overlay
+                selected = null; // no currently selected piece
             }
         }
     }
