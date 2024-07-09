@@ -15,6 +15,8 @@ public class Tinkatink : Piece
         Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Tinkatink);
 
+        Scale = 1.2f;
+
     }
     public override string GetContents()
     {

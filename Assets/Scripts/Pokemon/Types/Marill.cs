@@ -15,6 +15,8 @@ public class Marill : Piece
         Steps = Speed;
 
         Sprite = Resources.Load<Sprite>(FilePaths.Marill);
+
+        Scale = 1f;
     }
     public override string GetContents()
     {

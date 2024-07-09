@@ -14,6 +14,8 @@ public class Chiyu : Piece
         Range = 2;
         Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Chiyu);
+
+        Scale = 1.2f;
     }
 
     public override string GetContents()

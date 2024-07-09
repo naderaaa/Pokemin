@@ -14,7 +14,7 @@ public class Sneasel : Piece
         Range = 1;
         Steps = Speed;
 
-        Scale = 1.5f;
+        Scale = 1.2f;
 
         Sprite = Resources.Load<Sprite>(FilePaths.Sneasel);
     }

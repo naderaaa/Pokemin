@@ -15,6 +15,8 @@ public class Porygon : Piece
         Steps = Speed;
 
         Sprite = Resources.Load<Sprite>(FilePaths.Porygon);
+
+        Scale = 1.2f;
     }
     public override string GetContents()
     {

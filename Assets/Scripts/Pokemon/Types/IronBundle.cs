@@ -14,6 +14,7 @@ public class IronBundle : Piece
         Steps = Speed;
 
         Sprite = Resources.Load<Sprite>(FilePaths.IronBundle);
+        Scale = 1.2f;
     }
 
     public override string GetContents()

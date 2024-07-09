@@ -14,6 +14,7 @@ public class Glimmet : Piece
         Range = 2;
         Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Glimmet);
+        Scale = 1.2f;
     }
 
     public override string GetContents()

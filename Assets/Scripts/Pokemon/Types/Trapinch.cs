@@ -14,7 +14,7 @@ public class Trapinch : Piece
         Range = 1;
         Steps = Speed;
 
-        Scale = 1.3f;
+        Scale = 1.1f;
         Sprite = Resources.Load<Sprite>(FilePaths.Trapinch);
 
     }

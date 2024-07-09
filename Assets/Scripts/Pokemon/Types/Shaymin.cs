@@ -14,7 +14,7 @@ public class Shaymin : Piece
         Range = 2;
         Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Shaymin);
-
+        Scale = 1.1f;
     }
 
     public override string GetContents()

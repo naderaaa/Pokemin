@@ -15,6 +15,8 @@ public class Jirachi : Piece
         Steps = Speed;
         Sprite = Resources.Load<Sprite>(FilePaths.Jirachi);
 
+        Scale = 1.2f;
+
     }
 
     public override string GetContents()

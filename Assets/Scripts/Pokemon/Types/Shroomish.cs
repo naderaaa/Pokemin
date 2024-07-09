@@ -14,6 +14,8 @@ public class Shroomish : Piece
         Steps = Speed;
 
         Sprite = Resources.Load<Sprite>(FilePaths.Shroomish);
+
+        Scale = 1.2f;
     }
 
     public override string GetContents()

@@ -15,6 +15,8 @@ public class Ivysaur : Piece
         Steps = Speed;
 
         Sprite = Resources.Load<Sprite>(FilePaths.Ivysaur);
+
+        Scale = 1.1f;
     }
 
     public override string GetContents()
