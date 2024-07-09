@@ -30,7 +30,7 @@ public partial class Shop : MonoBehaviour
             {
                 if (i < itemsToGenerate) 
                 {
-                    IPurchasable shopItem = RollAnItem(shopTier); // get a shopitem
+                    IPurchasable shopItem = RollManager.RollAnItem(shopTier); // get a shopitem
                     ShopPanels[i].shopItem = shopItem; // set that shopitem
                     ShopPanels[i].GetComponent<Image>().sprite = shopItem.Sprite; // set the sprite
                     ShopPanels[i].GetComponent<Image>().enabled = true; // enable the sprite
@@ -49,13 +49,7 @@ public partial class Shop : MonoBehaviour
         }
     }
 
-    public IPurchasable RollAnItem(int shopTier)
-    {
-        //int shopTier = math.min((GameManager.turn / 2) + 1, 6);
-        List<IPurchasable> availablePool = RollManager.PotentialShopElements.Where(potentialItem => potentialItem.Tier <= shopTier).ToList(); // creates a pool of rollable items
-        System.Random random = new(); // makes an rng
-        return availablePool[random.Next(0, availablePool.Count)]; // gets a random shopitem
-    }
+
 
 }
 
