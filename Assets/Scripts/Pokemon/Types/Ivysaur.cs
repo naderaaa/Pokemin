@@ -15,6 +15,7 @@ public class Ivysaur : Piece
         Steps = Speed;
 
         Sprite = Resources.Load<Sprite>(FilePaths.Ivysaur);
+        PreEvolution = new Bulbasaur();
 
         Scale = 1.1f;
     }

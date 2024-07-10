@@ -46,29 +46,11 @@ public class Tile : MonoBehaviour
 
         if (ShopPanel.buying && Shop.ShopInstance.ItemToPurchase != null) // either your making a purchase
         {
-            BuyingAnItem();
+            PlacingPieceOrItem();
         } 
         else // or selecting a tile
         {
             GameManager.Instance.board.SelectTile(this);
-        }
-    }
-
-    public void BuyingAnItem() 
-    {
-        if (GameManager.whosTurn == GameManager.teams.Item1)
-        {
-            if (posy == 0 || posy == 1) // team1 places new pokemon in the bottom two rows
-            {
-                PlacingPieceOrItem();
-            }
-        }
-        else
-        {
-            if (posy == 7 || posy == 8) // team2 places new pokemon in the top two rows
-            {
-                PlacingPieceOrItem();
-            }
         }
     }
 
@@ -77,9 +59,26 @@ public class Tile : MonoBehaviour
         switch (Shop.ShopInstance.ItemToPurchase.shopItem)
         {
             case Piece piece when pieceOnTile == null: // if the shopitem is a piece
-                if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < GameManager.MAX_POKEMON) // if the piece can be purchased
+                if (GameManager.whosTurn == GameManager.teams.Item1)
                 {
-                    piece.Team = GameManager.whosTurn; 
+                    if (posy == 0 || posy == 1) // team1 places new pokemon in the bottom two rows
+                    {
+                        BuyingAPokemon(piece);
+                    }
+                }
+                else
+                {
+                    if (posy == 7 || posy == 8) // team2 places new pokemon in the top two rows
+                    {
+                        BuyingAPokemon(piece);
+                    }
+                }
+                break;
+            case Piece piece when piece.PreEvolution != null && pieceOnTile.GetContents() == piece.PreEvolution.GetContents() && pieceOnTile.Team == GameManager.whosTurn: // if the shopitem is an evolution
+                if (GameManager.whosTurn.Energy >= 2) // if the piece can be purchased
+                {
+                    piece.Team = GameManager.whosTurn;
+                    // once conditions are set up, the evolution should get the preevos conditions here
                     SetPiece(piece);
                 }
                 Shop.ShopInstance.ItemToPurchase.AfterPurchase();
@@ -89,6 +88,15 @@ public class Tile : MonoBehaviour
                 // figure this out later
                 break;
         }
+    }
+    public void BuyingAPokemon(Piece piece) // figure this out lol
+    {
+        if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < GameManager.MAX_POKEMON) // if the piece can be purchased
+        {
+            piece.Team = GameManager.whosTurn;
+            SetPiece(piece);
+        }
+        Shop.ShopInstance.ItemToPurchase.AfterPurchase();
     }
     
 }

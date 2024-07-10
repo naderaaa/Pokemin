@@ -52,6 +52,20 @@ public class ShopPanel : MonoBehaviour
         Shop.ShopInstance.shopText.SetActive(false); // turn off shop text
 
     }
+
+    public void AfterEvolvingPurchase() // cleanup for evolution specific purchases
+    {
+        if (GameManager.whosTurn.Energy >= 2) // if the purchase went through
+        {
+            GameManager.whosTurn.Energy -= 2; // decrements energy by 2
+            shopItem = null; // item is not in the shop anymore
+            GetComponent<Image>().enabled = false; // turn off the image
+            shopPanelTileIcon.GetComponent<Image>().enabled = false; // turns off the die
+        }
+
+        buying = false; // no longer buying anything
+        Shop.ShopInstance.shopText.SetActive(false); // turn off shop text
+    }
 }
 
 
