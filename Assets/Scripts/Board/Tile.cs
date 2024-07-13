@@ -59,6 +59,7 @@ public class Tile : MonoBehaviour
             displayImage.enabled = false;
             displayImage.sprite = null;
             pieceOnTile = null;
+            teamSymbol.enabled = false;
         }
         else // actually adding
         {
@@ -66,6 +67,14 @@ public class Tile : MonoBehaviour
             displayImage.enabled = true;
             displayImage.sprite = piece.Sprite;
             displayImage.transform.localScale = new Vector3(piece.Scale, piece.Scale, piece.Scale);
+            if (piece.Team == GameManager.teams.Item1)
+            {
+                teamSymbol.sprite = Resources.Load<Sprite>(FilePaths.Team1Flag);
+            } else
+            {
+                teamSymbol.sprite = Resources.Load<Sprite>(FilePaths.Team2Flag);
+            }
+            teamSymbol.enabled = true;
         }
 
     }

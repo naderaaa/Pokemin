@@ -48,4 +48,6 @@ public class FilePaths : MonoBehaviour
     public const string MoveCircle = "Sprites/circle";
     public const string HighlightCircle = "Sprites/redcircle";
     public const string ClosedSign = "Sprites/closed_sign";
+    public const string Team1Flag = "Sprites/blue_flag";
+    public const string Team2Flag = "Sprites/red_flag";
 }

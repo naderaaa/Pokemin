@@ -111,8 +111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.666666, y: -25.533316}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: 34.583, y: -34.017}
+  m_SizeDelta: {x: 41.111, y: 42.622}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1702449022412506290
 CanvasRenderer:
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.18431373}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -384,6 +384,6 @@ MonoBehaviour:
   teamSymbol: {fileID: 4064399790067371680}
   targetOverlay: {fileID: 6285029109749772741}
   attacked: 0
-  moveUp: 1
-  amplitude: 1
+  doJump: 0
   frequency: 1
+  originalPosition: {x: 0, y: 0, z: 0}
