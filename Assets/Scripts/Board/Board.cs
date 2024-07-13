@@ -96,9 +96,10 @@ public class Board : MonoBehaviour
         ClearHighlightsAndTargets(); // all highlights/targets are removed
         if (tile.pieceOnTile.HP <= 0) // handles death
         {
+            tile.pieceOnTile.Team.NumPokemon--; // num pokemon is decremented
             tile.pieceOnTile = null; // L bozo
             tile.SetPiece(null); // piece is removed from board
-            tile.pieceOnTile.Team.NumPokemon--; // num pokemon is decremented
+
         }
         GameManager.whosTurn.Energy--; // energy is decremented after attacking
     }

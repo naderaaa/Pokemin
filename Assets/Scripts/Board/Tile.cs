@@ -1,5 +1,3 @@
-using System.Runtime.InteropServices.WindowsRuntime;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,10 +13,42 @@ public class Tile : MonoBehaviour
     public Image teamSymbol; // how teams are represented on the board
     public Image targetOverlay; // red circle
     public bool attacked = false; // whether or not the piece has already attacked
+    public bool doJump = false;
+    public float frequency = 4f;
+    public Vector3 originalPosition;
+
+    //private void Update()
+    //{ 
+    //
+    //    if (pieceOnTile != null)
+    //    {
+    //        if (doJump)
+    //        {
+    //            float newY = originalPosition.y + (Mathf.Sin(Random.value + Time.time * frequency) * .03f);
+    //            displayImage.transform.localPosition = new Vector3(displayImage.transform.localPosition.x, newY, displayImage.transform.localPosition.z);
+    //            if (Mathf.Sin(Random.value + Time.time * frequency) < 0) {
+    //                doJump = false;
+    //            }
+    //            Debug.Log("did");
+    //        }
+    //        else if (Mathf.Sin(Random.value + Time.time * frequency) >= 0)
+    //        {
+    //            Debug.Log("gonna do");
+    //
+    //            doJump = true;
+    //        }
+    //
+    //
+    //    }
+    //}
+
+
+
 
     public void PosGeneration() // generates the position relative to the scene using a formula
     {
         Vector3 pos = new((posx * 109) + 111, (posy * 109) + 100, gameObject.transform.position.z);
+        originalPosition = pos;
         gameObject.transform.position = pos; // using a vector
     }
 
@@ -28,11 +58,11 @@ public class Tile : MonoBehaviour
         {
             displayImage.enabled = false;
             displayImage.sprite = null;
-            this.pieceOnTile = null;
+            pieceOnTile = null;
         }
         else // actually adding
         {
-            this.pieceOnTile = piece;
+            pieceOnTile = piece;
             displayImage.enabled = true;
             displayImage.sprite = piece.Sprite;
             displayImage.transform.localScale = new Vector3(piece.Scale, piece.Scale, piece.Scale);
@@ -42,12 +72,10 @@ public class Tile : MonoBehaviour
 
     public void TileSelected() // the onclick method for a tile
     {
-        Debug.Log(GameManager.whosTurn.Energy); // remove once energy display works
-
         if (ShopPanel.buying && Shop.ShopInstance.ItemToPurchase != null) // either your making a purchase
         {
             PlacingPieceOrItem();
-        } 
+        }
         else // or selecting a tile
         {
             GameManager.Instance.board.SelectTile(this);
@@ -98,6 +126,6 @@ public class Tile : MonoBehaviour
         }
         Shop.ShopInstance.ItemToPurchase.AfterPurchase();
     }
-    
+
 }
 

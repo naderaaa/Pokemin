@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RollManager : MonoBehaviour
 {
+#pragma warning disable IDE1006 // Naming Styles
     private static List<IPurchasable> potentialShopElements => new()
     {
         // pokemons
@@ -49,6 +50,7 @@ public class RollManager : MonoBehaviour
         // items
         // new Leftovers()
     };
+#pragma warning restore IDE1006 // Naming Styles
     public static List<IPurchasable> PotentialShopElements { get => new(potentialShopElements); }
 
     public static IPurchasable RollAnItem(int shopTier)

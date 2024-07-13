@@ -379,10 +379,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posx: 0
   posy: 0
+  merge: 1
   displayImage: {fileID: 1559211114489100395}
   teamSymbol: {fileID: 4064399790067371680}
   targetOverlay: {fileID: 6285029109749772741}
-  highlighted: 0
-  targeted: 0
   attacked: 0
-  lastSelectedTile: {fileID: 0}
+  moveUp: 1
+  amplitude: 1
+  frequency: 1

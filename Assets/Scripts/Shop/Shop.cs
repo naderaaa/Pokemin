@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,12 +21,11 @@ public partial class Shop : MonoBehaviour
         if (GameManager.whosTurn.Energy > 0) // if enough energy is available
         {
             GameManager.whosTurn.Energy--; // decrement energy
-            Debug.Log(GameManager.whosTurn.Energy); // keep track of the energy
             int itemsToGenerate = 3 + (shopTier / 2); // the shop will increase in size over time
 
             for (int i = 0; i < 6; i++) // for each shoppanel in the shop
             {
-                if (i < itemsToGenerate) 
+                if (i < itemsToGenerate)
                 {
                     IPurchasable shopItem = RollManager.RollAnItem(shopTier); // get a shopitem
                     ShopPanels[i].shopItem = shopItem; // set that shopitem

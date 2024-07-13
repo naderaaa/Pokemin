@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
     //public Shop shop;
     public Board board;
     public GameObject die;
+    public GameObject energyDisplayText;
+    public GameObject numberOfPokemonDisplayText;
     public static (Team, Team) teams = (new Team("Red"), new Team("Blue"));
     public static Team whosTurn = teams.Item1;
     public static int turn = 1;
@@ -18,15 +21,23 @@ public class GameManager : MonoBehaviour
         die = GameObject.Find("Reroll");
         whosTurn.Energy = whosTurn.MaxEnergy;
         StartShop();
-        Instance = this;
 
+        /* someone please fix this */
+        energyDisplayText.GetComponent<TextMeshProUGUI>().text = "5"; // i could not tell you why this is necessary but it breaks if i remove it
+        Team.EnergyUpdated += (Sender, Energy) => { energyDisplayText.GetComponent<TextMeshProUGUI>().text = Energy.ToString(); };
+        /* please */
+
+        Team.PokemonCountUpdated += (Sender, PokemonCount) => { numberOfPokemonDisplayText.GetComponent<TextMeshProUGUI>().text = PokemonCount.ToString(); };
+
+        Instance = this;
     }
     public void StartShop()
     {
         try
         {
             Shop.ShopInstance.Reroll();
-        } catch (NullReferenceException)
+        }
+        catch (NullReferenceException)
         {
             Debug.Log("e");
         }
@@ -54,7 +65,7 @@ public class GameManager : MonoBehaviour
         }
 
         whosTurn.Energy = whosTurn.MaxEnergy;
-        Debug.Log(whosTurn.Energy);
+        Team.PokemonCountUpdated.Invoke(this, whosTurn.NumPokemon);
 
         // handling shopTier upgrades
 
@@ -69,6 +80,6 @@ public class GameManager : MonoBehaviour
         Shop.ShopInstance.shopText.SetActive(false);
 
         Instance.board.ClearHighlightsAndTargets();
-        
+
     }
 }
