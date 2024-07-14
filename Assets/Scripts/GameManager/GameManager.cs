@@ -22,11 +22,7 @@ public class GameManager : MonoBehaviour
         whosTurn.Energy = whosTurn.MaxEnergy;
         StartShop();
 
-        /* someone please fix this */
-        energyDisplayText.GetComponent<TextMeshProUGUI>().text = "5"; // i could not tell you why this is necessary but it breaks if i remove it
-        Team.EnergyUpdated += (Sender, Energy) => { energyDisplayText.GetComponent<TextMeshProUGUI>().text = Energy.ToString(); };
-        /* please */
-
+        Team.EnergyUpdated += (Sender, Energy) => { energyDisplayText.GetComponent<TextMeshProUGUI>().text = Energy.ToString(); }; // fixed it raaaaah
         Team.PokemonCountUpdated += (Sender, PokemonCount) => { numberOfPokemonDisplayText.GetComponent<TextMeshProUGUI>().text = PokemonCount.ToString(); };
 
         Instance = this;
