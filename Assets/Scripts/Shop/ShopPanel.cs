@@ -16,29 +16,40 @@ public class ShopPanel : MonoBehaviour
             if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < GameManager.MAX_POKEMON) // if theres enough a energy and less than six pokemon on the team
             {
                 buying = true; // now buying!
-                Shop.ShopInstance.shopText.SetActive(true); // display shop text
-                if (GameManager.whosTurn == GameManager.teams.Item1) // displays different text depending on whos turn it is
+                if (!Shop.ShopInstance.bought1Item)
                 {
-                    Shop.ShopInstance.shopText.GetComponent<TextMeshProUGUI>().text = "Purchase a Pokemon by placing it in a space in one of the bottom two rows!";
+                    Shop.ShopInstance.shopText.SetActive(true); // display shop text
+                    if (GameManager.whosTurn == GameManager.teams.Item1) // displays different text depending on whos turn it is
+                    {
+                        Shop.ShopInstance.shopText.GetComponent<TextMeshProUGUI>().text = "Purchase a Pokemon by placing it in a space in one of the bottom two rows!";
+                    }
+                    else
+                    {
+                        Shop.ShopInstance.shopText.GetComponent<TextMeshProUGUI>().text = "Purchase a Pokemon by placing it in a space in one of the top two rows!";
+                    }
                 }
-                else
-                {
-                    Shop.ShopInstance.shopText.GetComponent<TextMeshProUGUI>().text = "Purchase a Pokemon by placing it in a space in one of the top two rows!";
-                }
+                
                 Shop.ShopInstance.ItemToPurchase = this; // this shopitem is now being purchased
             }
+            InfoUI.Instance.OpenUI(shopItem);
         }
         else
         {
             buying = false; // no longer buying
             Shop.ShopInstance.shopText.SetActive(false); // turn off shop text
             Shop.ShopInstance.ItemToPurchase = null; // stops trying to buy a shopitem
+            InfoUI.Instance.CloseUI();
 
         }
     }
 
     public void AfterPurchase() // some cleanup
     {
+        if (!Shop.ShopInstance.bought1Item)
+        {
+            Shop.ShopInstance.bought1Item = true;
+            Shop.ShopInstance.shopText.SetActive(false); // turn off shop text
+        }
         if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < GameManager.MAX_POKEMON) // if the purchase went through
         {
             GameManager.whosTurn.Energy -= 2; // decrements energy by 2
@@ -47,10 +58,9 @@ public class ShopPanel : MonoBehaviour
             GetComponent<Image>().enabled = false; // turn off the image
             shopPanelTileIcon.GetComponent<Image>().enabled = false; // turns off the die
         }
-
+        InfoUI.Instance.CloseUI();
         buying = false; // no longer buying anything
-        Shop.ShopInstance.shopText.SetActive(false); // turn off shop text
-
+        
     }
 
     public void AfterEvolvingPurchase() // cleanup for evolution specific purchases

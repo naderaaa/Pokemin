@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +9,10 @@ public class InfoUI : MonoBehaviour
     // Start is called before the first frame update
     public static InfoUI Instance;
     public Image displayImage;
+    public TextMeshProUGUI text;
     private float OpenXPos = 340f;
     private float ClosedXPos = -170f;
-    private float duration = .2f;
+    private float duration = .175f;
     public IPurchasable toDisplay;
     public bool Opened = false;
 
@@ -19,17 +21,31 @@ public class InfoUI : MonoBehaviour
         Instance = this;
     }
 
-    public void OpenOrCloseUI()
+    //public void OpenOrCloseUI()
+    //{
+    //    if (!Opened)
+    //    {
+    //        StartCoroutine(MoveImageToRight());
+    //        Opened = true;
+    //    } else
+    //    {
+    //        StartCoroutine(MoveImageToLeft());
+    //        Opened = false;
+    //    }
+    //
+    //}
+
+    public void OpenUI(IPurchasable purchasable)
     {
-        if (!Opened)
-        {
-            StartCoroutine(MoveImageToRight());
-            Opened = true;
-        } else
-        {
-            StartCoroutine(MoveImageToLeft());
-            Opened = false;
-        }
+        text.text = purchasable.GetType().ToString();
+        StartCoroutine(MoveImageToRight());
+        Opened = true;
+
+    }
+    public void CloseUI()
+    {
+        StartCoroutine(MoveImageToLeft());
+        Opened = false;
 
     }
 

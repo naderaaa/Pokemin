@@ -9,7 +9,7 @@ public partial class Shop : MonoBehaviour
     public GameObject shopText;
     public ShopPanel[] ShopPanels = new ShopPanel[6];
     public GameObject[] ShopPanelTileIcons = new GameObject[6];
-
+    public bool bought1Item = false;
 
     //public static Dictionary<ShopElement, int> PotentialShopElements = new();
     private void Start()

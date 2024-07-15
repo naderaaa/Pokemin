@@ -8,6 +8,7 @@ public class Board : MonoBehaviour
     public Tile selected; // any piece is currently selected
     public List<Tile> targetable; // a targetable tile contains a piece and is attacked when that tile is clicked
     public List<Tile> movable; // a movable tile is empty and a pokemon is moved to that tile when clicked
+    public Tile showingInfo; // the tile with info currently being displayed about it
 
 
     void Start() // On start, creats a 9x9 grid of Tiles, stored in tiles 2d array.
@@ -41,7 +42,7 @@ public class Board : MonoBehaviour
         // case 7: targeting an ability
 
         if (movable.Contains(tile)) // moving by clicking a highlighted tile
-        {
+        {   
             MoveToHighlightedSpace(tile);
         }
         else if (targetable.Contains(tile)) // attacking by clicking a targetable tile
@@ -58,11 +59,13 @@ public class Board : MonoBehaviour
         }
         else if (tile.pieceOnTile.Steps > 0 && tile.pieceOnTile.Team.Name.Equals(GameManager.whosTurn.Name)) // selecting a tile with steps
         {
+            
             if (GameManager.whosTurn.Energy > 0 || tile.pieceOnTile.Steps != tile.pieceOnTile.Speed)
             {
                 HighlightAdjacent(tile);
                 TargetInRange(tile);
                 selected = tile;
+                
             }
         }
         else if (tile.pieceOnTile.Team.Name.Equals(GameManager.whosTurn.Name) && !tile.attacked)
@@ -72,6 +75,17 @@ public class Board : MonoBehaviour
                 TargetInRange(tile);
                 selected = tile;
             }
+        } 
+
+        if (tile.pieceOnTile != null && tile != showingInfo)
+        {
+            showingInfo = tile;
+            InfoUI.Instance.OpenUI(tile.pieceOnTile);
+        } 
+        else
+        {
+            showingInfo = null;
+            InfoUI.Instance.CloseUI();
         }
     }
 
@@ -176,4 +190,6 @@ public class Board : MonoBehaviour
         targetable.Add(tile);
         tile.targetOverlay.enabled = true;
     }
+
+   
 }

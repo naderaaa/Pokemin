@@ -13,6 +13,7 @@ public class Tile : MonoBehaviour
     public Image teamSymbol; // how teams are represented on the board
     public Image targetOverlay; // red circle
     public bool attacked = false; // whether or not the piece has already attacked
+
     public bool doJump = false;
     public float frequency = 4f;
     public Vector3 originalPosition;
@@ -81,7 +82,7 @@ public class Tile : MonoBehaviour
 
     public void TileSelected() // the onclick method for a tile
     {
-        if (ShopPanel.buying && Shop.ShopInstance.ItemToPurchase != null) // either your making a purchase
+        if (ShopPanel.buying && Shop.ShopInstance.ItemToPurchase != null) // either youre making a purchase
         {
             PlacingPieceOrItem();
         }
@@ -134,6 +135,7 @@ public class Tile : MonoBehaviour
             SetPiece(piece);
         }
         Shop.ShopInstance.ItemToPurchase.AfterPurchase();
+
     }
 
 }
