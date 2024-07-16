@@ -31,6 +31,8 @@ public class Team//two Teams per game
     private int _NumPokemon = 0;
 
     public static EventHandler<int>? PokemonCountUpdated { get; set; }
+    public bool bought1Item = false;
+
 
     public Team(string name)
     {

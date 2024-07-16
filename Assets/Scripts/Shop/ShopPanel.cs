@@ -16,7 +16,7 @@ public class ShopPanel : MonoBehaviour
             if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < GameManager.MAX_POKEMON) // if theres enough a energy and less than six pokemon on the team
             {
                 buying = true; // now buying!
-                if (!Shop.ShopInstance.bought1Item)
+                if (!GameManager.whosTurn.bought1Item)
                 {
                     Shop.ShopInstance.shopText.SetActive(true); // display shop text
                     if (GameManager.whosTurn == GameManager.teams.Item1) // displays different text depending on whos turn it is
@@ -45,9 +45,9 @@ public class ShopPanel : MonoBehaviour
 
     public void AfterPurchase() // some cleanup
     {
-        if (!Shop.ShopInstance.bought1Item)
+        if (!GameManager.whosTurn.bought1Item)
         {
-            Shop.ShopInstance.bought1Item = true;
+            GameManager.whosTurn.bought1Item = true;
             Shop.ShopInstance.shopText.SetActive(false); // turn off shop text
         }
         if (GameManager.whosTurn.Energy >= 2 && GameManager.whosTurn.NumPokemon < GameManager.MAX_POKEMON) // if the purchase went through
