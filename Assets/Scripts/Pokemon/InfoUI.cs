@@ -9,8 +9,17 @@ public class InfoUI : MonoBehaviour
     // Start is called before the first frame update
     public static InfoUI Instance;
     public Image displayImage;
-    public TextMeshProUGUI text;
-    private float OpenXPos = 340f;
+    public TextMeshProUGUI pieceName;
+    public Image pieceDisplay;
+    public TextMeshProUGUI pieceHP;
+    public TextMeshProUGUI pieceATK;
+    public TextMeshProUGUI pieceATKAdjustments;
+    public TextMeshProUGUI pieceSPE;
+    public TextMeshProUGUI pieceSPEAdjustments;
+    public TextMeshProUGUI pieceRNG;
+    public TextMeshProUGUI pieceRNGAdjustments;
+
+    private float OpenXPos = 345f;
     private float ClosedXPos = -170f;
     private float duration = .175f;
     public IPurchasable toDisplay;
@@ -37,7 +46,20 @@ public class InfoUI : MonoBehaviour
 
     public void OpenUI(IPurchasable purchasable)
     {
-        text.text = purchasable.GetType().ToString();
+        pieceName.text = purchasable.GetType().ToString();
+        pieceDisplay.sprite = purchasable.Sprite;
+        switch (purchasable)
+        {
+            case Piece piece:
+                pieceHP.text = piece.HP + "/" + piece.MaxHP;
+                pieceATK.text = piece.Atk.ToString();
+                pieceSPE.text = piece.Steps + "/" + piece.Speed;
+                pieceRNG.text = piece.Range.ToString();
+                break;
+            case Item item:
+                
+                break;
+        }
         StartCoroutine(MoveImageToRight());
         Opened = true;
 
