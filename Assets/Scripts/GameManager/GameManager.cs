@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
         ShopPanel.buying = false;
         Shop.ShopInstance.ItemToPurchase = null;
         Shop.ShopInstance.shopText.SetActive(false);
+        InfoUI.Instance.CloseUI();
 
         Instance.board.ClearHighlightsAndTargets();
 

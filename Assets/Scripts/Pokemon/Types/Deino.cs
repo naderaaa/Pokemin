@@ -2,7 +2,6 @@
 
 public class Deino : Piece
 {
-
     public Deino()
     {
         Tier = 1;
@@ -22,5 +21,27 @@ public class Deino : Piece
     public override string GetContents()
     {
         return "deino";
+    }
+}
+
+public class Diancie : Piece
+{
+    public Diancie()
+    {
+        Tier = 5;
+        MaxHP = 15;
+        HP = MaxHP;
+
+        Atk = 5;
+        Speed = 1;
+        Range = 2;
+        Steps = Speed;
+        Sprite = Resources.Load<Sprite>(FilePaths.Diancie);
+
+    }
+
+    public override string GetContents()
+    {
+        return "diancie";
     }
 }

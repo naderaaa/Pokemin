@@ -16,6 +16,7 @@ public class RollManager : MonoBehaviour
         new Corsola_G(),
         new Cottonee(),
         new Deino(),
+        new Diancie(),
         new Dratini(),
         new Dreepy(),
         new Dwebble(),
