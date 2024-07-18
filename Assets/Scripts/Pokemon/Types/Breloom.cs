@@ -13,6 +13,7 @@ public class Breloom : Piece
         Steps = Speed;
 
         Sprite = Resources.Load<Sprite>(FilePaths.Breloom);
+        PreEvolution = new Shroomish();
 
     }
 
