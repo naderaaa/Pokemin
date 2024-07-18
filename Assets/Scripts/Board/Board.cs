@@ -59,7 +59,6 @@ public class Board : MonoBehaviour
         }
         else if (tile.pieceOnTile.Steps > 0 && tile.pieceOnTile.Team.Name.Equals(GameManager.whosTurn.Name)) // selecting a tile with steps
         {
-            
             if (GameManager.whosTurn.Energy > 0 || tile.pieceOnTile.Steps != tile.pieceOnTile.Speed)
             {
                 HighlightAdjacent(tile);
@@ -82,7 +81,7 @@ public class Board : MonoBehaviour
             showingInfo = tile;
             InfoUI.Instance.OpenUI(tile.pieceOnTile);
         } 
-        else
+        else if (tile.pieceOnTile == null || selected == null || tile.pieceOnTile.Steps == 0)
         {
             showingInfo = null;
             InfoUI.Instance.CloseUI();

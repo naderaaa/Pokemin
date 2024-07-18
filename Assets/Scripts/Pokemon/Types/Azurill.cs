@@ -2,8 +2,6 @@
 
 public class Azurill : Piece
 {
-
-
     public Azurill()
     {
         Tier = 1;
@@ -24,6 +22,4 @@ public class Azurill : Piece
     {
         return "azurill";
     }
-
-
 }

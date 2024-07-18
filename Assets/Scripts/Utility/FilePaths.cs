@@ -5,6 +5,7 @@ public class FilePaths : MonoBehaviour
 
     // Pokemon
     public const string Azurill = "Sprites/azurill";
+    public const string Breloom = "Sprites/breloom";
     public const string Bulbasaur = "Sprites/bulbasaur";
     public const string Chiyu = "Sprites/chi-yu";
     public const string Corphish = "Sprites/corphish";

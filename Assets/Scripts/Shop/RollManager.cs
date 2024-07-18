@@ -9,6 +9,7 @@ public class RollManager : MonoBehaviour
     {
         // pokemons
         new Azurill(),
+        new Breloom(),
         new Bulbasaur(),
         new Chiyu(),
         new Corphish(),
