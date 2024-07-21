@@ -1,26 +1,26 @@
 ﻿using UnityEngine;
 
-public class Joltik : Piece
+public class Manaphy : Piece
 {
-    public Joltik()
+    public Manaphy()
     {
-        Tier = 1;
+        Tier = 5;
 
-        MaxHP = 8;
+        MaxHP = 13;
         HP = MaxHP;
 
-        Atk = 3;
+        Atk = 5;
         Speed = 1;
         Range = 2;
         Steps = Speed;
-        Sprite = Resources.Load<Sprite>(FilePaths.Joltik);
+        Sprite = Resources.Load<Sprite>(FilePaths.Manaphy);
         Scale = 1.3f;
 
     }
 
     public override string GetContents()
     {
-        return "joltik";
+        return "manaphy";
     }
 
 }

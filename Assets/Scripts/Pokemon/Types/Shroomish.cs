@@ -13,6 +13,8 @@ public class Shroomish : Piece
         Range = 1;
         Steps = Speed;
 
+        
+
         Sprite = Resources.Load<Sprite>(FilePaths.Shroomish);
 
         Scale = 1.2f;

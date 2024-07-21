@@ -25,8 +25,11 @@ public class FilePaths : MonoBehaviour
     public const string Ivysaur = "Sprites/ivysaur";
     public const string Jirachi = "Sprites/jirachi";
     public const string Joltik = "Sprites/joltik2";
+    public const string Kyogre = "Sprites/kyogre";
+    public const string Latias = "Sprites/latias";
     public const string Litwick = "Sprites/litwick";
     public const string Magearna = "Sprites/magearna";
+    public const string Manaphy = "Sprites/manaphy";
     public const string Mantyke = "Sprites/mantyke";
     public const string Mareanie = "Sprites/mareanie";
     public const string Marill = "Sprites/marill";

@@ -29,6 +29,8 @@ public class RollManager : MonoBehaviour
         new Ivysaur(),
         new Jirachi(),
         new Joltik(),
+        new Kyogre(),
+        new Latias(),
         new Litwick(),
         new Magearna(),
         new Mantyke(),
