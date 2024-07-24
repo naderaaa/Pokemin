@@ -12,7 +12,7 @@ public abstract class Piece : IPurchasable
     public int Speed { get; set; }//spaces it can move every turn
     public int Steps { get; set; }//spaces left it can move in this turn, reset after turn ends
     public int Range { get; set; }//how far the piece can attack
-    public Ability[] Abilities { get; set; } = new Ability[4];
+    public Ability[] Abilities { get; set; } = new Ability[2];
     public Piece? PreEvolution { get; set; } = null; // does this pokemon have a preevolution? if so what is it
     public PokemonEvents Events { get; } = new PokemonEvents();
     public float Scale { get; protected set; } = 1.4f; // image scale

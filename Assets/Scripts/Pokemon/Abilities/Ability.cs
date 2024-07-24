@@ -1,13 +1,9 @@
-﻿public class Ability
+﻿using UnityEngine;
+
+public abstract class Ability : MonoBehaviour
 {
     public string Name { get; set; }
     public string Description { get; set; }
-    public bool IsPassive { get; set; }
 
-
-
-    public class MachPunch : Ability
-    {
-        
-    }
+    public abstract void OnUse();
 }

@@ -1569,8 +1569,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: af44a000baaf0f040bf3450da67b539e, type: 2}
-  m_sharedMaterial: {fileID: -8896188353795775412, guid: af44a000baaf0f040bf3450da67b539e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c41a1764399427145af879e029cc01a5, type: 2}
+  m_sharedMaterial: {fileID: 680803977327910177, guid: c41a1764399427145af879e029cc01a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1865,6 +1865,7 @@ MonoBehaviour:
   selected: {fileID: 0}
   targetable: []
   movable: []
+  showingInfo: {fileID: 0}
 --- !u!1 &6100496468447441733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,8 +2132,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: af44a000baaf0f040bf3450da67b539e, type: 2}
-  m_sharedMaterial: {fileID: -8896188353795775412, guid: af44a000baaf0f040bf3450da67b539e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c41a1764399427145af879e029cc01a5, type: 2}
+  m_sharedMaterial: {fileID: 680803977327910177, guid: c41a1764399427145af879e029cc01a5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2971,6 +2972,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6100496466941400309}
     m_Modifications:
+    - target: {fileID: 2591731022152161542, guid: 321227af607c7704a9943412cd9821bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2591731022152161542, guid: 321227af607c7704a9943412cd9821bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2591731022152161542, guid: 321227af607c7704a9943412cd9821bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8971243563906777104, guid: 321227af607c7704a9943412cd9821bd, type: 3}
       propertyPath: m_Name
       value: InfoUI
@@ -3066,3 +3079,20 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8971243563906777107, guid: 321227af607c7704a9943412cd9821bd, type: 3}
   m_PrefabInstance: {fileID: 5084386360232010996}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8679598815591816924 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4538361057692367400, guid: 321227af607c7704a9943412cd9821bd, type: 3}
+  m_PrefabInstance: {fileID: 5084386360232010996}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2957263446454865660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8679598815591816924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bc4f6a351b5fe438c873e0fb7ce91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
