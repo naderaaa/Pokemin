@@ -18,34 +18,6 @@ public class Tile : MonoBehaviour
     public float frequency = 4f;
     public Vector3 originalPosition;
 
-    //private void Update()
-    //{ 
-    //
-    //    if (pieceOnTile != null)
-    //    {
-    //        if (doJump)
-    //        {
-    //            float newY = originalPosition.y + (Mathf.Sin(Random.value + Time.time * frequency) * .03f);
-    //            displayImage.transform.localPosition = new Vector3(displayImage.transform.localPosition.x, newY, displayImage.transform.localPosition.z);
-    //            if (Mathf.Sin(Random.value + Time.time * frequency) < 0) {
-    //                doJump = false;
-    //            }
-    //            Debug.Log("did");
-    //        }
-    //        else if (Mathf.Sin(Random.value + Time.time * frequency) >= 0)
-    //        {
-    //            Debug.Log("gonna do");
-    //
-    //            doJump = true;
-    //        }
-    //
-    //
-    //    }
-    //}
-
-
-
-
     public void PosGeneration() // generates the position relative to the scene using a formula
     {
         Vector3 pos = new((posx * 109) + 111, (posy * 109) + 100, gameObject.transform.position.z);
@@ -65,6 +37,7 @@ public class Tile : MonoBehaviour
         else // actually adding
         {
             pieceOnTile = piece;
+            piece.Location = this;
             displayImage.enabled = true;
             displayImage.sprite = piece.Sprite;
             displayImage.transform.localScale = new Vector3(piece.Scale, piece.Scale, piece.Scale);
@@ -124,6 +97,7 @@ public class Tile : MonoBehaviour
                 break;
 
             case Item item when pieceOnTile != null: // if the shopitem is an item
+                item.ToString(); // i hate messages! (remove later)
                 // figure this out later
                 break;
         }

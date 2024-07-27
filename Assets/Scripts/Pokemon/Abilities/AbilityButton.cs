@@ -9,7 +9,7 @@ public class AbilityButton : MonoBehaviour
 
     public void SetButton(Ability ability)
     {
-        this.enabled = true;
+        this.gameObject.SetActive(true);
         this.ability = ability;
         abilityName.text = ability.Name;
         switch (ability)
@@ -22,17 +22,20 @@ public class AbilityButton : MonoBehaviour
                 break;
         }
     }
-    //public AbilityButton(Ability? ability)
-    //{
-    //    this.ability = ability;
-    //    abilityName.text = ability.name;
-    //    switch (ability)
-    //    {
-    //        case ActiveAbility a:
-    //            cost.text = a.cost.;
-    //            break;
-    //
-    //
-    //    }
-    //}
+
+    public void HideButton()
+    {
+        gameObject.SetActive(false);
+        this.ability = null;
+
+    }
+
+    public void OnClick()
+    {
+        if (ability.Owner.Team == GameManager.whosTurn)
+        {
+            ability.OnUse();
+        }
+    }
+
 }

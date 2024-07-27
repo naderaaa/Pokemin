@@ -1,10 +1,12 @@
 using Assets.Scripts.Pokemon;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 public abstract class Piece : IPurchasable
 {
     public Team Team { get; set; }//which Team the piece is on
     public string Name { get; protected set; }//name of the piece (i.e. "Azurill", "Jirachi", "Galvantula")
+    public Tile? Location { get; set; }
     public int Tier { get; protected set; }//Tier of the piece in the shop
     public int MaxHP { get; protected set; }//set HP by default
     public int HP { get; set; }//current HP of piece, unit dies at 0
@@ -35,4 +37,5 @@ public abstract class Piece : IPurchasable
         Events.OnTakeDamageEnd?.Invoke(this, attack);
         return attack;
     }
+
 }

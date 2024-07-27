@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &330454859 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4354585366114398594, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+  m_PrefabInstance: {fileID: 6100496468290071752}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1608b643391d43443b6ac17bba388300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &379733103 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6245428991951563965, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
@@ -308,6 +319,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1061994804 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6265776864523644726, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+  m_PrefabInstance: {fileID: 6100496468290071752}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1608b643391d43443b6ac17bba388300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1269832696 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2032431720619928062, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
@@ -474,6 +496,14 @@ PrefabInstance:
       propertyPath: pieceSPEAdjustments
       value: 
       objectReference: {fileID: 1420975194}
+    - target: {fileID: 4183593406151533798, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: buttons.Array.data[0]
+      value: 
+      objectReference: {fileID: 1061994804}
+    - target: {fileID: 4183593406151533798, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: buttons.Array.data[1]
+      value: 
+      objectReference: {fileID: 330454859}
     - target: {fileID: 4183593406151533799, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
       propertyPath: m_SizeDelta.x
       value: 545.2103
@@ -769,6 +799,26 @@ PrefabInstance:
     - target: {fileID: 7095605471466864905, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311862098819366386, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311862098819366386, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1061994804}
+    - target: {fileID: 7311862098819366386, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311862098819366386, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AbilityButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311862098819366386, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7339593675403088690, guid: 7c5943892fb3b2f4fa0a07ce8c69ef48, type: 3}
       propertyPath: m_RootOrder

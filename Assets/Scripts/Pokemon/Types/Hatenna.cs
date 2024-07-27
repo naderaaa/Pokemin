@@ -14,8 +14,9 @@ public class Hatenna : Piece
         Range = 2;
         Steps = Speed;
 
-        Sprite = Resources.Load<Sprite>(FilePaths.Hatenna);
+        Abilities[0] = new HealingWish(this);
 
+        Sprite = Resources.Load<Sprite>(FilePaths.Hatenna);
         Scale = 1.1f;
 
     }

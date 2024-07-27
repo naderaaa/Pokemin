@@ -13,6 +13,8 @@ public class Hattrem : Piece
         Range = 2;
         Steps = Speed;
 
+        Abilities[0] = new HealingWish(this);
+
         PreEvolution = new Hatenna();
         Sprite = Resources.Load<Sprite>(FilePaths.Hattrem);
         Scale = 1.3f;

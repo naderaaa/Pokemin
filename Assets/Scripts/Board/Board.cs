@@ -109,8 +109,7 @@ public class Board : MonoBehaviour
         if (tile.pieceOnTile.HP <= 0) // handles death
         {
             tile.pieceOnTile.Team.NumPokemon--; // num pokemon is decremented
-            tile.pieceOnTile = null; // L bozo
-            tile.SetPiece(null); // piece is removed from board
+            tile.SetPiece(null); // piece is removed from board L bozo
 
         }
         GameManager.whosTurn.Energy--; // energy is decremented after attacking

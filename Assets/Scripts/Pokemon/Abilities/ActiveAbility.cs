@@ -1,8 +1,6 @@
-﻿public class ActiveAbility : Ability
+﻿public abstract class ActiveAbility : Ability
 {
     public int cost;
-    public override void OnUse()
-    {
 
-    }
+    public override abstract void OnUse();
 }

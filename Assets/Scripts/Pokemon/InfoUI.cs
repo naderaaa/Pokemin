@@ -43,14 +43,17 @@ public class InfoUI : MonoBehaviour
                 pieceRNG.text = piece.Range.ToString();
                 for (int i = 0; i < 2; i++)
                 {
-                    if (buttons[i] != null)
+                    if (piece.Abilities[i] != null)
                     {
                         buttons[i].SetButton(piece.Abilities[i]);
+                    } else
+                    {
+                        buttons[i].HideButton();
                     }
                 }
                 break;
             case Item item:
-
+                item.ToString(); // message was annoying
                 break;
         }
         StartCoroutine(MoveImageToRight());

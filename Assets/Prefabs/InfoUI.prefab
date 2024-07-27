@@ -406,7 +406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1608b643391d43443b6ac17bba388300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 0}
   abilityName: {fileID: 724367461444129693}
   cost: {fileID: 3074551890088782206}
 --- !u!1 &2985266063131826509
@@ -950,7 +949,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1608b643391d43443b6ac17bba388300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 0}
   abilityName: {fileID: 4282167389831567730}
   cost: {fileID: 5985619495821161086}
 --- !u!1 &4709956952308558150
