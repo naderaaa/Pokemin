@@ -18,10 +18,11 @@ public class InfoUI : MonoBehaviour
     public TextMeshProUGUI pieceSPEAdjustments;
     public TextMeshProUGUI pieceRNG;
     public TextMeshProUGUI pieceRNGAdjustments;
+    public AbilityButton[] buttons = new AbilityButton[2];
 
-    private float OpenXPos = 345f;
-    private float ClosedXPos = -170f;
-    private float duration = .175f;
+    private readonly float OpenXPos = 345f;
+    private readonly float ClosedXPos = -170f;
+    private readonly float duration = .175f;
     public IPurchasable toDisplay;
     public bool Opened = false;
 
@@ -29,20 +30,6 @@ public class InfoUI : MonoBehaviour
     {
         Instance = this;
     }
-
-    //public void OpenOrCloseUI()
-    //{
-    //    if (!Opened)
-    //    {
-    //        StartCoroutine(MoveImageToRight());
-    //        Opened = true;
-    //    } else
-    //    {
-    //        StartCoroutine(MoveImageToLeft());
-    //        Opened = false;
-    //    }
-    //
-    //}
 
     public void OpenUI(IPurchasable purchasable)
     {
@@ -55,6 +42,13 @@ public class InfoUI : MonoBehaviour
                 pieceATK.text = piece.Atk.ToString();
                 pieceSPE.text = piece.Steps + "/" + piece.Speed;
                 pieceRNG.text = piece.Range.ToString();
+                for (int i = 0; i < 2; i++)
+                {
+                    if (buttons[i] != null)
+                    {
+                        buttons[i].SetButton(piece.Abilities[i]);
+                    }
+                }
                 break;
             case Item item:
                 

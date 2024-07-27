@@ -28,7 +28,6 @@ public class Board : MonoBehaviour
                 tiles[x, y] = tile;
             }
         }
-
     }
 
     public void SelectTile(Tile tile)

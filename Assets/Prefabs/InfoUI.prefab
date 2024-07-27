@@ -282,13 +282,14 @@ GameObject:
   - component: {fileID: 6295974233304537954}
   - component: {fileID: 2823199254560754927}
   - component: {fileID: 6336735347305076546}
+  - component: {fileID: 8854576206568527222}
   m_Layer: 5
   m_Name: AbilityButton2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5136770289333381691
 RectTransform:
   m_ObjectHideFlags: 0
@@ -393,6 +394,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8854576206568527222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2279263740799346932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1608b643391d43443b6ac17bba388300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 0}
+  abilityName: {fileID: 724367461444129693}
+  cost: {fileID: 3074551890088782206}
 --- !u!1 &2985266063131826509
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,13 +826,14 @@ GameObject:
   - component: {fileID: 449394438874468937}
   - component: {fileID: 3529381528869672271}
   - component: {fileID: 2591731022152161542}
+  - component: {fileID: 1187785543232162754}
   m_Layer: 5
   m_Name: AbilityButton1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4269347319538275134
 RectTransform:
   m_ObjectHideFlags: 0
@@ -921,6 +938,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1187785543232162754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4538361057692367400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1608b643391d43443b6ac17bba388300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 0}
+  abilityName: {fileID: 4282167389831567730}
+  cost: {fileID: 5985619495821161086}
 --- !u!1 &4709956952308558150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,4 +2084,7 @@ MonoBehaviour:
   pieceSPEAdjustments: {fileID: 0}
   pieceRNG: {fileID: 0}
   pieceRNGAdjustments: {fileID: 0}
+  buttons:
+  - {fileID: 0}
+  - {fileID: 0}
   Opened: 0
