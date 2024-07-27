@@ -28,7 +28,7 @@ public class ShopPanel : MonoBehaviour
                         Shop.ShopInstance.shopText.GetComponent<TextMeshProUGUI>().text = "Purchase a Pokemon by placing it in a space in one of the top two rows!";
                     }
                 }
-                
+
                 Shop.ShopInstance.ItemToPurchase = this; // this shopitem is now being purchased
             }
             InfoUI.Instance.OpenUI(shopItem);
@@ -60,7 +60,7 @@ public class ShopPanel : MonoBehaviour
         }
         InfoUI.Instance.CloseUI();
         buying = false; // no longer buying anything
-        
+
     }
 
     public void AfterEvolvingPurchase() // cleanup for evolution specific purchases

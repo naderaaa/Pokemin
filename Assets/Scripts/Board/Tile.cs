@@ -71,7 +71,8 @@ public class Tile : MonoBehaviour
             if (piece.Team == GameManager.teams.Item1)
             {
                 teamSymbol.sprite = Resources.Load<Sprite>(FilePaths.Team1Flag);
-            } else
+            }
+            else
             {
                 teamSymbol.sprite = Resources.Load<Sprite>(FilePaths.Team2Flag);
             }

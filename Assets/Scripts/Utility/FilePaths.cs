@@ -20,6 +20,7 @@ public class FilePaths : MonoBehaviour
     public const string Flygon = "Sprites/flygon";
     public const string Glimmet = "Sprites/glimmet";
     public const string Hatenna = "Sprites/hatenna2";
+    public const string Hattrem = "Sprites/hattrem";
     public const string IronBundle = "Sprites/iron bundle";
     public const string IronValiant = "Sprites/iron valiant";
     public const string Ivysaur = "Sprites/ivysaur";
@@ -35,6 +36,7 @@ public class FilePaths : MonoBehaviour
     public const string Marill = "Sprites/marill";
     public const string Mawile = "Sprites/mawile";
     public const string MegaAltaria = "Sprites/mega altaria";
+    public const string MegaMawile = "Sprites/mega mawile";
     public const string Porygon = "Sprites/porygon";
     public const string Regieleki = "Sprites/regieleki";
     public const string Shaymin = "Sprites/shaymin";
@@ -46,7 +48,10 @@ public class FilePaths : MonoBehaviour
     public const string Swablu = "Sprites/swablu";
     public const string Tinkatink = "Sprites/tinkatink";
     public const string Trapinch = "Sprites/trapinch";
+    public const string Vaporeon = "Sprites/vaporeon";
+    public const string Vibrava = "Sprites/vibrava";
     public const string Victini = "Sprites/victini";
+    public const string Whimsicott = "Sprites/whimsicott";
     public const string Wochien = "Sprites/wo-chien";
 
     // Other

@@ -15,7 +15,7 @@ public class AbilityButton : MonoBehaviour
         switch (ability)
         {
             case ActiveAbility active:
-                cost.text = active.cost.ToString(); 
+                cost.text = active.cost.ToString();
                 break;
             case PassiveAbility:
                 cost.text = "passive";

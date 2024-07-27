@@ -13,6 +13,7 @@ public class Hatenna : Piece
         Speed = 1;
         Range = 2;
         Steps = Speed;
+
         Sprite = Resources.Load<Sprite>(FilePaths.Hatenna);
 
         Scale = 1.1f;

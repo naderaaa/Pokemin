@@ -13,7 +13,7 @@ public class Shroomish : Piece
         Range = 1;
         Steps = Speed;
 
-        
+
 
         Sprite = Resources.Load<Sprite>(FilePaths.Shroomish);
 

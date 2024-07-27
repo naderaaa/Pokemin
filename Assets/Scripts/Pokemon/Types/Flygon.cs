@@ -15,6 +15,7 @@ public class Flygon : Piece
         Steps = Speed;
 
         Sprite = Resources.Load<Sprite>(FilePaths.Flygon);
+        PreEvolution = new Vibrava();
     }
 
     public override string GetContents()

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -51,7 +50,7 @@ public class InfoUI : MonoBehaviour
                 }
                 break;
             case Item item:
-                
+
                 break;
         }
         StartCoroutine(MoveImageToRight());
@@ -78,7 +77,7 @@ public class InfoUI : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        displayImage.transform.localPosition = targetPos;    
+        displayImage.transform.localPosition = targetPos;
     }
 
     public IEnumerator MoveImageToLeft()

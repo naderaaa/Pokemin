@@ -41,7 +41,7 @@ public class Board : MonoBehaviour
         // case 7: targeting an ability
 
         if (movable.Contains(tile)) // moving by clicking a highlighted tile
-        {   
+        {
             MoveToHighlightedSpace(tile);
         }
         else if (targetable.Contains(tile)) // attacking by clicking a targetable tile
@@ -63,7 +63,7 @@ public class Board : MonoBehaviour
                 HighlightAdjacent(tile);
                 TargetInRange(tile);
                 selected = tile;
-                
+
             }
         }
         else if (tile.pieceOnTile.Team.Name.Equals(GameManager.whosTurn.Name) && !tile.attacked)
@@ -73,13 +73,13 @@ public class Board : MonoBehaviour
                 TargetInRange(tile);
                 selected = tile;
             }
-        } 
+        }
 
         if (tile.pieceOnTile != null && tile != showingInfo)
         {
             showingInfo = tile;
             InfoUI.Instance.OpenUI(tile.pieceOnTile);
-        } 
+        }
         else if (tile.pieceOnTile == null || selected == null || tile.pieceOnTile.Steps == 0)
         {
             showingInfo = null;
@@ -189,5 +189,5 @@ public class Board : MonoBehaviour
         tile.targetOverlay.enabled = true;
     }
 
-   
+
 }

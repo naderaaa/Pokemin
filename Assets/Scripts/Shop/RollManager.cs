@@ -24,6 +24,7 @@ public class RollManager : MonoBehaviour
         new Flygon(),
         new Glimmet(),
         new Hatenna(),
+        new Hattrem(),
         new IronBundle(),
         new IronValiant(),
         new Ivysaur(),
@@ -48,7 +49,10 @@ public class RollManager : MonoBehaviour
         new Swablu(),
         new Tinkatink(),
         new Trapinch(),
+        new Vaporeon(),
+        new Vibrava(),
         new Victini(),
+        new Whimsicott(),
         new Wochien(),
 
         // items

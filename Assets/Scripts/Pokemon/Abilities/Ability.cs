@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class Ability : MonoBehaviour
+public abstract class Ability
 {
     public string Name { get; set; }
     public string Description { get; set; }
