@@ -34,6 +34,7 @@ public class RollManager : MonoBehaviour
         new Latias(),
         new Litwick(),
         new Magearna(),
+        new Manaphy(),
         new Mantyke(),
         new Mareanie(),
         new Marill(),
