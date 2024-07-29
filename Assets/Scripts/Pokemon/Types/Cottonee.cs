@@ -14,6 +14,7 @@ public class Cottonee : Piece
         Speed = 2;
         Range = 2;
         Steps = Speed;
+
         Sprite = Resources.Load<Sprite>(FilePaths.Cottonee);
         Scale = 1.3f;
     }

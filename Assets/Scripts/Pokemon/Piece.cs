@@ -20,6 +20,7 @@ public abstract class Piece : IPurchasable
     public float Scale { get; protected set; } = 1.4f; // image scale
     public abstract string GetContents(); // gets the name of the piece?? idfk its useless
     public Sprite Sprite { get; protected set; }
+    public bool moved = false;
 
     public virtual Attack Attack(Piece target)
     {

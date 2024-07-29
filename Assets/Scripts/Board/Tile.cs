@@ -93,7 +93,7 @@ public class Tile : MonoBehaviour
                     // once conditions are set up, the evolution should get the preevos conditions here
                     SetPiece(piece);
                 }
-                Shop.ShopInstance.ItemToPurchase.AfterPurchase();
+                Shop.ShopInstance.ItemToPurchase.AfterPurchasingAPokemon();
                 break;
 
             case Item item when pieceOnTile != null: // if the shopitem is an item
@@ -109,7 +109,7 @@ public class Tile : MonoBehaviour
             piece.Team = GameManager.whosTurn;
             SetPiece(piece);
         }
-        Shop.ShopInstance.ItemToPurchase.AfterPurchase();
+        Shop.ShopInstance.ItemToPurchase.AfterPurchasingAPokemon();
 
     }
 

@@ -35,6 +35,7 @@ public class InfoUI : MonoBehaviour
 
     public void OpenUI(IPurchasable purchasable)
     {
+        toDisplay = purchasable;
         pieceName.text = purchasable.GetType().ToString(); // setting the infoui's name text
         pieceDisplay.sprite = purchasable.Sprite; // setting the infoui's sprite display
         switch (purchasable)
@@ -106,5 +107,11 @@ public class InfoUI : MonoBehaviour
 
         displayImage.transform.localPosition = targetPos;
 
+    }
+
+    public void Reload()
+    {
+        CloseUI();
+        OpenUI(toDisplay);
     }
 }

@@ -10,12 +10,12 @@
     
     public override void OnUse()
     {
-        Owner.Atk += 4;
-        InfoUI.Instance.CloseUI();
-        InfoUI.Instance.OpenUI(Owner);
+        
         if (GameManager.whosTurn.Energy >= cost)
         {
             GameManager.whosTurn.Energy -= cost;
+            Owner.Atk += 4;
+            InfoUI.Instance.Reload();
         }
     }
 }

@@ -58,7 +58,7 @@ public class Board : MonoBehaviour
         }
         else if (tile.pieceOnTile.Steps > 0 && tile.pieceOnTile.Team.Name.Equals(GameManager.whosTurn.Name)) // selecting a tile with steps
         {
-            if (GameManager.whosTurn.Energy > 0 || tile.pieceOnTile.Steps != tile.pieceOnTile.Speed)
+            if (GameManager.whosTurn.Energy > 0 || tile.pieceOnTile.moved)
             {
                 HighlightAdjacent(tile);
                 TargetInRange(tile);
@@ -93,9 +93,10 @@ public class Board : MonoBehaviour
         selected.SetPiece(null); // piece is removed from original location 
         ClearHighlightsAndTargets(); // all highlights/targets are removed
         movable.Remove(tile); // that tile is now is empty
-        if (tile.pieceOnTile.Steps == tile.pieceOnTile.Speed) // energy is only decremented once a pokemon moves the first time a turn
+        if (!tile.pieceOnTile.moved) // energy is only decremented once a pokemon moves the first time a turn
         {
             GameManager.whosTurn.Energy--;
+            tile.pieceOnTile.moved = true;
         }
         tile.pieceOnTile.Steps--; // steps is decremented
     }
@@ -109,6 +110,7 @@ public class Board : MonoBehaviour
         if (tile.pieceOnTile.HP <= 0) // handles death
         {
             tile.pieceOnTile.Team.NumPokemon--; // num pokemon is decremented
+            tile.pieceOnTile.Team.pokemon.Remove(tile.pieceOnTile); 
             tile.SetPiece(null); // piece is removed from board L bozo
 
         }

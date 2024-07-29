@@ -43,7 +43,7 @@ public class ShopPanel : MonoBehaviour
         }
     }
 
-    public void AfterPurchase() // some cleanup
+    public void AfterPurchasingAPokemon() // some cleanup
     {
         if (!GameManager.whosTurn.bought1Item)
         {
@@ -54,7 +54,9 @@ public class ShopPanel : MonoBehaviour
         {
             GameManager.whosTurn.Energy -= 2; // decrements energy by 2
             GameManager.whosTurn.NumPokemon++; // increments energy
+            GameManager.whosTurn.pokemon.Add((Piece) shopItem);
             shopItem = null; // item is not in the shop anymore
+
             GetComponent<Image>().enabled = false; // turn off the image
             shopPanelTileIcon.GetComponent<Image>().enabled = false; // turns off the die
         }

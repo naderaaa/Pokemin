@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
             if (tile.pieceOnTile is not null)
             {
                 tile.pieceOnTile.Steps = tile.pieceOnTile.Speed;
+                tile.pieceOnTile.moved = false;
             }
         }
         // switching whos turn it is

@@ -1,4 +1,6 @@
-﻿public class HealingWish : ActiveAbility
+﻿using System.Buffers;
+
+public class HealingWish : ActiveAbility
 {
     public HealingWish(Piece piece)
     {
