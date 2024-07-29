@@ -5,73 +5,80 @@ using UnityEngine.UI;
 
 public class InfoUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public static InfoUI Instance;
-    public Image displayImage;
-    public TextMeshProUGUI pieceName;
-    public Image pieceDisplay;
+    public static InfoUI Instance; // uses a singleton
+    public Image displayImage; // the actual infoui image
+
+    // piece specific elements
+    public TextMeshProUGUI pieceName; // text display for the name
+    public Image pieceDisplay; // piece's sprite
     public TextMeshProUGUI pieceHP;
     public TextMeshProUGUI pieceATK;
-    public TextMeshProUGUI pieceATKAdjustments;
+    public TextMeshProUGUI pieceATKAdjustments; // eventually will display a pokemons atk adjustments (like +2 or -2)
     public TextMeshProUGUI pieceSPE;
-    public TextMeshProUGUI pieceSPEAdjustments;
+    public TextMeshProUGUI pieceSPEAdjustments; // same deal here
     public TextMeshProUGUI pieceRNG;
-    public TextMeshProUGUI pieceRNGAdjustments;
-    public AbilityButton[] buttons = new AbilityButton[2];
+    public TextMeshProUGUI pieceRNGAdjustments; // same deal here
+    public AbilityButton[] buttons = new AbilityButton[2]; // the ability buttons
 
-    private readonly float OpenXPos = 345f;
-    private readonly float ClosedXPos = -170f;
-    private readonly float duration = .175f;
-    public IPurchasable toDisplay;
-    public bool Opened = false;
+    // handling the animation
+    private readonly float OpenXPos = 345f; // the xposition when fully opened
+    private readonly float ClosedXPos = -170f; // the xposition when fully closed
+    private readonly float duration = .175f; // how long it takes to open and close
+
+    public IPurchasable toDisplay; // whatever's on display
+    public bool Opened = false; // whether or not the ui is opened
 
     private void Start()
     {
-        Instance = this;
+        Instance = this; // sets the singleton
     }
 
     public void OpenUI(IPurchasable purchasable)
     {
-        pieceName.text = purchasable.GetType().ToString();
-        pieceDisplay.sprite = purchasable.Sprite;
+        pieceName.text = purchasable.GetType().ToString(); // setting the infoui's name text
+        pieceDisplay.sprite = purchasable.Sprite; // setting the infoui's sprite display
         switch (purchasable)
         {
-            case Piece piece:
+            case Piece piece: // in the case of a piece
                 pieceHP.text = piece.HP + "/" + piece.MaxHP;
                 pieceATK.text = piece.Atk.ToString();
                 pieceSPE.text = piece.Steps + "/" + piece.Speed;
                 pieceRNG.text = piece.Range.ToString();
-                for (int i = 0; i < 2; i++)
+                // eventually put the adjustments over here
+
+                for (int i = 0; i < 2; i++) // for both buttons
                 {
-                    if (piece.Abilities[i] != null)
+                    if (piece.Abilities[i] != null) // if the piece has an ability
                     {
-                        buttons[i].SetButton(piece.Abilities[i]);
-                    } else
+                        buttons[i].SetButton(piece.Abilities[i]); // display it
+                    } 
+                    else // if not
                     {
-                        buttons[i].HideButton();
+                        buttons[i].HideButton(); // hide the button
                     }
                 }
                 break;
             case Item item:
                 item.ToString(); // message was annoying
+                // eventually get this to work
                 break;
         }
-        StartCoroutine(MoveImageToRight());
-        Opened = true;
+        StartCoroutine(MoveImageToRight()); // handles movement
+        Opened = true; // flag wave
 
     }
     public void CloseUI()
     {
-        StartCoroutine(MoveImageToLeft());
-        Opened = false;
+        StartCoroutine(MoveImageToLeft()); // hides the ui
+        Opened = false; // flag wave
 
     }
 
     public IEnumerator MoveImageToRight()
     {
-        Vector3 initialPos = displayImage.transform.localPosition;
+        Vector3 initialPos = displayImage.transform.localPosition; 
         Vector3 targetPos = new(OpenXPos, initialPos.y, initialPos.z);
-        float elapsedTime = 0f;
+        float elapsedTime = 0f; 
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration;

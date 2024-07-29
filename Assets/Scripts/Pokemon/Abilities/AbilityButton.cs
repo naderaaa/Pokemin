@@ -3,36 +3,35 @@ using UnityEngine;
 
 public class AbilityButton : MonoBehaviour
 {
-    public Ability? ability;
+    public Ability? ability; // ability potentially on display
     public TextMeshProUGUI abilityName;
     public TextMeshProUGUI cost;
 
     public void SetButton(Ability ability)
     {
-        this.gameObject.SetActive(true);
-        this.ability = ability;
-        abilityName.text = ability.Name;
+        gameObject.SetActive(true); // reveal the button
+        this.ability = ability; // set the ability
+        abilityName.text = ability.Name; // set the name
         switch (ability)
         {
-            case ActiveAbility active:
+            case ActiveAbility active: // if its an active ability, display its cost
                 cost.text = active.cost.ToString();
                 break;
-            case PassiveAbility:
+            case PassiveAbility: // if its a passive ability, display "passive"
                 cost.text = "passive";
                 break;
         }
     }
 
-    public void HideButton()
+    public void HideButton() // close the button
     {
         gameObject.SetActive(false);
-        this.ability = null;
-
+        ability = null;
     }
 
-    public void OnClick()
+    public void OnClick() // called when the button is clicked
     {
-        if (ability.Owner.Team == GameManager.whosTurn)
+        if (ability.Owner.Team == GameManager.whosTurn) // ensures the piece is on the board + is on your team
         {
             ability.OnUse();
         }
