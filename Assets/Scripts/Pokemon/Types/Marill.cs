@@ -18,8 +18,5 @@ public class Marill : Piece
 
         Scale = 1f;
     }
-    public override string GetContents()
-    {
-        return "marill";
-    }
+
 }

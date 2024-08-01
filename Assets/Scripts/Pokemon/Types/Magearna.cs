@@ -16,8 +16,4 @@ public class Magearna : Piece
         Sprite = Resources.Load<Sprite>(FilePaths.Magearna);
     }
 
-    public override string GetContents()
-    {
-        return "Magearna";
-    }
 }

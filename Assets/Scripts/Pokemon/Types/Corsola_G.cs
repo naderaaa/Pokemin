@@ -17,9 +17,4 @@ public class Corsola_G : Piece
         Sprite = Resources.Load<Sprite>(FilePaths.Corsola_G);
     }
 
-    public override string GetContents()
-    {
-        return "Galarian Corsola";
-    }
-
 }

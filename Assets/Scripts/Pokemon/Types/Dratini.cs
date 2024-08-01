@@ -19,8 +19,5 @@ public class Dratini : Piece
 
 
     }
-    public override string GetContents()
-    {
-        return "dratini";
-    }
+
 }

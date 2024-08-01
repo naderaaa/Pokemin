@@ -19,8 +19,4 @@ public class Jirachi : Piece
 
     }
 
-    public override string GetContents()
-    {
-        return "jirachi";
-    }
 }

@@ -17,8 +17,4 @@ public class Glimmet : Piece
         Scale = 1.2f;
     }
 
-    public override string GetContents()
-    {
-        return "glimmet";
-    }
 }

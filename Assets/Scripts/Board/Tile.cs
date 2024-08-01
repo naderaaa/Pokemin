@@ -86,7 +86,7 @@ public class Tile : MonoBehaviour
                     }
                 }
                 break;
-            case Piece piece when piece.PreEvolution != null && pieceOnTile.GetContents() == piece.PreEvolution.GetContents() && pieceOnTile.Team == GameManager.whosTurn: // if the shopitem is an evolution
+            case Piece piece when piece.PreEvolution != null && pieceOnTile.GetType().ToString() == piece.PreEvolution.GetType().ToString() && pieceOnTile.Team == GameManager.whosTurn: // if the shopitem is an evolution
                 if (GameManager.whosTurn.Energy >= 2) // if the piece can be purchased
                 {
                     piece.Team = GameManager.whosTurn;

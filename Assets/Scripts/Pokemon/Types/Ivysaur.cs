@@ -14,14 +14,10 @@ public class Ivysaur : Piece
         Range = 2;
         Steps = Speed;
 
-        Sprite = Resources.Load<Sprite>(FilePaths.Ivysaur);
         PreEvolution = new Bulbasaur();
+        Sprite = Resources.Load<Sprite>(FilePaths.Ivysaur);
 
         Scale = 1.1f;
     }
 
-    public override string GetContents()
-    {
-        return "ivysaur";
-    }
 }

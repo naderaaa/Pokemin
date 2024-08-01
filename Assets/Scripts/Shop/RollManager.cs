@@ -9,6 +9,7 @@ public class RollManager : MonoBehaviour
     {
         // pokemons
         new Altaria(),
+        new Azumarill(),
         new Azurill(),
         new Breloom(),
         new Bulbasaur(),
@@ -47,6 +48,7 @@ public class RollManager : MonoBehaviour
         new SlitherWing(),
         new Sneasel(),
         new Starly(),
+        new Starmie(),
         new Staryu(),
         new Swablu(),
         new Tinkatink(),

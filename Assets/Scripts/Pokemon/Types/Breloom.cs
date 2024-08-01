@@ -17,8 +17,4 @@ public class Breloom : Piece
 
     }
 
-    public override string GetContents()
-    {
-        return "breloom";
-    }
 }

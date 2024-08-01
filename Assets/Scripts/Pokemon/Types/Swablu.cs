@@ -26,9 +26,4 @@ public class Swablu : Piece
         };
 
     }
-
-    public override string GetContents()
-    {
-        return "swablu";
-    }
 }

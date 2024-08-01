@@ -20,8 +20,4 @@ public class Hattrem : Piece
         Scale = 1.3f;
     }
 
-    public override string GetContents()
-    {
-        return "hattrem";
-    }
 }

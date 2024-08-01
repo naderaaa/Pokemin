@@ -19,7 +19,6 @@ public abstract class Piece : IPurchasable
     public Piece? PreEvolution { get; set; } = null; // does this pokemon have a preevolution? if so what is it
     public PokemonEvents Events { get; } = new PokemonEvents();
     public float Scale { get; protected set; } = 1.4f; // image scale
-    public abstract string GetContents(); // gets the name of the piece?? idfk its useless
 
     public HashSet<Conditions> Conditions { get; protected set; } = new HashSet<Conditions>();
     public Sprite Sprite { get; protected set; }

@@ -18,8 +18,5 @@ public class Starly : Piece
 
 
     }
-    public override string GetContents()
-    {
-        return "starly";
-    }
+
 }

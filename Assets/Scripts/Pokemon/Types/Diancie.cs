@@ -16,8 +16,4 @@ public class Diancie : Piece
 
     }
 
-    public override string GetContents()
-    {
-        return "diancie";
-    }
 }

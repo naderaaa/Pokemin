@@ -19,8 +19,4 @@ public class Trapinch : Piece
 
     }
 
-    public override string GetContents()
-    {
-        return "trapinch";
-    }
 }

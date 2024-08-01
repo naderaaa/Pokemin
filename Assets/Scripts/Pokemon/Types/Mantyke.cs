@@ -17,8 +17,4 @@ public class Mantyke : Piece
 
     }
 
-    public override string GetContents()
-    {
-        return "mantyke";
-    }
 }

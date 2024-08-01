@@ -18,8 +18,4 @@ public class Flygon : Piece
         PreEvolution = new Vibrava();
     }
 
-    public override string GetContents()
-    {
-        return "flygon";
-    }
 }

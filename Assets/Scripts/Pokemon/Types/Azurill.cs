@@ -17,9 +17,4 @@ public class Azurill : Piece
         Sprite = Resources.Load<Sprite>(FilePaths.Azurill);
 
     }
-
-    public override string GetContents()
-    {
-        return "azurill";
-    }
 }

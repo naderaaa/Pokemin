@@ -17,9 +17,4 @@ public class Vibrava : Piece
         Sprite = Resources.Load<Sprite>(FilePaths.Vibrava);
         Scale = 1.2f;
     }
-
-    public override string GetContents()
-    {
-        return "vibrava";
-    }
 }

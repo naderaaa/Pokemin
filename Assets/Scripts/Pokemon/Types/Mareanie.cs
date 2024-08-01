@@ -19,8 +19,4 @@ public class Mareanie : Piece
 
     }
 
-    public override string GetContents()
-    {
-        return "mareanie";
-    }
 }

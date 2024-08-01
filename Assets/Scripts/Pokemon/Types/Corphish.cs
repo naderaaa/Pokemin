@@ -18,8 +18,5 @@ public class Corphish : Piece
 
         Scale = 1.1f;
     }
-    public override string GetContents()
-    {
-        return "corphish";
-    }
+
 }

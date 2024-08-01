@@ -17,8 +17,4 @@ public class Bulbasaur : Piece
         Sprite = Resources.Load<Sprite>(FilePaths.Bulbasaur);
 
     }
-    public override string GetContents()
-    {
-        return "bulbasaur";
-    }
 }

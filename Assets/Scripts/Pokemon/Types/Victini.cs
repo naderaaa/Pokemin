@@ -15,8 +15,5 @@ public class Victini : Piece
 
         Sprite = Resources.Load<Sprite>(FilePaths.Victini);
     }
-    public override string GetContents()
-    {
-        return "victini";
-    }
+
 }

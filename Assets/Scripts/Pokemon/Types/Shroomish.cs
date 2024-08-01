@@ -20,8 +20,4 @@ public class Shroomish : Piece
         Scale = 1.2f;
     }
 
-    public override string GetContents()
-    {
-        return "shroomish";
-    }
 }

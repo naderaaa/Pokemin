@@ -15,8 +15,5 @@ public class Wochien : Piece
 
         Sprite = Resources.Load<Sprite>(FilePaths.Wochien);
     }
-    public override string GetContents()
-    {
-        return "wo-chien";
-    }
+
 }

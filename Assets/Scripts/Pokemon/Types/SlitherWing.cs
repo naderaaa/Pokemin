@@ -19,9 +19,4 @@ public class SlitherWing : Piece
         Sprite = Resources.Load<Sprite>(FilePaths.SlitherWing);
     }
 
-    public override string GetContents()
-    {
-        return "slither wing";
-    }
-
 }

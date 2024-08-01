@@ -17,9 +17,4 @@ public class Regieleki : Piece
         Sprite = Resources.Load<Sprite>(FilePaths.Regieleki);
     }
 
-    public override string GetContents()
-    {
-        return "regieleki";
-    }
-
 }

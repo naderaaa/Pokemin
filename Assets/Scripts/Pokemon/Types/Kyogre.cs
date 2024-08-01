@@ -18,8 +18,4 @@ public class Kyogre : Piece
 
     }
 
-    public override string GetContents()
-    {
-        return "kyogre";
-    }
 }

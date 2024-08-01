@@ -21,8 +21,4 @@ public class Whimsicott : Piece
 
     }
 
-    public override string GetContents()
-    {
-        return "whimsicott";
-    }
 }

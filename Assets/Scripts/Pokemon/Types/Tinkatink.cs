@@ -18,8 +18,5 @@ public class Tinkatink : Piece
         Scale = 1.2f;
 
     }
-    public override string GetContents()
-    {
-        return "tinkatink";
-    }
+
 }

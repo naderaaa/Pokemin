@@ -19,9 +19,4 @@ public class Sneasel : Piece
         Sprite = Resources.Load<Sprite>(FilePaths.Sneasel);
     }
 
-    public override string GetContents()
-    {
-        return "sneasel";
-    }
-
 }

@@ -17,8 +17,5 @@ public class Staryu : Piece
         Sprite = Resources.Load<Sprite>(FilePaths.Staryu);
         Scale = 1.2f;
     }
-    public override string GetContents()
-    {
-        return "staryu";
-    }
+
 }

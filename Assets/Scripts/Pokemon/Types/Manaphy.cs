@@ -22,9 +22,4 @@ public class Manaphy : Piece
 
     }
 
-    public override string GetContents()
-    {
-        return "manaphy";
-    }
-
 }

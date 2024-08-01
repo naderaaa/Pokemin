@@ -17,8 +17,4 @@ public class Dwebble : Piece
 
     }
 
-    public override string GetContents()
-    {
-        return "dwebble";
-    }
 }

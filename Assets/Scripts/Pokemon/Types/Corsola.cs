@@ -16,9 +16,4 @@ public class Corsola : Piece
         Sprite = Resources.Load<Sprite>(FilePaths.Corsola);
     }
 
-    public override string GetContents()
-    {
-        return "corsola";
-    }
-
 }

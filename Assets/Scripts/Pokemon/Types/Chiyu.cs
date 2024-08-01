@@ -18,8 +18,4 @@ public class Chiyu : Piece
         Scale = 1.2f;
     }
 
-    public override string GetContents()
-    {
-        return "chi-yu";
-    }
 }

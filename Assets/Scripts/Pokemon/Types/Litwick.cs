@@ -17,8 +17,5 @@ public class Litwick : Piece
         Scale = 1.1f;
 
     }
-    public override string GetContents()
-    {
-        return "litwick";
-    }
+
 }

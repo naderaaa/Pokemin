@@ -5,6 +5,7 @@ public class FilePaths : MonoBehaviour
 
     // Pokemon
     public const string Altaria = "Sprites/altaria";
+    public const string Azumarill = "Sprites/azumarill";
     public const string Azurill = "Sprites/azurill";
     public const string Breloom = "Sprites/breloom";
     public const string Bulbasaur = "Sprites/bulbasaur";
@@ -45,6 +46,7 @@ public class FilePaths : MonoBehaviour
     public const string SlitherWing = "Sprites/slither wing";
     public const string Sneasel = "Sprites/sneasel";
     public const string Starly = "Sprites/starly";
+    public const string Starmie = "Sprites/starmie";
     public const string Staryu = "Sprites/staryu";
     public const string Swablu = "Sprites/swablu";
     public const string Tinkatink = "Sprites/tinkatink";

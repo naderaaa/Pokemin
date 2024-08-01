@@ -18,9 +18,4 @@ public class Joltik : Piece
 
     }
 
-    public override string GetContents()
-    {
-        return "joltik";
-    }
-
 }

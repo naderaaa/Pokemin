@@ -17,8 +17,5 @@ public class Dreepy : Piece
         Scale = 1.3f;
 
     }
-    public override string GetContents()
-    {
-        return "dreepy";
-    }
+
 }

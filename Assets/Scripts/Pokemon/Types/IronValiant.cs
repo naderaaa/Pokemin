@@ -15,9 +15,5 @@ public class IronValiant : Piece
 
         Sprite = Resources.Load<Sprite>(FilePaths.IronValiant);
     }
-    public override string GetContents()
-    {
-        return "iron valiant";
-    }
 
 }

@@ -12,14 +12,10 @@ public class Altaria : Piece
         Speed = 1;
         Range = 1;
         Steps = Speed;
-
+        Scale = 1.25f;
         PreEvolution = new Swablu();
         Sprite = Resources.Load<Sprite>(FilePaths.Altaria);
 
     }
 
-    public override string GetContents()
-    {
-        return "altaria";
-    }
 }

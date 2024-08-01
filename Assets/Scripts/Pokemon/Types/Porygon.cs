@@ -18,8 +18,5 @@ public class Porygon : Piece
 
         Scale = 1.2f;
     }
-    public override string GetContents()
-    {
-        return "porygon";
-    }
+
 }

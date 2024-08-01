@@ -18,9 +18,4 @@ public class Latias : Piece
 
     }
 
-    public override string GetContents()
-    {
-        return "latias";
-    }
-
 }

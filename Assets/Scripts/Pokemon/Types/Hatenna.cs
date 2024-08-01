@@ -21,8 +21,4 @@ public class Hatenna : Piece
 
     }
 
-    public override string GetContents()
-    {
-        return "hatenna";
-    }
 }
