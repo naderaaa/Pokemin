@@ -4,6 +4,7 @@ public class FilePaths : MonoBehaviour
 { // Filepaths to commonly used assets
 
     // Pokemon
+    public const string Altaria = "Sprites/altaria";
     public const string Azurill = "Sprites/azurill";
     public const string Breloom = "Sprites/breloom";
     public const string Bulbasaur = "Sprites/bulbasaur";

@@ -17,7 +17,6 @@ public class Vaporeon : Piece
         Scale = 1.2f;
 
     }
-
     public override string GetContents()
     {
         return "vaporeon";

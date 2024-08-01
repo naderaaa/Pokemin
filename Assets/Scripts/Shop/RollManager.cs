@@ -8,6 +8,7 @@ public class RollManager : MonoBehaviour
     private static List<IPurchasable> potentialShopElements => new()
     {
         // pokemons
+        new Altaria(),
         new Azurill(),
         new Breloom(),
         new Bulbasaur(),
