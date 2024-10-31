@@ -2,6 +2,6 @@
 {
     public override void OnUse()
     {
-        // do nothing
+        // activated in certain situationsi
     }
 }

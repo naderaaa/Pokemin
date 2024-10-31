@@ -1,7 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI;   
 
 public class GameManager : MonoBehaviour
 {
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
         catch (NullReferenceException)
         {
             Debug.Log("e");
+            
         }
     }
 
