@@ -15,6 +15,7 @@ public class FilePaths : MonoBehaviour
     public const string Corsola = "Sprites/corsola";
     public const string Corsola_G = "Sprites/corsola_g";
     public const string Cottonee = "Sprites/cottonee 1";
+    public const string Crustle = "Sprites/crustle";
     public const string Deino = "Sprites/deino";
     public const string Diancie = "Sprites/diancie";
     public const string Dratini = "Sprites/dratini";
@@ -44,6 +45,8 @@ public class FilePaths : MonoBehaviour
     public const string MegaAltaria = "Sprites/mega altaria";
     public const string MegaMawile = "Sprites/mega mawile";
     public const string Porygon = "Sprites/porygon";
+    public const string Porygon2 = "Sprites/porygon2";
+    public const string PorygonZ = "Sprites/porygonz";
     public const string Regieleki = "Sprites/regieleki";
     public const string Shaymin = "Sprites/shaymin";
     public const string Shroomish = "Sprites/shroomish";
