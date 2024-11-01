@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class FilePaths : MonoBehaviour
@@ -13,21 +14,24 @@ public class FilePaths : MonoBehaviour
     public const string Corphish = "Sprites/corphish";
     public const string Corsola = "Sprites/corsola";
     public const string Corsola_G = "Sprites/corsola_g";
-    public const string Cottonee = "Sprites/cottonee";
+    public const string Cottonee = "Sprites/cottonee 1";
     public const string Deino = "Sprites/deino";
     public const string Diancie = "Sprites/diancie";
     public const string Dratini = "Sprites/dratini";
     public const string Dreepy = "Sprites/dreepy";
     public const string Dwebble = "Sprites/dwebble";
     public const string Flygon = "Sprites/flygon";
+    public const string Galvantula = "Sprites/galvantula";
     public const string Glimmet = "Sprites/glimmet";
-    public const string Hatenna = "Sprites/hatenna2";
+    public const string Glimmora = "Sprites/glimmora";
+    public const string Hatenna = "Sprites/hatenna_2";
     public const string Hattrem = "Sprites/hattrem";
+    public const string Hatterene = "Sprites/hatterene";
     public const string IronBundle = "Sprites/iron bundle";
     public const string IronValiant = "Sprites/iron valiant";
     public const string Ivysaur = "Sprites/ivysaur";
     public const string Jirachi = "Sprites/jirachi";
-    public const string Joltik = "Sprites/joltik2";
+    public const string Joltik = "Sprites/joltik_2";
     public const string Kyogre = "Sprites/kyogre";
     public const string Latias = "Sprites/latias";
     public const string Litwick = "Sprites/litwick";
