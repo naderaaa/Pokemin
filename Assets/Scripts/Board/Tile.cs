@@ -87,13 +87,14 @@ public class Tile : MonoBehaviour
                 }
                 break;
             case Piece piece when piece.PreEvolution != null && pieceOnTile.GetType().ToString() == piece.PreEvolution.GetType().ToString() && pieceOnTile.Team == GameManager.whosTurn: // if the shopitem is an evolution
+                Piece preEvo = pieceOnTile;
                 if (GameManager.whosTurn.Energy >= 2) // if the piece can be purchased
                 {
                     piece.Team = GameManager.whosTurn;
                     // once conditions are set up, the evolution should get the preevos conditions here
                     SetPiece(piece);
                 }
-                Shop.ShopInstance.ItemToPurchase.AfterPurchasingAPokemon();
+                Shop.ShopInstance.ItemToPurchase.AfterEvolvingPurchase(preEvo);
                 break;
 
             case Item item when pieceOnTile != null: // if the shopitem is an item

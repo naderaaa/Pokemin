@@ -65,11 +65,13 @@ public class ShopPanel : MonoBehaviour
 
     }
 
-    public void AfterEvolvingPurchase() // cleanup for evolution specific purchases
+    public void AfterEvolvingPurchase(Piece preEvo) // cleanup for evolution specific purchases
     {
         if (GameManager.whosTurn.Energy >= 2) // if the purchase went through
         {
             GameManager.whosTurn.Energy -= 2; // decrements energy by 2
+            GameManager.whosTurn.pokemon.Remove(preEvo);
+            GameManager.whosTurn.pokemon.Add((Piece) shopItem);
             shopItem = null; // item is not in the shop anymore
             GetComponent<Image>().enabled = false; // turn off the image
             shopPanelTileIcon.GetComponent<Image>().enabled = false; // turns off the die
